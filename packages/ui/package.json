@@ -1,0 +1,60 @@
+{
+	"name": "@repo/ui",
+	"version": "0.0.0",
+	"private": true,
+	"exports": {
+		"./styles": "./dist/index.css",
+		"./tailwind-preset": "./src/styles/theme.ts",
+		"./utils": "./src/utils/index.ts",
+		"./badge": "./src/components/badge/index.ts",
+		"./breadcrumb": "./src/components/breadcrumb/index.ts",
+		"./button": "./src/components/button/index.ts",
+		"./card": "./src/components/card/index.ts",
+		"./dropdown-menu": "./src/components/dropdown-menu/index.ts",
+		"./input": "./src/components/input/index.ts",
+		"./label": "./src/components/label/index.ts",
+		"./select": "./src/components/select/index.ts",
+		"./tabs": "./src/components/tabs/index.ts",
+		"./separator": "./src/components/separator/index.ts",
+		"./textarea": "./src/components/textarea/index.ts",
+		"./table": "./src/components/table/index.ts"
+	},
+	"imports": {
+		"#components/*": "./src/components/*/index.ts",
+		"#utils": "./src/utils/index.ts"
+	},
+	"scripts": {
+		"dev": "tailwindcss -i ./src/styles/global.css -o ./dist/index.css --watch",
+		"build": "tailwindcss -i ./src/styles/global.css -o ./dist/index.css",
+		"lint": "eslint . --max-warnings 0",
+		"lint:fix": "eslint . --fix",
+		"generate:component": "turbo gen react-component"
+	},
+	"dependencies": {
+		"@radix-ui/react-dropdown-menu": "^2.1.1",
+		"@radix-ui/react-label": "^2.1.0",
+		"@radix-ui/react-select": "^2.1.1",
+		"@radix-ui/react-separator": "^1.1.0",
+		"@radix-ui/react-slot": "^1.1.0",
+		"@radix-ui/react-tabs": "^1.1.0",
+		"@repo/utils": "workspace:*",
+		"class-variance-authority": "^0.7.0",
+		"clsx": "^1.2.1",
+		"lucide-react": "^0.397.0",
+		"tailwind-merge": "^1.14.0",
+		"tailwindcss-animate": "^1.0.7"
+	},
+	"devDependencies": {
+		"@repo/typescript-config": "workspace:*",
+		"@repo/eslint-config-react": "workspace:*",
+		"@turbo/gen": "^1.13.4",
+		"@types/eslint": "^8.56.11",
+		"@types/node": "^20.14.13",
+		"@types/react": "^18.3.3",
+		"@types/react-dom": "^18.3.0",
+		"eslint": "^8.57.0",
+		"react": "^18.3.1",
+		"tailwindcss": "^3.4.7",
+		"typescript": "^5.5.4"
+	}
+}
