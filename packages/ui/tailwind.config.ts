@@ -1,17 +1,10 @@
-import type { Config } from 'tailwindcss';
-import * as twAnimate from 'tailwindcss-animate';
-
-import theme from './src/styles/theme';
+import { Config } from 'tailwindcss';
+import baseConfig from '#tailwind/config';
 
 const config = {
-	corePlugins: {
-		preflight: false,
-	},
-	darkMode: ['class'],
+	presets: [baseConfig],
 	content: ['./src/**/*.{ts,tsx}'],
 	prefix: 'ui-',
-	theme: theme,
-	plugins: [twAnimate],
 } satisfies Config;
 
 export default config;

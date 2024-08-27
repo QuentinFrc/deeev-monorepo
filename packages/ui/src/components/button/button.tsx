@@ -1,55 +1,104 @@
-import * as React from 'react';
-import { Slot } from '@radix-ui/react-slot';
+'use client';
+
+import React from 'react';
+import { Slot, Slottable } from '@radix-ui/react-slot';
+import { AriaButtonProps, useButton } from '@react-aria/button';
+import { useObjectRef } from '@react-aria/utils';
+import { VariantProps } from 'tailwind-variants';
+
 import { cn } from '#utils';
-import { cva, type VariantProps } from 'class-variance-authority';
 
-const buttonVariants = cva(
-	'ui-inline-flex ui-items-center ui-justify-center ui-whitespace-nowrap ui-rounded-md ui-text-sm ui-font-medium ui-ring-offset-background ui-transition-colors focus-visible:ui-outline-none focus-visible:ui-ring-2 focus-visible:ui-ring-ring focus-visible:ui-ring-offset-2 disabled:ui-pointer-events-none disabled:ui-opacity-50',
-	{
-		variants: {
-			variant: {
-				default: 'ui-bg-primary ui-text-primary-foreground hover:ui-bg-primary/90',
-				destructive:
-					'ui-bg-destructive ui-text-destructive-foreground hover:ui-bg-destructive/90',
-				outline:
-					'ui-border ui-border-input ui-bg-background hover:ui-bg-accent hover:ui-text-accent-foreground',
-				secondary:
-					'ui-bg-secondary ui-text-secondary-foreground hover:ui-bg-secondary/80',
-				ghost: 'hover:ui-bg-accent hover:ui-text-accent-foreground',
-				link: 'ui-text-primary ui-underline-offset-4 hover:ui-underline',
-			},
-			size: {
-				default: 'ui-h-10 ui-px-4 ui-py-2',
-				sm: 'ui-h-9 ui-rounded-md ui-px-3',
-				lg: 'ui-h-11 ui-rounded-md ui-px-8',
-				icon: 'ui-h-10 ui-w-10',
-			},
+import { Border, Halo } from './_gradient-parts';
+import { FocusRing, HoverEffect, InnerEffect } from './_parts';
+import {
+	DEFAULT_BUTTON_LAYOUT,
+	DEFAULT_BUTTON_SIZE,
+	DEFAULT_BUTTON_VARIANT,
+	root,
+} from './cn';
+
+export type RootProps = Pick<
+	VariantProps<typeof root>,
+	'variant' | 'disabled' | 'layout' | 'size'
+> &
+	React.ComponentPropsWithoutRef<'button'> &
+	AriaButtonProps & {
+		asChild?: boolean;
+	};
+
+const Button = React.forwardRef<HTMLButtonElement, RootProps>(
+	(
+		{
+			className,
+			size = DEFAULT_BUTTON_SIZE,
+			layout = DEFAULT_BUTTON_LAYOUT,
+			disabled,
+			variant = DEFAULT_BUTTON_VARIANT,
+			children,
+			asChild,
+			...props
 		},
-		defaultVariants: {
-			variant: 'default',
-			size: 'default',
-		},
-	},
-);
+		forwardedRef,
+	) => {
+		const ref = useObjectRef(forwardedRef);
 
-export interface ButtonProps
-	extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-		VariantProps<typeof buttonVariants> {
-	asChild?: boolean;
-}
-
-const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-	({ className, variant, size, asChild = false, ...props }, ref) => {
 		const Comp = asChild ? Slot : 'button';
+		const { buttonProps: ariaProps, isPressed } = useButton({ ...props }, ref);
+		const buttonProps = {
+			...ariaProps,
+			'data-pressed': isPressed,
+		};
+
 		return (
 			<Comp
-				className={cn(buttonVariants({ variant, size, className }))}
-				ref={ref}
-				{...props}
-			/>
+				className={cn(root({ variant, size, layout, disabled }), className)}
+				{...buttonProps}
+				ref={ref}>
+				<InnerEffect safeVariant={variant} />
+				<HoverEffect safeVariant={variant} />
+				<Slottable>{children}</Slottable>
+			</Comp>
 		);
 	},
 );
+
 Button.displayName = 'Button';
 
-export { Button, buttonVariants };
+type ButtonRootRef = React.ElementRef<typeof Button>;
+type ButtonRootProps = RootProps;
+
+const ButtonRoot = React.forwardRef<ButtonRootRef, ButtonRootProps>(
+	(
+		{
+			children,
+			variant = DEFAULT_BUTTON_VARIANT,
+			layout = DEFAULT_BUTTON_LAYOUT,
+			size = DEFAULT_BUTTON_SIZE,
+			...props
+		},
+		ref,
+	) => {
+		return (
+			<FocusRing safeVariant={variant} disabled={props.disabled}>
+				{variant === 'gradient' ? (
+					<Halo size={size} layout={layout}>
+						<Border size={size}>
+							<Button ref={ref} variant={variant} layout={'full'} size={size} {...props}>
+								{children}
+							</Button>
+						</Border>
+					</Halo>
+				) : (
+					<Button ref={ref} variant={variant} layout={layout} size={size} {...props}>
+						{children}
+					</Button>
+				)}
+			</FocusRing>
+		);
+	},
+);
+
+ButtonRoot.displayName = 'Button';
+
+export { ButtonRoot, ButtonRoot as Root };
+export type { ButtonRootProps, ButtonRootRef };
