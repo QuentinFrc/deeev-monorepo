@@ -1,0 +1,8 @@
+.line.highlighted,
+.highlighted-word {
+	background-color: hsl(var(--green-400) / 0.11);
+}
+
+pre {
+	@apply rounded-md p-8;
+}

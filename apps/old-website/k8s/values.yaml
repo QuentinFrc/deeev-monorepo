@@ -1,0 +1,43 @@
+nameOverride: 'deeev-app'
+fullnameOverride: 'deeev'
+
+image:
+  repository: registry.gitlab.com/deeev-pro/projects/deeev-website
+  pullPolicy: IfNotPresent
+  tag: '1.1.0'
+
+replicaCount: 1
+
+imagePullSecrets:
+  - name: registrycreadentials
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: true
+  className: 'nginx'
+  # hosts:
+  #   - host: 'k8s.deeev.fr'
+  #     paths:
+  #       - path: /
+  #         pathType: ImplementationSpecific
+  # tls:
+  #   - hosts:
+  #       - k8s.deeev.fr
+  #     secretName: deeev-tls
+
+autoscaling:
+  enabled: true
+  minReplicas: 1
+  maxReplicas: 5
+  targetCPUUtilizationPercentage: 80
+  targetMemoryUtilizationPercentage: 80
+
+podAnnotations: {}
+podSecurityContext: {}
+securityContext: {}
+nodeSelector: {}
+tolerations: []
+affinity: {}

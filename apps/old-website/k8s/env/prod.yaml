@@ -1,0 +1,33 @@
+app:
+  url: 'https://deeev.fr'
+  resend:
+    url: 'https://api.resend.com'
+    sender_mail: 'no-reply@deeev.fr'
+    sender_name: 'Deeev Team'
+    mailing_list: 'contact@deeev.fr'
+  log_level: 'info'
+
+stats:
+  url: 'https://stats.deeev.fr'
+
+ingress:
+  issuer: letsencrypt-prod
+  authentication:
+    enabled: false
+  hosts:
+    - host: 'deeev.fr'
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls:
+    - hosts:
+        - deeev.fr
+      secretName: deeev-prod-tls
+
+resources:
+  limits:
+    cpu: 750m
+    memory: 512Mi
+  requests:
+    cpu: 250m
+    memory: 256Mi

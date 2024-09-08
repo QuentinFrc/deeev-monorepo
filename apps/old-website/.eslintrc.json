@@ -1,0 +1,17 @@
+{
+	"extends": ["next/core-web-vitals", "plugin:tailwindcss/recommended", "prettier"],
+	"plugins": ["tailwindcss", "@typescript-eslint"],
+	"rules": {
+		"tailwindcss/classnames-order": "error",
+		"tailwindcss/no-custom-classname": "error",
+		"no-unused-vars": "off",
+		"@typescript-eslint/no-unused-vars": "error",
+		"@typescript-eslint/method-signature-style": "error"
+	},
+	"settings": {
+		"tailwindcss": {
+			"config": "tailwind.config.ts",
+			"callees": ["cn", "tv", "cva"]
+		}
+	}
+}

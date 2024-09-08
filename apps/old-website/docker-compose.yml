@@ -1,0 +1,10 @@
+services:
+  deeev:
+    image: deeev:0.0.0
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: deeev
+    restart: unless-stopped
+    ports:
+      - 3000:3000

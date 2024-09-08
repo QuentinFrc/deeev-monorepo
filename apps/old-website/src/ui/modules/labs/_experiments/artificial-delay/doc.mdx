@@ -1,0 +1,100 @@
+---
+slug: artificial-delay
+date: 2024-03-28
+title: Délai Artificiel
+description: Une meilleure expérience en simulant des délais supplémentaires lors des intéractions.
+author: Quentin François
+keywords:
+  - UX
+  - Typescript
+  - Délai Artificiel
+  - Utilities
+---
+
+## Contexte
+
+On cherche à améliorer l'expérience utilisateur en simulant des délais supplémentaires lors des intéractions.
+
+### Solution
+
+On peut utiliser une fonction `artificialDelay` qui prend en paramètre une promesse et un délai en millisecondes.
+Voici la version minimale de la fonction qui permet de résoudre la promesse en attendant au minimum le délai spécifié.
+
+```ts
+const DEFAULT_DELAY = 800;
+
+async function artificialDelay<T>(promise: Promise<T>, ms = DEFAULT_DELAY) {
+	const delay = new Promise((resolve) => setTimeout(resolve, ms));
+	const [p] = await Promise.all([promise, delay]);
+
+	return p;
+}
+```
+
+### Exemple d'utilisation
+
+```ts /await artificialDelay(fetchUser(), 1000)/
+import { artificialDelay } from '@/utils';
+
+async function fetchUser() {
+	return fetch('/api/user');
+}
+
+async function main() {
+	// ...
+	const user = await artificialDelay(fetchUser(), 1000);
+	// ...
+}
+```
+
+### Amélioration, Cas spécifique
+
+On peut améliorer la fonction pour retourner un objet contenant le résultat de la promesse et un flag indiquant si la promesse a été retardée ou non.
+Cette version n'est pas forcément utile, mais pour des besoins de traçabilité, elle peut l'être. (comme le playground au-dessus par exemple)
+
+```ts /await promise/ /await delayPromise;/
+const DEFAULT_DELAY = 800;
+
+async function enhancedArtificialDelay<T>(
+	promise: Promise<T>,
+	ms: number = DEFAULT_DELAY,
+) {
+	let hasBeenDelayed = false;
+
+	const delayPromise = new Promise((resolve) => {
+		setTimeout(() => {
+			hasBeenDelayed = true;
+			resolve(null);
+		}, ms);
+	});
+
+	const result = await Promise.race([promise, delayPromise]);
+
+	// `hasBeenDelayed: true` veut dire que la promesse n'est pas encore résolue alors => on l'attend
+
+	if (hasBeenDelayed) {
+		return { delayed: false, result: await promise };
+	} else {
+		// `hasBeenDelayed: false` veut dire que la promesse est déjà résolue => on attend la fin du délai
+		// On retourne le résultat de la course car c'est la promesse qui a été résolue en premier
+		await delayPromise;
+		return { delayed: true, result };
+	}
+}
+```
+
+### Exemple d'utilisation
+
+```ts /await enhancedArtificialDelay(fetchUser(), 1000)/
+import { enhancedArtificialDelay } from '@/utils';
+
+async function fetchUser() {
+	return fetch('/api/user');
+}
+
+async function main() {
+	// ...
+	const { delayed, result } = await enhancedArtificialDelay(fetchUser(), 1000);
+	// ...
+}
+```

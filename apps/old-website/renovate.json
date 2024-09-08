@@ -1,0 +1,4 @@
+{
+	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
+	"extends": ["gitlab>deeev-pro/renovate/renovate-config:default"]
+}
