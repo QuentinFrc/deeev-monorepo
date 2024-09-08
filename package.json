@@ -4,7 +4,7 @@
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
-    "dev:website": "turbo dev -F @repo/ui -F @repo/website",
+    "dev:website": "turbo dev -F @repo/ui -F deeev.fr",
     "lint": "turbo lint",
     "lint:fix": "turbo lint:fix",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
@@ -19,6 +19,8 @@
     "husky": "^9.1.5",
     "lint-staged": "^15.2.9",
     "prettier": "^3.3.3",
+    "prettier-plugin-tailwindcss": "^0.5.14",
+    "eslint": "^8.57.0",
     "turbo": "latest"
   },
   "packageManager": "pnpm@9.1.3",
