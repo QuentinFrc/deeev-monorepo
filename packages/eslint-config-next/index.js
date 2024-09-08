@@ -8,6 +8,7 @@ const twConfig = resolve(process.cwd(), 'tailwind.config.ts');
 module.exports = {
 	extends: [
 		'next/core-web-vitals',
+		'next/typescript',
 		'plugin:tailwindcss/recommended',
 		'prettier',
 		'turbo',
@@ -34,16 +35,9 @@ module.exports = {
 		},
 		tailwindcss: {
 			config: twConfig,
-			callees: ['cn'],
+			callees: ['cn', 'tv'],
 		},
 	},
-	ignorePatterns: [
-		'.next',
-		'.turbo',
-		'node_modules',
-		'**/*.js',
-		'**/*.mjs',
-		'**/*.jsx',
-	],
-	overrides: [{ files: ['*.ts?(x)'] },],
+	ignorePatterns: ['.next', '.turbo', 'node_modules', '**/*.js', '**/*.mjs', '**/*.jsx'],
+	overrides: [{ files: ['*.ts?(x)'] }],
 };

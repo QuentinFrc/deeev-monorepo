@@ -12,9 +12,17 @@ const twConfig = resolve(process.cwd(), 'tailwind.config.ts');
 
 /** @type {import('eslint').Linter.Config} */
 module.exports = {
-	extends: ['eslint:recommended', 'plugin:react/recommended', 'plugin:tailwindcss/recommended', 'prettier', 'turbo'],
-	plugins: ['only-warn', 'tailwindcss'],
-	'rules': {
+	extends: [
+		'eslint:recommended',
+		'plugin:@typescript-eslint/recommended',
+		'plugin:react/recommended',
+		'plugin:tailwindcss/recommended',
+		'plugin:react/jsx-runtime',
+		'prettier',
+		'turbo',
+	],
+	plugins: ['only-warn', 'tailwindcss', '@typescript-eslint'],
+	rules: {
 		'react/prop-types': 'off',
 		'tailwindcss/classnames-order': 'error',
 	},
@@ -24,18 +32,20 @@ module.exports = {
 	env: {
 		browser: true,
 	},
+	parser: '@typescript-eslint/parser',
+	root: true,
 	settings: {
 		'import/resolver': {
 			typescript: {
 				project,
 			},
 		},
-		'react': {
-			'version': 'detect',
+		react: {
+			version: 'detect',
 		},
 		tailwindcss: {
 			config: twConfig,
-			callees: ['cn'],
+			callees: ['cn', 'tv'],
 		},
 	},
 	ignorePatterns: [
