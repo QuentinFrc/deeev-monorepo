@@ -3,9 +3,8 @@
 import React from 'react';
 import * as HoverCardPrimitive from '@radix-ui/react-hover-card';
 import { useControllableState } from '@radix-ui/react-use-controllable-state';
-import { AnimatePresence, motion } from 'framer-motion';
-
 import { cn } from '#utils';
+import { AnimatePresence, motion } from 'framer-motion';
 
 type HoverCardContext = {
 	isActive: boolean;
@@ -69,7 +68,7 @@ const HoverCardContent = React.forwardRef<
 					sideOffset={sideOffset}
 					className={cn(
 						[
-							'z-50 w-64 rounded-md border bg-card p-4 text-foreground shadow-md outline-none',
+							'ui-z-50 ui-w-64 ui-rounded-md ui-border ui-bg-card ui-p-4 ui-text-foreground ui-shadow-md ui-outline-none',
 						],
 						className,
 					)}

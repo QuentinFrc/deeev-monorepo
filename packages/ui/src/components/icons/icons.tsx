@@ -47,20 +47,19 @@ import {
 	XClose,
 	ZapFast,
 } from '@deeev-pro/deeev-icons';
-
 import { cn, tv, VariantProps } from '#utils';
 
 /*todo: stroke-width based on size*/
 const icon = tv({
-	base: 'shrink-0 fill-none stroke-current stroke-2',
+	base: 'ui-shrink-0 ui-fill-none ui-stroke-current ui-stroke-2',
 	variants: {
 		size: {
-			xs: 'size-3',
-			sm: 'size-3.5',
-			md: 'size-4',
-			lg: 'size-4.5',
-			xl: 'size-5',
-			xxl: 'size-6',
+			xs: 'ui-size-3',
+			sm: 'ui-size-3.5',
+			md: 'ui-size-4',
+			lg: 'ui-size-4.5',
+			xl: 'ui-size-5',
+			xxl: 'ui-size-6',
 		},
 	},
 	defaultVariants: {

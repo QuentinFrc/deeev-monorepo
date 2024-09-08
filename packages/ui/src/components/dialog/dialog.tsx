@@ -4,6 +4,9 @@ import * as React from 'react';
 import * as DialogPrimitive from '@radix-ui/react-dialog';
 import { DialogProps, DialogTriggerProps } from '@radix-ui/react-dialog';
 import { useControllableState } from '@radix-ui/react-use-controllable-state';
+import { FocusRing } from '#components/focus-ring';
+import { Icon } from '#components/icons';
+import { cn } from '#utils';
 import {
 	AnimatePresence,
 	AnimatePresenceProps,
@@ -13,38 +16,37 @@ import {
 import { tv } from 'tailwind-variants';
 
 import { IOS_TRANSITION_CONFIG } from '@/config/const';
-import { cn } from '#utils';
-import { FocusRing } from '#components/focus-ring';
-import { Icon } from '#components/icons';
 
 const baseVariants = tv({
 	slots: {
-		overlay: ['fixed inset-0 z-50 bg-background/80'],
-		header: ['my-4 flex flex-col space-y-1.5 text-center sm:text-left'],
-		footer: ['flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2'],
-		title: ['text-lg font-semibold leading-none tracking-tight'],
-		description: ['text-sm text-contrasted-mid'],
+		overlay: ['ui-fixed ui-inset-0 ui-z-50 ui-bg-background/80'],
+		header: ['ui-my-4 ui-flex ui-flex-col ui-space-y-1.5 ui-text-center sm:ui-text-left'],
+		footer: [
+			'ui-flex ui-flex-col-reverse sm:ui-flex-row sm:ui-justify-end sm:ui-space-x-2',
+		],
+		title: ['ui-text-lg ui-font-semibold ui-leading-none ui-tracking-tight'],
+		description: ['ui-text-sm ui-text-contrasted-mid'],
 	},
 });
 
 const variants = tv({
 	extend: baseVariants,
 	slots: {
-		overlay: ['grid place-items-center'],
+		overlay: ['ui-grid ui-place-items-center'],
 		content: [
-			'relative',
-			'grid w-full max-w-lg gap-4 border bg-background p-6 shadow-lg outline-none',
+			'ui-relative',
+			'ui-grid ui-w-full ui-max-w-lg ui-gap-4 ui-border ui-bg-background ui-p-6 ui-shadow-lg ui-outline-none',
 			'[--closed-opacity:0%] [--closed-y:25%] [--open-opacity:100%] [--open-y:0%]',
 		],
 		close: [
-			'absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity',
-			'hover:opacity-100 focus:outline-none disabled:pointer-events-none data-[state=open]:bg-card data-[state=open]:text-contrasted-min',
+			'ui-absolute ui-right-4 ui-top-4 ui-rounded-sm ui-opacity-70 ui-ring-offset-background ui-transition-opacity',
+			'hover:ui-opacity-100 focus:ui-outline-none disabled:ui-pointer-events-none data-[state=open]:ui-bg-card data-[state=open]:ui-text-contrasted-min',
 		],
 	},
 	variants: {
 		withOverflow: {
 			true: {
-				overlay: ['overflow-y-auto py-8'],
+				overlay: ['ui-overflow-y-auto ui-py-8'],
 			},
 		},
 	},
@@ -189,7 +191,7 @@ const DialogClose = React.forwardRef<
 	<FocusRing>
 		<DialogPrimitive.Close ref={ref} className={cn(closeVariant(), className)} {...props}>
 			<Icon i={'XClose'} size={'md'} />
-			<span className="sr-only">Close</span>
+			<span className="ui-sr-only">Close</span>
 		</DialogPrimitive.Close>
 	</FocusRing>
 ));

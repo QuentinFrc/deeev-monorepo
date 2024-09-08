@@ -2,15 +2,14 @@
 
 import * as React from 'react';
 import * as SeparatorPrimitive from '@radix-ui/react-separator';
-
 import { cn, tv, VariantProps } from '#utils';
 
 const separatorStyle = tv({
-	base: 'shrink-0 bg-border',
+	base: 'ui-shrink-0 ui-bg-border',
 	variants: {
 		orientation: {
-			horizontal: 'h-px',
-			vertical: 'w-px',
+			horizontal: 'ui-h-px',
+			vertical: 'ui-w-px',
 		},
 		inFlexParent: {
 			true: '',
@@ -20,12 +19,12 @@ const separatorStyle = tv({
 		{
 			orientation: 'horizontal',
 			inFlexParent: false,
-			className: 'w-full',
+			className: 'ui-w-full',
 		},
 		{
 			orientation: 'vertical',
 			inFlexParent: false,
-			className: 'h-full',
+			className: 'ui-h-full',
 		},
 	],
 	defaultVariants: {

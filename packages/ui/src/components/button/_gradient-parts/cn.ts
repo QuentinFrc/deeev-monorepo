@@ -3,45 +3,45 @@ import { tv } from 'tailwind-variants';
 const variants = tv({
 	slots: {
 		effect: [
-			'relative flex h-max items-center justify-center',
-			'bg-gradient-to-br from-green-500/[16%] via-cyan-500/[16%] to-fuchsia-500/[16%] p-1',
+			'ui-relative ui-flex ui-h-max ui-items-center ui-justify-center',
+			'ui-bg-gradient-to-br ui-from-green-500/[16%] ui-via-cyan-500/[16%] ui-to-fuchsia-500/[16%] ui-p-1',
 		],
 		wrapper: [
-			'peer/button-wp relative flex w-full items-center justify-center overflow-hidden',
-			'bg-gradient-to-br from-green-500 via-cyan-500 to-fuchsia-500 p-px',
+			'ui-peer/button-wp ui-relative ui-flex ui-w-full ui-items-center ui-justify-center ui-overflow-hidden',
+			'ui-bg-gradient-to-br ui-from-green-500 ui-via-cyan-500 ui-to-fuchsia-500 ui-p-px',
 		],
 		halo: [
-			'peer-hover/button-wp:[--halo-opacity:1]',
-			'absolute inset-0 -z-10 rounded-inherit opacity-[var(--halo-opacity,0)]',
-			'motion-safe:transition-opacity motion-safe:duration-300 motion-safe:ease-in-out',
-			'bg-gradient-to-br from-green-500 via-cyan-500 to-fuchsia-500 blur',
+			'peer-hover/ui-button-wp:[--halo-opacity:1]',
+			'ui-absolute ui-inset-0 -ui-z-10 ui-rounded-inherit ui-opacity-[var(--halo-opacity,0)]',
+			'motion-safe:ui-transition-opacity motion-safe:ui-duration-300 motion-safe:ui-ease-in-out',
+			'ui-bg-gradient-to-br ui-from-green-500 ui-via-cyan-500 ui-to-fuchsia-500 ui-blur',
 		],
 		border: [
-			'absolute left-1/2 top-1/2 aspect-square w-full -translate-x-1/2 -translate-y-1/2 scale-200 animate-spin-tw rounded-inherit',
+			'ui-absolute ui-left-1/2 ui-top-1/2 ui-aspect-square ui-w-full -ui-translate-x-1/2 -ui-translate-y-1/2 ui-scale-200 ui-animate-spin-tw ui-rounded-inherit',
 			'[background-image:conic-gradient(from_0deg_at_50%_50%,#FFF_0,transparent_10%,transparent_90%,#FFF)]',
 		],
 	},
 	variants: {
 		size: {
 			sm: {
-				effect: 'rounded-sm-plus-[4px]',
-				wrapper: 'rounded-sm-plus-[1px]',
+				effect: 'ui-rounded-sm-plus-[4px]',
+				wrapper: 'ui-rounded-sm-plus-[1px]',
 			},
 			md: {
-				effect: 'rounded-md-plus-[4px]',
-				wrapper: 'rounded-md-plus-[1px]',
+				effect: 'ui-rounded-md-plus-[4px]',
+				wrapper: 'ui-rounded-md-plus-[1px]',
 			},
 			lg: {
-				effect: 'rounded-lg-plus-[4px]',
-				wrapper: 'rounded-lg-plus-[1px]',
+				effect: 'ui-rounded-lg-plus-[4px]',
+				wrapper: 'ui-rounded-lg-plus-[1px]',
 			},
 		},
 		layout: {
 			max: {
-				effect: 'w-max',
+				effect: 'ui-w-max',
 			},
 			full: {
-				effect: 'w-full',
+				effect: 'ui-w-full',
 			},
 		},
 	},

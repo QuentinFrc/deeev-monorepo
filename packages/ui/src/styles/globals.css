@@ -1,0 +1,115 @@
+@config "../../tailwind.config.ts";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	:root {
+		--black: 0 0% 0%;
+		--gray-950: 0 0% 4%;
+		--gray-900: 0 0% 9%;
+		--gray-800: 0 0% 15%;
+		--gray-700: 0 0% 25%;
+		--gray-600: 0 0% 32%;
+		--gray-500: 0 0% 45%;
+		--gray-400: 0 0% 64%;
+		--gray-300: 0 0% 83%;
+		--gray-200: 0 0% 90%;
+		--gray-100: 0 0% 96%;
+		--gray-50: 0 0% 98%;
+		--white: 0 0% 100%;
+		/*Green*/
+		--green-950: 152 100% 11%;
+		--green-900: 154 88% 20%;
+		--green-800: 153 93% 24%;
+		--green-700: 152 100% 30%;
+		--green-600: 151 100% 38%;
+		--green-500: 152 100% 46%;
+		--green-400: 152 100% 60%;
+		--green-300: 153 100% 72%;
+		--green-200: 153 100% 84%;
+		--green-100: 153 100% 92%;
+		--green-50: 150 100% 96%;
+		/*Cyan*/
+		--cyan-950: 201 79% 15%;
+		--cyan-900: 200 64% 24%;
+		--cyan-800: 198 70% 27%;
+		--cyan-700: 197 84% 31%;
+		--cyan-600: 195 92% 36%;
+		--cyan-500: 192 95% 43%;
+		--cyan-400: 192 87% 53%;
+		--cyan-300: 191 94% 69%;
+		--cyan-200: 190 94% 82%;
+		--cyan-100: 189 96% 90%;
+		--cyan-50: 186 100% 96%;
+		/*Fuchsia*/
+		--fuchsia-950: 286 100% 17%;
+		--fuchsia-900: 286 76% 28%;
+		--fuchsia-800: 285 83% 33%;
+		--fuchsia-700: 284 86% 40%;
+		--fuchsia-600: 283 82% 49%;
+		--fuchsia-500: 282 100% 63%;
+		--fuchsia-400: 284 100% 71%;
+		--fuchsia-300: 283 100% 82%;
+		--fuchsia-200: 281 100% 90%;
+		--fuchsia-100: 281 100% 95%;
+		--fuchsia-50: 285 100% 98%;
+		/*Red*/
+		--red-950: 0 75% 15%;
+		--red-900: 0 63% 31%;
+		--red-800: 0 70% 35%;
+		--red-700: 0 74% 42%;
+		--red-600: 0 72% 51%;
+		--red-500: 0 84% 60%;
+		--red-400: 0 91% 71%;
+		--red-300: 0 94% 82%;
+		--red-200: 0 96% 89%;
+		--red-100: 0 93% 94%;
+		--red-50: 0 86% 97%;
+
+		--background: var(--black);
+		--foreground: var(--white);
+
+		--neutral-50: var(--gray-50);
+		--neutral-100: var(--gray-100);
+		--neutral-200: var(--gray-200);
+		--neutral-300: var(--gray-300);
+		--neutral-400: var(--gray-400);
+		--neutral-500: var(--gray-500);
+		--neutral-600: var(--gray-600);
+		--neutral-700: var(--gray-700);
+		--neutral-800: var(--gray-800);
+		--neutral-900: var(--gray-900);
+		--neutral-950: var(--gray-950);
+
+		--card: var(--neutral-950);
+		--border: var(--neutral-800);
+	}
+}
+
+@layer base {
+	:root {
+		color-scheme: dark;
+	}
+
+	*,
+	*::before,
+	*::after {
+		@apply ui-border-border;
+	}
+
+	input,
+	textarea,
+	select {
+		@apply ui-border-border/80;
+	}
+
+	button {
+		-webkit-tap-highlight-color: transparent;
+	}
+
+	body {
+		@apply ui-overflow-x-hidden ui-scroll-smooth ui-bg-background ui-font-sans;
+	}
+}

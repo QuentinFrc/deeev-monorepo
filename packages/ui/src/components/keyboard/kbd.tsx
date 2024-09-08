@@ -1,5 +1,4 @@
 import React, { forwardRef } from 'react';
-
 import { cn } from '#utils';
 
 type KbdProps = Omit<React.ComponentPropsWithoutRef<'span'>, 'children'> & {
@@ -11,9 +10,9 @@ const Kbd = forwardRef<React.ElementRef<'span'>, KbdProps>(
 			<span
 				ref={ref}
 				className={cn(
-					'hidden md:flex',
-					'select-none flex-nowrap items-center gap-1 text-sm text-contrasted-max',
-					'opacity-50 hover:opacity-100 motion-safe:transition-opacity motion-safe:duration-200',
+					'ui-hidden md:ui-flex',
+					'ui-select-none ui-flex-nowrap ui-items-center ui-gap-1 ui-text-sm ui-text-contrasted-max',
+					'ui-opacity-50 hover:ui-opacity-100 motion-safe:ui-transition-opacity motion-safe:ui-duration-200',
 					className,
 				)}
 				{...props}>
@@ -43,7 +42,7 @@ const Key = forwardRef<React.ElementRef<'kbd'>, KeyProps>(
 		<kbd
 			ref={ref}
 			className={cn(
-				'inline select-none rounded-sm border border-contrasted-max px-1 py-0.5 font-mono',
+				'ui-inline ui-select-none ui-rounded-sm ui-border ui-border-contrasted-max ui-px-1 ui-py-0.5 ui-font-mono',
 				className,
 			)}
 			{...props}>

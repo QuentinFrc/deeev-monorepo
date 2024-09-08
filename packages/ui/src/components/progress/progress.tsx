@@ -2,28 +2,30 @@
 
 import React from 'react';
 import * as ProgressPrimitive from '@radix-ui/react-progress';
+import { cn } from '#utils';
 import { tv, VariantProps } from 'tailwind-variants';
 
-import { cn, percent } from '#utils';
+import { percent } from '@repo/utils/math';
 
 const _progress = tv({
 	slots: {
-		root: 'flex size-full items-center justify-center gap-1',
-		progress: 'relative overflow-hidden rounded-full bg-neutral-900',
-		thumb: 'size-full flex-1 overflow-hidden from-green-500 via-cyan-500 to-fuchsia-500',
-		label: 'select-none text-sm font-bold text-contrasted-min',
+		root: 'ui-flex ui-size-full ui-items-center ui-justify-center ui-gap-1',
+		progress: 'ui-relative ui-overflow-hidden ui-rounded-full ui-bg-neutral-900',
+		thumb:
+			'ui-size-full ui-flex-1 ui-overflow-hidden ui-from-green-500 ui-via-cyan-500 ui-to-fuchsia-500',
+		label: 'ui-select-none ui-text-sm ui-font-bold ui-text-contrasted-min',
 	},
 	variants: {
 		orientation: {
 			horizontal: {
-				root: 'flex-row',
-				progress: 'h-1 w-full',
-				thumb: 'bg-gradient-to-r [clip-path:inset(0_var(--inverse-percentage)_0_0)]',
+				root: 'ui-flex-row',
+				progress: 'ui-h-1 ui-w-full',
+				thumb: 'ui-bg-gradient-to-r [clip-path:inset(0_var(--inverse-percentage)_0_0)]',
 			},
 			vertical: {
-				root: 'flex-col',
-				progress: 'h-full w-1',
-				thumb: 'bg-gradient-to-b [clip-path:inset(0_0_var(--inverse-percentage)_0)]',
+				root: 'ui-flex-col',
+				progress: 'ui-h-full ui-w-1',
+				thumb: 'ui-bg-gradient-to-b [clip-path:inset(0_0_var(--inverse-percentage)_0)]',
 			},
 		},
 	},
@@ -90,7 +92,7 @@ const Progress = React.forwardRef<
 					<ProgressPrimitive.Indicator
 						className={cn(thumb({ orientation }))}
 						style={style}>
-						<span className="sr-only">{percentage}%</span>
+						<span className="ui-sr-only">{percentage}%</span>
 					</ProgressPrimitive.Indicator>
 				</ProgressPrimitive.Root>
 				{labelEnd && <ProgressLabel>{labelEnd}</ProgressLabel>}

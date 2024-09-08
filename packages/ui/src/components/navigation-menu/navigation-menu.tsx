@@ -1,29 +1,28 @@
 import { ComponentPropsWithoutRef, ElementRef, forwardRef } from 'react';
 import * as NavigationMenuPrimitive from '@radix-ui/react-navigation-menu';
-import { tv } from 'tailwind-variants';
-
-import { cn } from '#utils';
 import { Icon } from '#components/icons';
+import { cn } from '#utils';
+import { tv } from 'tailwind-variants';
 
 const navigationMenuVariants = tv({
 	slots: {
-		menu: 'relative z-10 flex max-w-max flex-1 items-center justify-center',
-		list: 'group flex list-none items-center justify-center gap-2',
+		menu: 'ui-relative ui-z-10 ui-flex ui-max-w-max ui-flex-1 ui-items-center ui-justify-center',
+		list: 'ui-group ui-flex ui-list-none ui-items-center ui-justify-center ui-gap-2',
 		trigger: [
-			'group inline-flex items-center justify-center rounded-md bg-background text-sm font-medium transition-colors focus:outline-none disabled:pointer-events-none disabled:opacity-50',
+			'ui-group ui-inline-flex ui-items-center ui-justify-center ui-rounded-md ui-bg-background ui-text-sm ui-font-medium ui-transition-colors focus:ui-outline-none disabled:ui-pointer-events-none disabled:ui-opacity-50',
 			/* focus:bg-accent focus:text-accent-foreground  */
-			'h-10 w-max px-4 py-2' /* hover:bg-accent hover:text-accent-foreground data-[state=open]:bg-accent/50 data-[active]:bg-accent/50 */,
+			'ui-h-10 ui-w-max ui-px-4 ui-py-2' /* hover:bg-accent hover:text-accent-foreground data-[state=open]:bg-accent/50 data-[active]:bg-accent/50 */,
 		],
 		content: [
-			,
-			/* data-[motion^=from-]:animate-in data-[motion^=to-]:animate-out data-[motion^=from-]:fade-in data-[motion^=to-]:fade-out data-[motion=from-end]:slide-in-from-right-52 data-[motion=from-start]:slide-in-from-left-52 data-[motion=to-end]:slide-out-to-right-52 data-[motion=to-start]:slide-out-to-left-52 */ 'left-0 top-0 w-full md:absolute md:w-auto',
+			/* data-[motion^=from-]:animate-in data-[motion^=to-]:animate-out data-[motion^=from-]:fade-in data-[motion^=to-]:fade-out data-[motion=from-end]:slide-in-from-right-52 data-[motion=from-start]:slide-in-from-left-52 data-[motion=to-end]:slide-out-to-right-52 data-[motion=to-start]:slide-out-to-left-52 */
+			'ui-left-0 ui-top-0 ui-w-full md:ui-absolute md:ui-w-auto',
 		],
 		viewport: [
-			'relative mt-1.5 h-[var(--radix-navigation-menu-viewport-height)] w-full origin-top overflow-hidden rounded-md border bg-card text-foreground shadow-lg',
-			'md:w-[var(--radix-navigation-menu-viewport-width)]' /*data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-90*/,
+			'ui-relative ui-mt-1.5 ui-h-[var(--radix-navigation-menu-viewport-height)] ui-w-full ui-origin-top ui-overflow-hidden ui-rounded-md ui-border ui-bg-card ui-text-foreground ui-shadow-lg',
+			'md:ui-w-[var(--radix-navigation-menu-viewport-width)]' /*data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-90*/,
 		],
 		indicator: [
-			'top-full z-[1] flex h-1.5 items-end justify-center overflow-hidden',
+			'ui-top-full ui-z-[1] ui-flex ui-h-1.5 ui-items-end ui-justify-center ui-overflow-hidden',
 			// data-[state=visible]:animate-in data-[state=hidden]:animate-out data-[state=hidden]:fade-out data-[state=visible]:fade-in
 		],
 	},
@@ -73,7 +72,7 @@ const NavigationMenuTrigger = forwardRef<
 		{children}{' '}
 		<Icon
 			i={'ChevronDown'}
-			className="relative top-px ml-1 size-3 transition duration-200 group-data-[state=open]:rotate-180"
+			className="ui-relative ui-top-px ui-ml-1 ui-size-3 ui-transition ui-duration-200 group-data-[state=open]:ui-rotate-180"
 			aria-hidden="true"
 		/>
 	</NavigationMenuPrimitive.Trigger>
@@ -98,7 +97,7 @@ const NavigationMenuViewport = forwardRef<
 	ElementRef<typeof NavigationMenuPrimitive.Viewport>,
 	ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Viewport>
 >(({ className, ...props }, ref) => (
-	<div className={cn('absolute left-0 top-full flex justify-center')}>
+	<div className={cn('ui-absolute ui-left-0 ui-top-full ui-flex ui-justify-center')}>
 		<NavigationMenuPrimitive.Viewport
 			className={cn(viewport(), className)}
 			ref={ref}
@@ -116,7 +115,7 @@ const NavigationMenuIndicator = forwardRef<
 		ref={ref}
 		className={cn(indicator(), className)}
 		{...props}>
-		<div className="relative top-[60%] size-2 rotate-45 rounded-tl-sm bg-border shadow-md" />
+		<div className="ui-relative ui-top-[60%] ui-size-2 ui-rotate-45 ui-rounded-tl-sm ui-bg-border ui-shadow-md" />
 	</NavigationMenuPrimitive.Indicator>
 ));
 NavigationMenuIndicator.displayName = NavigationMenuPrimitive.Indicator.displayName;

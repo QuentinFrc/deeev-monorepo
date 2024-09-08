@@ -4,10 +4,9 @@ import * as React from 'react';
 import * as TabsPrimitive from '@radix-ui/react-tabs';
 import { useControllableState } from '@radix-ui/react-use-controllable-state';
 import { useFocusRing } from '@react-aria/focus';
+import { cn } from '#utils';
 import { AnimatePresence, AnimatePresenceProps, motion } from 'framer-motion';
 import { tv } from 'tailwind-variants';
-
-import { cn } from '#utils';
 
 type TabsContext = {
 	value: string;
@@ -34,30 +33,30 @@ const useTabsContext = () => {
 const variants = tv({
 	slots: {
 		list: [
-			'flex w-max max-w-full items-center justify-between gap-2',
-			'overflow-x-scroll rounded-lg border bg-card p-1 sm:overflow-hidden',
+			'ui-flex ui-w-max ui-max-w-full ui-items-center ui-justify-between ui-gap-2',
+			'ui-overflow-x-scroll ui-rounded-lg ui-border ui-bg-card ui-p-1 sm:ui-overflow-hidden',
 		],
 		trigger: [
-			'relative whitespace-nowrap rounded-sm px-4 py-1 text-base font-semibold',
-			'outline-none',
-			'disabled:pointer-events-none disabled:opacity-50',
+			'ui-relative ui-whitespace-nowrap ui-rounded-sm ui-px-4 ui-py-1 ui-text-base ui-font-semibold',
+			'ui-outline-none',
+			'disabled:ui-pointer-events-none disabled:ui-opacity-50',
 		],
 		triggerLabel:
-			'relative z-10 motion-safe:transition-opacity motion-safe:duration-300 motion-safe:ease-in-out',
-		triggerPill: ['absolute inset-0 rounded-sm bg-border'],
+			'ui-relative ui-z-10 motion-safe:ui-transition-opacity motion-safe:ui-duration-300 motion-safe:ui-ease-in-out',
+		triggerPill: ['ui-absolute ui-inset-0 ui-rounded-sm ui-bg-border'],
 	},
 	variants: {
 		isActive: {
 			true: {
-				triggerLabel: 'opacity-100',
+				triggerLabel: 'ui-opacity-100',
 			},
 			false: {
-				triggerLabel: 'opacity-80',
+				triggerLabel: 'ui-opacity-80',
 			},
 		},
 		isFocused: {
 			true: {
-				triggerPill: 'ring-1 ring-foreground ring-offset-2 ring-offset-card',
+				triggerPill: 'ui-ring-1 ui-ring-foreground ui-ring-offset-2 ui-ring-offset-card',
 			},
 			false: {
 				triggerPill: '',
@@ -154,8 +153,8 @@ const TabsContent = React.forwardRef<
 				<TabsPrimitive.Content
 					ref={ref}
 					className={cn(
-						'inline-flex justify-center ring-offset-background',
-						'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2',
+						'ui-inline-flex ui-justify-center ui-ring-offset-background',
+						'focus-visible:ui-outline-none focus-visible:ui-ring-2 focus-visible:ui-ring-foreground focus-visible:ui-ring-offset-2',
 						className,
 					)}
 					forceMount

@@ -5,7 +5,6 @@ import {
 	FocusRing as AriaFocusRing,
 	FocusRingProps as AriaFocusRingProps,
 } from '@react-aria/focus';
-
 import { cn } from '#utils';
 
 type FocusRingProps = AriaFocusRingProps;
@@ -16,7 +15,7 @@ export const FocusRing: React.FC<FocusRingProps> = ({
 }) => (
 	<AriaFocusRing
 		focusRingClass={cn(
-			'ring-1 ring-foreground ring-offset-1 ring-offset-background',
+			'ui-ring-1 ui-ring-foreground ui-ring-offset-1 ui-ring-offset-background',
 			focusRingClass,
 		)}
 		{...props}>

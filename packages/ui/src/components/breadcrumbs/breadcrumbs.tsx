@@ -2,9 +2,8 @@
 
 import React from 'react';
 import { Slot } from '@radix-ui/react-slot';
-
-import { cn } from '#utils';
 import { Icon } from '#components/icons';
+import { cn } from '#utils';
 
 type BreadcrumbContext = {
 	separator: React.ReactNode;
@@ -58,11 +57,11 @@ const Breadcrumb = React.forwardRef<React.ElementRef<'nav'>, BreadcrumbProps>(
 			<BreadcrumbContext.Provider
 				value={{ withSeparator, separator, itemCount, setItemCount }}>
 				<nav
-					className={cn('relative break-words', className)}
+					className={cn('ui-relative ui-break-words', className)}
 					aria-label="breadcrumb"
 					{...props}
 					ref={forwardedRef}>
-					<ol className={'flex items-center'}>{children}</ol>
+					<ol className={'ui-flex ui-items-center'}>{children}</ol>
 				</nav>
 			</BreadcrumbContext.Provider>
 		);
@@ -82,7 +81,7 @@ const BreadcrumbItem = React.forwardRef<HTMLLIElement, BreadcrumbItemProps>(
 		return (
 			<li
 				className={cn(
-					'inline-flex items-center text-sm [&:last-child>[role="presentation"]]:hidden',
+					'ui-inline-flex ui-items-center ui-text-sm [&:last-child>[role="presentation"]]:ui-hidden',
 					className,
 				)}
 				{...props}
@@ -113,7 +112,7 @@ const BreadcrumbLink = React.forwardRef<HTMLAnchorElement, BreadcrumbLinkProps>(
 		return (
 			<Comp
 				className={cn(
-					'text-sm font-medium underline-offset-4 aria-[current]:opacity-60 [&:not([aria-current])]:hover:underline',
+					'ui-text-sm ui-font-medium ui-underline-offset-4 aria-[current]:ui-opacity-60 [&:not([aria-current])]:hover:ui-underline',
 					className,
 				)}
 				aria-current={isCurrentPage ? 'page' : undefined}
@@ -133,7 +132,10 @@ const BreadcrumbLabel = React.forwardRef<HTMLSpanElement, BreadcrumbLabelProps>(
 	({ className, isCurrentPage, ...props }, forwardedRef) => {
 		return (
 			<span
-				className={cn('text-sm font-medium aria-[current]:opacity-60', className)}
+				className={cn(
+					'ui-text-sm ui-font-medium aria-[current]:ui-opacity-60',
+					className,
+				)}
 				aria-current={isCurrentPage ? 'page' : undefined}
 				{...props}
 				ref={forwardedRef}
@@ -150,7 +152,7 @@ const BreadcrumbSeparator = React.forwardRef<HTMLSpanElement, BreadcrumbSeparato
 	({ className, ...props }, forwardedRef) => {
 		return (
 			<span
-				className={cn('mx-2 opacity-50', className)}
+				className={cn('ui-mx-2 ui-opacity-50', className)}
 				role="presentation"
 				{...props}
 				ref={forwardedRef}

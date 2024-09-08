@@ -3,9 +3,8 @@
 import * as React from 'react';
 import * as AccordionPrimitive from '@radix-ui/react-accordion';
 import { AccordionSingleProps } from '@radix-ui/react-accordion';
-
-import { cn } from '#utils';
 import { Icon } from '#components/icons';
+import { cn } from '#utils';
 
 const Accordion = AccordionPrimitive.Root;
 
@@ -14,7 +13,11 @@ const AccordionItem = React.forwardRef<
 	React.ElementRef<typeof AccordionPrimitive.Item>,
 	AccordionItemProps
 >(({ className, ...props }, ref) => (
-	<AccordionPrimitive.Item ref={ref} className={cn('ui-border-b', className)} {...props} />
+	<AccordionPrimitive.Item
+		ref={ref}
+		className={cn('ui-border-b', className)}
+		{...props}
+	/>
 ));
 AccordionItem.displayName = 'AccordionItem';
 
@@ -25,18 +28,18 @@ const AccordionTrigger = React.forwardRef<
 	React.ElementRef<typeof AccordionPrimitive.Trigger>,
 	AccordionTriggerProps
 >(({ className, children, ...props }, ref) => (
-	<AccordionPrimitive.Header className="flex">
+	<AccordionPrimitive.Header className="ui-flex">
 		<AccordionPrimitive.Trigger
 			ref={ref}
 			className={cn(
-				'flex flex-1 items-center justify-between gap-2 py-4 font-sans text-lg font-medium transition-all hover:underline [&[data-state=open]>svg]:rotate-180',
+				'ui-flex ui-flex-1 ui-items-center ui-justify-between ui-gap-2 ui-py-4 ui-font-sans ui-text-lg ui-font-medium ui-transition-all hover:ui-underline [&[data-state=open]>svg]:ui-rotate-180',
 				className,
 			)}
 			{...props}>
 			{children}
 			<Icon
 				i={'ChevronDown'}
-				className="size-4 shrink-0 transition-transform duration-200"
+				className="ui-size-4 ui-shrink-0 ui-transition-transform ui-duration-200"
 			/>
 		</AccordionPrimitive.Trigger>
 	</AccordionPrimitive.Header>
@@ -52,9 +55,9 @@ const AccordionContent = React.forwardRef<
 >(({ className, children, ...props }, ref) => (
 	<AccordionPrimitive.Content
 		ref={ref}
-		className="overflow-hidden text-sm text-contrasted transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down"
+		className="ui-overflow-hidden ui-text-sm ui-text-contrasted ui-transition-all data-[state=closed]:ui-animate-accordion-up data-[state=open]:ui-animate-accordion-down"
 		{...props}>
-		<div className={cn('pb-4 pt-0', className)}>{children}</div>
+		<div className={cn('ui-pb-4 ui-pt-0', className)}>{children}</div>
 	</AccordionPrimitive.Content>
 ));
 

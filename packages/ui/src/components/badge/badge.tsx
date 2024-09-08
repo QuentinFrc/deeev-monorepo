@@ -1,40 +1,41 @@
 import React from 'react';
 import { Slot } from '@radix-ui/react-slot';
-
-import { cn, tv, VariantProps } from '#utils';
 import { Icon } from '#components/icons';
+import { cn, tv, VariantProps } from '#utils';
 
 const _badge = tv({
 	slots: {
 		root: [
-			'relative z-10 inline-flex size-max max-w-full items-center rounded-lg',
-			'font-semibold leading-[1.42857em]',
-			'after:absolute after:inset-0 after:-z-20 after:rounded-inherit',
-			'before:absolute before:inset-0 before:-z-10 before:rounded-lg-minus-[1px]',
+			'ui-relative ui-z-10 ui-inline-flex ui-size-max ui-max-w-full ui-items-center ui-rounded-lg',
+			'ui-font-semibold ui-leading-[1.42857em]',
+			'after:ui-absolute after:ui-inset-0 after:-ui-z-20 after:ui-rounded-inherit',
+			'before:ui-absolute before:ui-inset-0 before:-ui-z-10 before:ui-rounded-lg-minus-[1px]',
 		],
-		label: 'relative z-10 inline-flex px-1',
+		label: 'ui-relative ui-z-10 ui-inline-flex ui-px-1',
 	},
 	variants: {
 		variant: {
-			green: { root: 'after:bg-green-400' },
-			cyan: { root: 'after:bg-cyan-400' },
-			fuchsia: { root: 'after:bg-fuchsia-400' },
+			green: { root: 'after:ui-bg-green-400' },
+			cyan: { root: 'after:ui-bg-cyan-400' },
+			fuchsia: { root: 'after:ui-bg-fuchsia-400' },
 			gradient: {
-				root: 'after:bg-gradient-to-br after:from-green-400 after:via-cyan-400 after:to-fuchsia-400',
+				root: 'after:ui-bg-gradient-to-br after:ui-from-green-400 after:ui-via-cyan-400 after:ui-to-fuchsia-400',
 			},
-			neutral: { root: 'after:bg-foreground' }, // @see Compound variant for outline neutral
+			neutral: { root: 'after:ui-bg-foreground' }, // @see Compound variant for outline neutral
 		},
 		size: {
 			sm: {
-				root: 'px-1 py-0.5 text-xs',
+				root: 'ui-px-1 ui-py-0.5 ui-text-xs',
 			},
 			md: {
-				root: 'px-1.5 py-1 text-sm',
+				root: 'ui-px-1.5 ui-py-1 ui-text-sm',
 			},
 		},
 		type: {
-			fill: { root: 'text-background' },
-			outline: { root: 'text-contrasted-max before:bg-background after:-inset-px' },
+			fill: { root: 'ui-text-background' },
+			outline: {
+				root: 'ui-text-contrasted-max before:ui-bg-background after:-ui-inset-px',
+			},
 		},
 	},
 	defaultVariants: {
@@ -47,7 +48,7 @@ const _badge = tv({
 			variant: 'neutral',
 			type: 'outline',
 			class: {
-				root: 'after:border after:bg-card',
+				root: 'after:ui-border after:ui-bg-card',
 			},
 		},
 	],
@@ -94,14 +95,15 @@ const BadgeLabel = React.forwardRef<React.ElementRef<'span'>, BadgeLabelProps>(
 BadgeLabel.displayName = 'BadgeLabel';
 
 const badgeDotVariants = tv({
-	base: 'size-2 rounded-full bg-contrasted-max',
+	base: 'ui-size-2 ui-rounded-full ui-bg-contrasted-max',
 	variants: {
 		variant: {
-			green: 'bg-green-400',
-			cyan: 'bg-cyan-400',
-			fuchsia: 'bg-fuchsia-400',
-			neutral: 'bg-neutral-300',
-			gradient: 'bg-gradient-to-br from-green-400 via-cyan-400 to-fuchsia-400',
+			green: 'ui-bg-green-400',
+			cyan: 'ui-bg-cyan-400',
+			fuchsia: 'ui-bg-fuchsia-400',
+			neutral: 'ui-bg-neutral-300',
+			gradient:
+				'ui-bg-gradient-to-br ui-from-green-400 ui-via-cyan-400 ui-to-fuchsia-400',
 		},
 	},
 });
@@ -124,7 +126,7 @@ const BadgeCross: React.FC<BadgeCrossProps> = ({ className, ...props }) => (
 		i={'X'}
 		size={'sm'}
 		className={cn(
-			'cursor-pointer text-foreground opacity-80 hover:opacity-100 motion-safe:transition-opacity motion-safe:duration-200',
+			'ui-cursor-pointer ui-text-foreground ui-opacity-80 hover:ui-opacity-100 motion-safe:ui-transition-opacity motion-safe:ui-duration-200',
 			className,
 		)}
 		{...props}

@@ -3,49 +3,48 @@
 import React from 'react';
 import Image from 'next/image';
 import * as AvatarPrimitive from '@radix-ui/react-avatar';
-import { tv, VariantProps } from 'tailwind-variants';
-
 import { cn } from '#utils';
+import { tv, VariantProps } from 'tailwind-variants';
 
 const avatarVariants = tv({
 	slots: {
 		root: [
-			'relative flex shrink-0 bg-neutral-950',
+			'ui-relative ui-flex ui-shrink-0 ui-bg-neutral-950',
 			/*'before:absolute before:inset-0 before:z-10 before:size-full before:rounded-inherit before:border before:border-neutral-800',*/
 		],
-		image: ['aspect-square size-full rounded-inherit'],
+		image: ['ui-aspect-square ui-size-full ui-rounded-inherit'],
 		fallback: [
-			'flex size-full items-center justify-center rounded-full text-contrasted-max',
+			'ui-flex ui-size-full ui-items-center ui-justify-center ui-rounded-full ui-text-contrasted-max',
 		],
 		indicator: [
-			'absolute bottom-0 right-0 z-20 rounded-full',
-			'after:absolute after:inset-0 after:z-10 after:rounded-inherit after:border after:border-background after:opacity-30',
+			'ui-absolute ui-bottom-0 ui-right-0 ui-z-20 ui-rounded-full',
+			'after:ui-absolute after:ui-inset-0 after:ui-z-10 after:ui-rounded-inherit after:ui-border after:ui-border-background after:ui-opacity-30',
 		],
 	},
 	variants: {
 		size: {
-			sm: { root: 'size-6 text-[0.5rem]', indicator: 'size-2' },
-			md: { root: 'size-8 text-xs', indicator: 'size-2.5' },
-			lg: { root: 'size-10 text-sm', indicator: 'size-3' },
-			xl: { root: 'size-12 text-base', indicator: 'size-3.5' },
-			'2xl': { root: 'size-14 text-lg', indicator: 'size-4' },
-			'3xl': { root: 'size-16 text-xl', indicator: 'size-4.5' },
-			'4xl': { root: 'size-20 text-2xl', indicator: 'size-5' },
+			sm: { root: 'ui-size-6 ui-text-[0.5rem]', indicator: 'ui-size-2' },
+			md: { root: 'ui-size-8 ui-text-xs', indicator: 'ui-size-2.5' },
+			lg: { root: 'ui-size-10 ui-text-sm', indicator: 'ui-size-3' },
+			xl: { root: 'ui-size-12 ui-text-base', indicator: 'ui-size-3.5' },
+			'2xl': { root: 'ui-size-14 ui-text-lg', indicator: 'ui-size-4' },
+			'3xl': { root: 'ui-size-16 ui-text-xl', indicator: 'ui-size-4.5' },
+			'4xl': { root: 'ui-size-20 ui-text-2xl', indicator: 'ui-size-5' },
 		},
 		shape: {
-			square: { root: 'rounded-none' },
-			rounded: { root: 'rounded' },
-			'rounded-sm': { root: 'rounded-sm' },
-			'rounded-md': { root: 'rounded-md' },
-			'rounded-lg': { root: 'rounded-lg' },
-			'rounded-xl': { root: 'rounded-xl' },
-			'rounded-full': { root: 'rounded-full' },
+			square: { root: 'ui-rounded-none' },
+			rounded: { root: 'ui-rounded' },
+			'rounded-sm': { root: 'ui-rounded-sm' },
+			'rounded-md': { root: 'ui-rounded-md' },
+			'rounded-lg': { root: 'ui-rounded-lg' },
+			'rounded-xl': { root: 'ui-rounded-xl' },
+			'rounded-full': { root: 'ui-rounded-full' },
 		},
 		type: {
 			online: {
-				indicator: 'bg-success-600',
+				indicator: 'ui-bg-success-600',
 			},
-			offline: { indicator: 'bg-danger-600' },
+			offline: { indicator: 'ui-bg-danger-600' },
 		},
 	},
 	defaultVariants: {

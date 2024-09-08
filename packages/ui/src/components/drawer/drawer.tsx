@@ -1,10 +1,9 @@
 'use client';
 
 import React from 'react';
+import { cn } from '#utils';
 import { tv } from 'tailwind-variants';
 import { Drawer as DrawerPrimitive } from 'vaul';
-
-import { cn } from '#utils';
 
 import { baseVariants } from '../dialog';
 
@@ -12,11 +11,11 @@ const variants = tv({
 	extend: baseVariants,
 	slots: {
 		content: [
-			'group fixed inset-x-2 bottom-0 z-50 mt-24 flex max-h-[96%] flex-col rounded-t-lg border bg-card focus:outline-none',
+			'ui-group ui-fixed ui-inset-x-2 ui-bottom-0 ui-z-50 ui-mt-24 ui-flex ui-max-h-[96%] ui-flex-col ui-rounded-t-lg ui-border ui-bg-card focus:ui-outline-none',
 		],
-		scrollView: ['flex w-full flex-col overflow-auto p-4'],
+		scrollView: ['ui-flex ui-w-full ui-flex-col ui-overflow-auto ui-p-4'],
 		thumb: [
-			'mx-auto h-1.5 w-24 rounded-full bg-contrasted-min opacity-50 outline-none transition-opacity group-hover:opacity-100',
+			'ui-mx-auto ui-h-1.5 ui-w-24 ui-rounded-full ui-bg-contrasted-min ui-opacity-50 ui-outline-none ui-transition-opacity group-hover:ui-opacity-100',
 		],
 	},
 });

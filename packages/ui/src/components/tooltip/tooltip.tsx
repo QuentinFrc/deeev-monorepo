@@ -3,37 +3,36 @@
 import React from 'react';
 import * as TooltipPrimitive from '@radix-ui/react-tooltip';
 import { useControllableState } from '@radix-ui/react-use-controllable-state';
+import { cn, VariantProps } from '#utils';
 import { AnimatePresence, motion } from 'framer-motion';
 import { tv } from 'tailwind-variants';
-
-import { cn, VariantProps } from '#utils';
 
 const _tooltipVariants = tv({
 	slots: {
 		trigger: [
-			'focus-visible:ring-foreground focus-visible:ring-offset-background',
-			'outline-none',
+			'focus-visible:ui-ring-foreground focus-visible:ui-ring-offset-background',
+			'ui-outline-none',
 		],
 		content: [
-			'relative z-50 rounded-lg border bg-card p-4 text-sm text-contrasted [text-wrap:balance]',
-			'max-w-screen',
+			'ui-relative ui-z-50 ui-rounded-lg ui-border ui-bg-card ui-p-4 ui-text-sm ui-text-contrasted [text-wrap:balance]',
+			'ui-max-w-screen',
 		],
 	},
 	variants: {
 		focusShape: {
 			badge: {
-				trigger: ['rounded-lg focus-visible:ring-2 focus-visible:ring-offset-4'],
+				trigger: ['ui-rounded-lg focus-visible:ui-ring-2 focus-visible:ui-ring-offset-4'],
 			},
 			inline: {
-				trigger: ['rounded-sm focus-visible:ring-1 focus-visible:ring-offset-2'],
+				trigger: ['ui-rounded-sm focus-visible:ui-ring-1 focus-visible:ui-ring-offset-2'],
 			},
 		},
 		size: {
-			sm: { content: 'w-[192px]' },
-			md: { content: 'w-[256px]' },
-			lg: { content: 'w-[320px]' },
-			xl: { content: 'w-[428px]' },
-			full: { content: 'w-full' },
+			sm: { content: 'ui-w-[192px]' },
+			md: { content: 'ui-w-[256px]' },
+			lg: { content: 'ui-w-[320px]' },
+			xl: { content: 'ui-w-[428px]' },
+			full: { content: 'ui-w-full' },
 		},
 	},
 });
@@ -142,7 +141,7 @@ const TooltipArrow = () => (
 			viewBox="0 0 12 8"
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg">
-			<path d="M6 8L12 0H0L6 8Z" className="fill-border" />
+			<path d="M6 8L12 0H0L6 8Z" className="ui-fill-border" />
 		</svg>
 	</TooltipPrimitive.Arrow>
 );

@@ -8,15 +8,15 @@ type ToasterProps = React.ComponentProps<typeof Sonner>;
 
 const variants = tv({
 	slots: {
-		toaster: ['grid !w-full place-items-center'],
+		toaster: ['ui-grid !ui-w-full ui-place-items-center'],
 		toast: [
-			'!static inline-flex min-w-max max-w-[90%] items-center gap-6',
-			'rounded-md border bg-background p-2 shadow',
+			'!ui-static ui-inline-flex ui-min-w-max ui-max-w-[90%] ui-items-center ui-gap-6',
+			'ui-rounded-md ui-border ui-bg-background ui-p-2 ui-shadow',
 		],
-		title: ['text-sm !text-contrasted-max'],
-		description: ['text-xs !text-contrasted'],
-		actionButton: ['font-medium'],
-		cancelButton: ['group/toast:text-contrasted-max'],
+		title: ['ui-text-sm !ui-text-contrasted-max'],
+		description: ['ui-text-xs !ui-text-contrasted'],
+		actionButton: ['ui-font-medium'],
+		cancelButton: ['group/toast:ui-text-contrasted-max'],
 	},
 });
 

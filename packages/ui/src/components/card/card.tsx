@@ -2,18 +2,17 @@
 
 import { forwardRef, HTMLAttributes } from 'react';
 import { Slot } from '@radix-ui/react-slot';
-import { tv } from 'tailwind-variants';
-
 import { cn } from '#utils';
+import { tv } from 'tailwind-variants';
 
 const cardVariants = tv({
 	slots: {
-		root: ['rounded-lg border bg-card text-contrasted-max shadow-sm'],
-		header: ['flex flex-col gap-y-1'],
-		title: ['text-lg font-semibold leading-none tracking-tight'],
-		description: ['text-sm text-contrasted-mid'],
-		content: ['p-6'],
-		footer: ['flex items-center p-6 pt-0'],
+		root: ['ui-rounded-lg ui-border ui-bg-card ui-text-contrasted-max ui-shadow-sm'],
+		header: ['ui-flex ui-flex-col ui-gap-y-1'],
+		title: ['ui-text-lg ui-font-semibold ui-leading-none ui-tracking-tight'],
+		description: ['ui-text-sm ui-text-contrasted-mid'],
+		content: ['ui-p-6'],
+		footer: ['ui-flex ui-items-center ui-p-6 ui-pt-0'],
 	},
 });
 

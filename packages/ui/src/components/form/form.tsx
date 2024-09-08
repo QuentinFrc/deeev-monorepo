@@ -1,6 +1,9 @@
 import React from 'react';
 import * as LabelPrimitive from '@radix-ui/react-label';
 import { Slot } from '@radix-ui/react-slot';
+import { Label } from '#components/fields';
+import { Icon } from '#components/icons';
+import { cn } from '#utils';
 import { AnimatePresence } from 'framer-motion';
 import {
 	Controller,
@@ -10,10 +13,6 @@ import {
 	FormProvider,
 	useFormContext,
 } from 'react-hook-form';
-
-import { cn } from '#utils';
-import { Label } from '#components/fields';
-import { Icon } from '#components/icons';
 
 const Form = FormProvider;
 
@@ -79,7 +78,7 @@ const FormItem = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivEl
 
 		return (
 			<FormItemContext.Provider value={{ id }}>
-				<div ref={ref} className={cn('space-y-2', className)} {...props} />
+				<div ref={ref} className={cn('ui-space-y-2', className)} {...props} />
 			</FormItemContext.Provider>
 		);
 	},
@@ -135,7 +134,7 @@ const FormDescription = React.forwardRef<HTMLParagraphElement, FormDescriptionPr
 			<p
 				ref={ref}
 				id={formDescriptionId}
-				className={cn('text-sm text-contrasted-min', className)}
+				className={cn('ui-text-sm ui-text-contrasted-min', className)}
 				{...props}
 			/>
 		);
@@ -158,7 +157,7 @@ const FormMessage = React.forwardRef<
 		<p
 			ref={ref}
 			id={formMessageId}
-			className={cn('text-sm font-medium text-danger-500', className)}
+			className={cn('ui-text-sm ui-font-medium ui-text-danger-500', className)}
 			{...props}>
 			{body}
 		</p>

@@ -3,59 +3,59 @@
 import React from 'react';
 import * as SelectPrimitive from '@radix-ui/react-select';
 import { useControllableState } from '@radix-ui/react-use-controllable-state';
-import { AnimatePresence, motion } from 'framer-motion';
-import { tv } from 'tailwind-variants';
-
-import { cn } from '#utils';
 import { FocusRing } from '#components/focus-ring';
 import { Icon, IconProps } from '#components/icons';
+import { cn } from '#utils';
+import { AnimatePresence, motion } from 'framer-motion';
+import { tv } from 'tailwind-variants';
 
 const selectVariants = tv({
 	slots: {
 		trigger: [
-			'flex h-9 w-full cursor-pointer items-center justify-between rounded-md border border-border/80 bg-card p-2 pl-4',
-			'text-sm font-medium text-contrasted-max outline-none',
-			'data-[placeholder]:text-contrasted-min',
-			'disabled:cursor-not-allowed disabled:opacity-50',
+			'ui-flex ui-h-9 ui-w-full ui-cursor-pointer ui-items-center ui-justify-between ui-rounded-md ui-border ui-border-border/80 ui-bg-card ui-p-2 ui-pl-4',
+			'ui-text-sm ui-font-medium ui-text-contrasted-max ui-outline-none',
+			'data-[placeholder]:ui-text-contrasted-min',
+			'disabled:ui-cursor-not-allowed disabled:ui-opacity-50',
 		],
 		content: [
-			'relative z-50 min-w-32 overflow-hidden rounded-md border border-border/80 bg-card',
+			'ui-relative ui-z-50 ui-min-w-32 ui-overflow-hidden ui-rounded-md ui-border ui-border-border/80 ui-bg-card',
 		],
 		icon: [
-			'text-contrasted-mid opacity-50 motion-safe:transition-transform motion-safe:duration-150',
+			'ui-text-contrasted-mid ui-opacity-50 motion-safe:ui-transition-transform motion-safe:ui-duration-150',
 		],
-		viewport: ['space-y-2 p-2'],
+		viewport: ['ui-space-y-2 ui-p-2'],
 		label: [
-			'inline-flex items-center gap-1 px-2 py-1.5 text-sm font-medium text-contrasted-min',
+			'ui-inline-flex ui-items-center ui-gap-1 ui-px-2 ui-py-1.5 ui-text-sm ui-font-medium ui-text-contrasted-min',
 		],
-		separator: ['-mx-1 my-1 h-px bg-border'],
+		separator: ['-ui-mx-1 ui-my-1 ui-h-px ui-bg-border'],
 		item: [
-			'group relative flex w-full cursor-pointer select-none items-center rounded-sm px-2 py-1.5',
-			'text-sm text-contrasted-max outline-none',
-			'data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
+			'ui-group ui-relative ui-flex ui-w-full ui-cursor-pointer ui-select-none ui-items-center ui-rounded-sm ui-px-2 ui-py-1.5',
+			'ui-text-sm ui-text-contrasted-max ui-outline-none',
+			'data-[disabled]:ui-pointer-events-none data-[disabled]:ui-opacity-50',
 		],
 		itemBackground: [
-			'absolute inset-0 scale-75 rounded-inherit bg-foreground/10 opacity-0 motion-safe:transition-gpu motion-safe:duration-200',
-			'group-hover:scale-100 group-hover:opacity-50',
-			'group-data-[state="checked"]:scale-100 group-data-[state="checked"]:opacity-100',
+			'ui-absolute ui-inset-0 ui-scale-75 ui-rounded-inherit ui-bg-foreground/10 ui-opacity-0 motion-safe:ui-transition-gpu motion-safe:ui-duration-200',
+			'group-hover:ui-scale-100 group-hover:ui-opacity-50',
+			'group-data-[state="checked"]:ui-scale-100 group-data-[state="checked"]:ui-opacity-100',
 		],
 		itemText: [
-			'inline-block motion-safe:transition-transform motion-safe:duration-150',
-			'group-hover:translate-x-3',
-			'group-data-[state="checked"]:translate-x-6',
+			'ui-inline-block motion-safe:ui-transition-transform motion-safe:ui-duration-150',
+			'group-hover:ui-translate-x-3',
+			'group-data-[state="checked"]:ui-translate-x-6',
 		],
-		indicator: 'absolute left-2 flex size-3.5 items-center justify-center',
+		indicator:
+			'ui-absolute ui-left-2 ui-flex ui-size-3.5 ui-items-center ui-justify-center',
 	},
 	variants: {
 		isOpen: {
-			true: { icon: '-rotate-180' },
-			false: { icon: 'rotate-0' },
+			true: { icon: '-ui-rotate-180' },
+			false: { icon: 'ui-rotate-0' },
 		},
 		position: {
 			popper: {
 				content: [
-					'data-[side=bottom]:mt-1 data-[side=left]:mr-1 data-[side=right]:ml-1 data-[side=top]:mb-1',
-					'w-[var(--radix-select-trigger-width)]',
+					'data-[side=bottom]:ui-mt-1 data-[side=left]:ui-mr-1 data-[side=right]:ui-ml-1 data-[side=top]:ui-mb-1',
+					'ui-w-[var(--radix-select-trigger-width)]',
 				],
 			},
 			'item-aligned': {},
