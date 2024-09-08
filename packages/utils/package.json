@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "exports": {
-    "./cn": "./src/cn.ts"
+    "./cn": "./src/cn.ts",
+    "./math": "./src/math.ts"
   },
   "dependencies": {
     "tailwind-merge": "^1.12.0",
