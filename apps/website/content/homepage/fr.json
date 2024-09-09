@@ -1,0 +1,11 @@
+{
+  "hero": {
+    "title": "Héros",
+    "subtitle": "Les héros sont des personnages jouables dans le jeu. Chaque héros a des compétences uniques et des statistiques différentes.",
+    "list": {
+      "tank": "Tank",
+      "damage": "Dégâts",
+      "support": "Soutien"
+    }
+  }
+}
