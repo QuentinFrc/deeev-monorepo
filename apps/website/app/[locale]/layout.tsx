@@ -26,13 +26,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
 	children,
-	locale,
+	params,
 }: Readonly<{
 	children: React.ReactNode;
-	locale: Locale;
+	params: { locale: Locale };
 }>) {
 	return (
-		<html lang={locale}>
+		<html lang={params.locale}>
 			<body className={`${geistSans.className} ${geistMono.variable} antialiased`}>
 				{children}
 			</body>
