@@ -1,0 +1,11 @@
+{
+  "hero": {
+    "title": "Heroes",
+    "subtitle": "Heroes are playable characters in the game. Each hero has unique abilities and different statistics.",
+    "list": {
+      "tank": "Tank",
+      "damage": "Damage",
+      "support": "Support"
+    }
+  }
+}

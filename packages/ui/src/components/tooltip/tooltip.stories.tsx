@@ -15,7 +15,7 @@ const Template: Story = {
 	render: ({ ...props }) => (
 		<Tooltip.Provider>
 			<Tooltip.Root {...props}>
-				<Tooltip.Trigger className={'text-foreground'}>Hover</Tooltip.Trigger>
+				<Tooltip.Trigger className={'ui-text-foreground'}>Hover</Tooltip.Trigger>
 				<Tooltip.Content title={'Pro tip'} {...props}>
 					Et ceci est une description assez courte décrivant l’élément ciblé.
 				</Tooltip.Content>
@@ -30,10 +30,10 @@ const MultipleTemplate: (props: StoryProps[], globals?: StoryProps) => Story = (
 ) => ({
 	render: (args) => (
 		<Tooltip.Provider>
-			<div className={'flex flex-col gap-32'}>
+			<div className={'ui-flex ui-flex-col ui-gap-32'}>
 				{props.map((props, i) => (
 					<Tooltip.Root key={i} {...args} {...globals} {...props}>
-						<Tooltip.Trigger className={'text-foreground'}>Hover</Tooltip.Trigger>
+						<Tooltip.Trigger className={'ui-text-foreground'}>Hover</Tooltip.Trigger>
 						<Tooltip.Content title={'Pro tip'} {...args} {...globals} {...props}>
 							Et ceci est une description assez courte décrivant l’élément ciblé.
 						</Tooltip.Content>

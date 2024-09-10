@@ -1,0 +1,113 @@
+{
+  "hero": {
+    "title": "Nous créons des sites pour",
+    "title_alternative_ends": [
+      "Entrepreneurs ambitieux",
+      "Entreprises en croissance"
+    ],
+    "subtitle": "Nos solutions sur mesure, ont des performances exceptionnelles et une expérience utilisateur fluide.",
+    "main_cta": {
+      "default": "Réserver un appel avec {name}",
+      "hover": "..."
+    },
+    "sub_cta": "Voir nos réalisations"
+  },
+  "customers_challenges": {
+    "title": "Les défis de nos clients",
+    "cards": {
+      "visibility": {
+        "title": "Visibilité et Réputation en Ligne",
+        "description": "Dans un marché saturé, ils cherchent à être visible et à capter l'attention de leurs visiteurs."
+      },
+      "conversion": {
+        "title": "Conversion et Engagement",
+        "description": "En plus de vouloir augmenter l'acquisition de nouveaux clients, ils ont besoin de créer un réel engagement autour de leur image."
+      },
+      "maintenance": {
+        "title": "Mises à Jour et Maintenance",
+        "description": "Ils ont besoin d'une solution à jour et performante, sans avoir à s’en préoccuper. Ils recherchent un partenaire compétent et proactif."
+      },
+      "scalability": {
+        "title": "Adaptabilité et Évolutivité",
+        "description": "Leurs environnements évoluent. Ils ont besoin de faire face au changement en évitant des coûts supplémentaires élevés ou de repartir de zéro."
+      },
+      "project_management": {
+        "title": "Gestion de Projet",
+        "description": "Ils ne veulent pas se placer en chef de projet en faisant appel à différents freelances et n'ont pas le temps ou les moyens d'internaliser les compétences nécessaires."
+      },
+      "cost": {
+        "title": "Coût et Gestion des Ressources",
+        "description": "Même s’ils souhaitent investir dans leur présence en ligne, leur budget reste limité et ils ont besoin de maitriser le coût de leur projet."
+      },
+      "long_term_solution": {
+        "title": "Solution Long Terme",
+        "description": "Ils ont besoin de solutions compétitives dans la durée. La mise à jour de celle-ci doit être constante et sans douleurs."
+      }
+    }
+  },
+  "our_services": {
+    "title": "Nos Services",
+    "cards": {
+      "ui_design": {
+        "title": "UI Design",
+        "description": "Chacun de nos designs est pensé pour renforcer votre image de marque. Impossible de vous confondre après cela."
+      },
+      "animations": {
+        "title": "Animations et Interactions",
+        "description": "Nous prenons le soin de surprendre vos utilisateurs avec des micro interactions et animations rendant l'expérience sur votre solution agréable et *outstanding* (Tooltip: remarquable)."
+      },
+      "seo": {
+        "title": "SEO",
+        "description": "Nous mettons en place tous les moyens techniques pour que votre site soit naturellement bien référencé et attire un maximum d'utilisateurs qualifiés."
+      },
+      "hosting": {
+        "title": "Hébergement et Mise en Ligne",
+        "description": "Nos solutions d'hébergement sont sélectionnées parmi les plus performantes pour garantir des temps de chargement optimaux et une disponibilité continue."
+      },
+      "bug_fixing": {
+        "title": "Résolutions de BUG gratuite",
+        "description": "Selon nous c'est la base, nous résolvons tous les comportements inattendus sans surcoûts sur nos forfaits de maintenance, indépendamment de la nature du problème."
+      },
+      "priority_support": {
+        "title": "Support Prioritaire",
+        "description": "Nous plaçons la satisfaction de nos clients au cœur de nos préoccupations. Nous sommes réactifs dans la réception de vos messages pour pouvoir les traiter le plus rapidement possible."
+      }
+    }
+  },
+  "packages": {
+    "title": "Nos Packages",
+    "description": "Nous affichons nos prix clairement et sommes fiers d’offrir de la visibilité aux entrepreneurs qui s’intéressent à nos prestations. Ceux-ci restent cependant indicatifs car chaque projet est différent.",
+    "cards": {
+      "landing_page": {
+        "title": "Landing Page",
+        "target": "Cible: Particulièrement adapté aux Solopreneurs qui lancent leur activité et souhaitent promouvoir 1 ou 2 offre(s) grâce à une belle page de ventes, parfaite pour convertir.",
+        "price": "Prix: À partir de 4 500€",
+        "maintenance": "Maintenance: À partir de 120€/mois ou 1320€/an",
+        "features": [
+          "Service d'Analytics"
+        ]
+      },
+      "complete_website": {
+        "title": "Site Complet",
+        "target": "Cible: Répond globalement au plus grand besoin, en proposant un site complet avec plusieurs pages.",
+        "price": "Prix: À partir de 12 000€",
+        "maintenance": "Maintenance: À partir de 299€/mois ou 3 200€/an",
+        "features": [
+          "Service d'Analytics",
+          "Gestion Multilingue",
+          "CMS Auto hébergé",
+          "Back Office - Demande de contact"
+        ]
+      },
+      "web_app": {
+        "title": "Web App",
+        "target": "Cible: Solution entièrement personnalisée intégrant des systèmes complexes. (Création d'un SAAS, ajout de fonctionnalités IA, gestion d'utilisateurs etc…) ",
+        "price": "Prix: À partir de 20 000€",
+        "maintenance": "Maintenance: À partir de 499€/mois ou 5 489€/an",
+        "features": [
+          "Tout ce dont vous avez besoin"
+        ]
+      }
+    }
+  }
+}

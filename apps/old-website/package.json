@@ -15,11 +15,9 @@
 		"storybook": "storybook dev -p 3003",
 		"storybook:build": "storybook build",
 		"chromatic": "npx chromatic --build-script-name='storybook:build' --exit-zero-on-changes",
-		"prepare": "husky",
 		"test": "vitest",
 		"coverage": "vitest run --coverage",
-		"coverage:ui": "vitest --ui",
-		"postinstall": "husky install"
+		"coverage:ui": "vitest --ui"
 	},
 	"dependencies": {
 		"@repo/ui": "workspace:*",
