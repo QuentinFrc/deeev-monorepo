@@ -1,0 +1,22 @@
+{
+  "name": "@repo/emails",
+  "version": "1.0.0",
+  "private": true,
+  "exports": {
+    "." : "./src/emails/index.ts"
+  },
+  "scripts": {
+    "dev": "email dev --dir src/emails"
+  },
+  "devDependencies": {
+    "react-email": "3.0.1"
+  },
+  "dependencies": {
+    "@repo/eslint-config-react": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "@react-email/components": "0.0.23",
+    "@types/node": "^20.14.13",
+    "eslint": "^8.57.0",
+    "typescript": "^5.5.4"
+  }
+}
