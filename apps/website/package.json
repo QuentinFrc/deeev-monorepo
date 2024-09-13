@@ -9,11 +9,19 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.3.4",
+    "@next-safe-action/adapter-react-hook-form": "^1.0.13",
+    "@repo/emails": "workspace:*",
     "@repo/ui": "workspace:*",
     "next": "14.2.8",
     "next-intl": "^3.19.1",
+    "next-safe-action": "^7.9.2",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-hook-form": "^7.51.3",
+    "resend": "^3.2.0",
+    "zod": "^3.23.5",
+    "zustand": "^4.5.2"
   },
   "devDependencies": {
     "@types/node": "^20",
