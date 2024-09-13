@@ -5,7 +5,7 @@
       "Entrepreneurs ambitieux",
       "Entreprises en croissance"
     ],
-    "subtitle": "Nos solutions sur mesure, ont des performances exceptionnelles et une expérience utilisateur fluide.",
+    "description": "Nos solutions sur mesure, ont des performances exceptionnelles et une expérience utilisateur fluide.",
     "main_cta": {
       "default": "Réserver un appel avec {name}",
       "hover": "..."
