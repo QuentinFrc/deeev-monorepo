@@ -15,7 +15,7 @@ type Story = StoryObj<{
 
 const Template: Story = {
 	render: ({ inputProps, labelProps }) => (
-		<div className={'space-y-2'}>
+		<div className={'ui-space-y-2'}>
 			<Label {...labelProps} />
 			<Input {...inputProps} />
 		</div>
@@ -28,7 +28,7 @@ export const Default: Story = {
 		inputProps: {
 			id: 'input-el',
 			placeholder: 'sebastien.cuvellier@deeev.fr',
-			className: 'w-64',
+			className: 'ui-w-64',
 		},
 		labelProps: { htmlFor: 'input-el', children: 'Email', icon: 'Mail' },
 	},
@@ -43,7 +43,7 @@ export const Disabled: Story = {
 			id: 'input-el',
 			placeholder: 'Disabled input',
 			disabled: true,
-			className: 'w-64',
+			className: 'ui-w-64',
 		},
 		labelProps: { htmlFor: 'input-el', children: 'Email', icon: 'Mail' },
 	},
@@ -56,7 +56,7 @@ export const Number: Story = {
 			id: 'input-el',
 			placeholder: 'Input type Number',
 			type: 'number',
-			className: 'w-64',
+			className: 'ui-w-64',
 		},
 		labelProps: { htmlFor: 'input-el', children: 'Number', icon: 'Placeholder' },
 	},
@@ -69,7 +69,7 @@ export const File: Story = {
 			id: 'input-el',
 			placeholder: 'Input type File',
 			type: 'file',
-			className: 'w-96',
+			className: 'ui-w-96',
 		},
 		labelProps: { htmlFor: 'input-el', children: 'File', icon: 'FileLock' },
 	},
@@ -81,7 +81,7 @@ export const WithValue: Story = {
 		inputProps: {
 			placeholder: 'Email',
 			value: 'sebastien@cuvellier.fr',
-			className: 'w-64',
+			className: 'ui-w-64',
 		},
 		labelProps: { htmlFor: 'input-el', children: 'Email', icon: 'Mail' },
 	},
@@ -93,7 +93,7 @@ export const WithValueDisabled: Story = {
 		inputProps: {
 			placeholder: 'Email',
 			value: 'sebastien@cuvellier.fr',
-			className: 'w-64',
+			className: 'ui-w-64',
 			disabled: true,
 		},
 		labelProps: {
@@ -111,7 +111,7 @@ export const WithLabelDisabled: Story = {
 		inputProps: {
 			placeholder: 'Email',
 			value: 'sebastien@cuvellier.fr',
-			className: 'w-64',
+			className: 'ui-w-64',
 			disabled: true,
 		},
 		labelProps: {

@@ -10,7 +10,7 @@ const meta: Meta<typeof Avatar.Root> = {
 
 type AvatarStoryProps = Avatar.Props;
 const StoryAvatar: React.FC<AvatarStoryProps> = (args) => (
-	<div className={'flex space-x-2'}>
+	<div className={'ui-flex ui-space-x-2'}>
 		<Avatar.Root {...args}>
 			<Avatar.Image
 				alt={'Alternative Text'}
@@ -58,7 +58,7 @@ const AvatarTemplate: Story = {
 
 const AvatarsTemplate = (props: AvatarStoryProps[], genericProps?: AvatarStoryProps) => ({
 	render: () => (
-		<div className="flex space-x-4">
+		<div className="ui-flex ui-space-x-4">
 			{props.map((props, i) => (
 				<StoryAvatar key={i} {...genericProps} {...props} />
 			))}

@@ -17,12 +17,14 @@ type CheckboxStory = StoryObj<{ items: LabelItemProps[] }>;
 
 const MultipleCheckboxTemplate: CheckboxStory = {
 	render: ({ items }) => (
-		<div className={'space-y-2'}>
-			<p className={'font-medium text-contrasted-max'}>
+		<div className={'ui-space-y-2'}>
+			<p className={'ui-font-medium ui-text-contrasted-max'}>
 				Wich of these are you interested in ?
 			</p>
 			{items.map(({ item, label }, i) => (
-				<div className="flex flex-row-reverse items-center justify-end gap-x-2" key={i}>
+				<div
+					className="ui-flex ui-flex-row-reverse ui-items-center ui-justify-end ui-gap-x-2"
+					key={i}>
 					<Label {...label} htmlFor={item.id}>
 						{label.children}
 					</Label>

@@ -4,7 +4,8 @@
   "private": true,
   "exports": {
     "./cn": "./src/cn.ts",
-    "./math": "./src/math.ts"
+    "./math": "./src/math.ts",
+    ".": "./src/index.ts"
   },
   "dependencies": {
     "tailwind-merge": "^1.12.0",

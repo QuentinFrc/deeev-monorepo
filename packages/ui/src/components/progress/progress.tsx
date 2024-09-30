@@ -13,7 +13,7 @@ const _progress = tv({
 		progress: 'ui-relative ui-overflow-hidden ui-rounded-full ui-bg-neutral-900',
 		thumb:
 			'ui-size-full ui-flex-1 ui-overflow-hidden ui-from-green-500 ui-via-cyan-500 ui-to-fuchsia-500',
-		label: 'ui-select-none ui-text-sm ui-font-bold ui-text-contrasted-min',
+		label: 'ui-select-none ui-text-sm ui-font-bold ui-text-contrasted-low',
 	},
 	variants: {
 		orientation: {

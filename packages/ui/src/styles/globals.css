@@ -85,31 +85,49 @@
 
 		--card: var(--neutral-950);
 		--border: var(--neutral-800);
-	}
-}
 
-@layer base {
-	:root {
-		color-scheme: dark;
+		--contrast-max: var(--neutral-50);
+		--contrast-max-reverted: var(--neutral-950);
+		--contrast-high: var(--neutral-200);
+		--contrast-high-reverted: var(--neutral-800);
+		--contrast-mid: var(--neutral-400);
+		--contrast-mid-reverted: var(--neutral-600);
+		--contrast-low: var(--neutral-500);
+		--contrast-low-reverted: var(--neutral-500);
 	}
 
 	*,
-	*::before,
-	*::after {
+	*:before,
+	*:after {
 		@apply ui-border-border;
 	}
+}
 
-	input,
-	textarea,
-	select {
-		@apply ui-border-border/80;
+@layer utilities {
+	.ui-text-shimmer {
+		--shimmer-duration: 2.7s;
+		--shimmer-delay: 0s;
+		--color-direction: -65deg;
+
+		background-image: linear-gradient(
+			-65deg,
+			var(--default-color, white) 60%,
+			theme('colors.black/40%') 68%,
+			theme('colors.black/80%') 75%,
+			theme('colors.black/40%') 82%,
+			var(--default-color, white) 88%
+		);
+
+		@apply ui-relative ui-text-transparent ui-animate-shimmer ui-bg-no-repeat ui-bg-[size:200%_100%] ui-bg-clip-text;
 	}
 
-	button {
-		-webkit-tap-highlight-color: transparent;
-	}
+	.ui-bg-gradient-text {
+		&:after {
+			content: attr(data-text);
 
-	body {
-		@apply ui-overflow-x-hidden ui-scroll-smooth ui-bg-background ui-font-sans;
+			@apply ui-absolute ui-inset-0 ui-z-[-1] ui-bg-clip-text ui-bg-gradient-to-r;
+		}
+
+		@apply ui-text-transparent ui-bg-clip-text;
 	}
 }

@@ -1,6 +1,26 @@
 {
-  "metadata": {
-    "title": "Titre",
-    "description": "Description"
+  "and": "et",
+  "then": "puis",
+  "starting_at": "à partir de",
+  "form": {
+    "error_messages": {
+      "invalid_email": "Email invalide",
+      "error": "Une erreur est survenue"
+    },
+    "name": {
+      "label": "Nom",
+      "description": "Ce nom sera utilisé pour vous identifier dans nos échanges."
+    },
+    "email": {
+      "label": "Email",
+      "description": "Vous recevrez un email de confirmation pour confirmer le début de notre conversation.",
+      "invalid": "Email invalide"
+    },
+    "message": {
+      "label": "Message",
+      "description": "Décrivez votre projet, vos besoins, vos attentes, vos questions, etc.",
+      "placeholder": "Bonjour, je souhaiterais obtenir un devis pour..."
+    },
+    "submit": "Envoyer"
   }
 }

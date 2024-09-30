@@ -2,7 +2,10 @@
 import type { Config } from 'tailwindcss';
 import { PluginAPI } from 'tailwindcss/types/config';
 
-import { RoundedCalcRelative } from './rounded-relative.plugin';
+import { backgroundsPlugin } from './background.plugin';
+import { fluidTypography } from './fluid-typography.plugin';
+import { pseudoElements } from './pseudo-elements.plugin';
+import { roundedCalcRelative } from './rounded-relative.plugin';
 
 type WithThemeValues = { theme: PluginAPI['theme'] };
 
@@ -82,15 +85,8 @@ const config: Omit<Config, 'content'> = {
 				DEFAULT: 'hsl(var(--foreground)/ <alpha-value>)',
 				reverted: 'hsl(var(--background)/ <alpha-value>)',
 			},
-			/*todo remove these old contrast utilities*/
-			contrasted: {
-				DEFAULT: 'hsl(var(--contrasted)/ <alpha-value>)',
-				max: 'hsl(var(--contrasted-max)/ <alpha-value>)',
-				min: 'hsl(var(--contrasted-min)/ <alpha-value>)',
-				mid: 'hsl(var(--contrasted)/ <alpha-value>)',
-			},
 			/*--*/
-			contrast: {
+			contrasted: {
 				max: 'hsl(var(--contrast-max)/ <alpha-value>)',
 				'max-reverted': 'hsl(var(--contrast-max-reverted)/ <alpha-value>)',
 				high: 'hsl(var(--contrast-high)/ <alpha-value>)',
@@ -99,11 +95,6 @@ const config: Omit<Config, 'content'> = {
 				'mid-reverted': 'hsl(var(--contrast-mid-reverted)/ <alpha-value>)',
 				low: 'hsl(var(--contrast-low)/ <alpha-value>)',
 				'low-reverted': 'hsl(var(--contrast-low-reverted)/ <alpha-value>)',
-				/*todo remove this old contrast utilities*/
-				1: 'hsl(var(--contrast-1)/ <alpha-value>)',
-				2: 'hsl(var(--contrast-2)/ <alpha-value>)',
-				3: 'hsl(var(--contrast-3)/ <alpha-value>)',
-				4: 'hsl(var(--contrast-4)/ <alpha-value>)',
 			},
 			neutral: {
 				50: 'hsl(var(--neutral-50)/ <alpha-value>)',
@@ -159,7 +150,7 @@ const config: Omit<Config, 'content'> = {
 			full: '9999px',
 		},
 		fontSize: {
-			'7xl': '60px',
+			'7xl': '58px',
 			'6xl': '48px',
 			'5xl': '36px',
 			'4xl': '32px',
@@ -238,7 +229,16 @@ const config: Omit<Config, 'content'> = {
 			transitionProperty: {
 				gpu: 'transform, opacity',
 			},
+
 			keyframes: {
+				shimmer: {
+					'0%': {
+						'background-position': '-100% 0',
+					},
+					'100%': {
+						'background-position': '100% 0',
+					},
+				},
 				'animation-slide-left-full': {
 					'0%, 80%': {
 						transform: 'translate3d(100%, 0, 0) skewX(var(--tw-skew-x))',
@@ -304,6 +304,8 @@ const config: Omit<Config, 'content'> = {
 				},
 			},
 			animation: {
+				shimmer:
+					'shimmer var(--shimmer-duration, 8s) var(--shimmer-delay, 0s) infinite cubic-bezier(.6, .6, 0, 1)',
 				'slide-left-full': 'animation-slide-left-full 7s linear infinite',
 				'spin-tw': 'spin-tw 5s linear infinite',
 				'spin-tw-card': 'spin-tw 10s linear infinite',
@@ -319,12 +321,13 @@ const config: Omit<Config, 'content'> = {
 		},
 	},
 	plugins: [
-		RoundedCalcRelative(),
-		/*PseudoElements(),
-		GridBackground(),
+		roundedCalcRelative(),
+		fluidTypography(),
+		pseudoElements(),
+		backgroundsPlugin(),
+		/*GridBackground(),
 		Variant(),
-		SizeScreenBased(),
-		fluidTypography(),*/
+		SizeScreenBased(),*/
 	],
 };
 

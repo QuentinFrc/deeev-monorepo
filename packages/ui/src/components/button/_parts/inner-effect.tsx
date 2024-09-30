@@ -1,24 +1,15 @@
 import React from 'react';
+import { cn } from '#utils';
 import { VariantProps } from 'tailwind-variants';
-
-import { ExtractSafeVariant } from '@/types/style';
-import { cn, isVariant } from '#utils';
 
 import { innerEffect } from '../cn';
 
 type InnerEffectProps = React.ComponentPropsWithoutRef<'span'> &
-	ExtractSafeVariant<VariantProps<typeof innerEffect>>;
+	VariantProps<typeof innerEffect>;
 
-const InnerEffect: React.FC<InnerEffectProps> = ({
-	className,
-	safeVariant,
-	...props
-}) => {
-	return (
-		isVariant(innerEffect, safeVariant) && (
-			<span className={cn(innerEffect({ variant: safeVariant }), className)} {...props} />
-		)
-	);
+const InnerEffect: React.FC<InnerEffectProps> = ({ className, variant, ...props }) => {
+	if (!variant) return null;
+	return <span className={cn(innerEffect({ variant }), className)} {...props} />;
 };
 
 export { InnerEffect };

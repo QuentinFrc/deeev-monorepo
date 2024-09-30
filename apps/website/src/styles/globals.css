@@ -1,27 +1,35 @@
+@config '../../tailwind.config.ts';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-    --background: #ffffff;
-    --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
     :root {
-        --background: #0a0a0a;
-        --foreground: #ededed;
+        color-scheme: dark;
     }
-}
 
-body {
-    color: var(--foreground);
-    background: var(--background);
-    font-family: Arial, Helvetica, sans-serif;
-}
+    *,
+    *::before,
+    *::after {
+        @apply border-border;
+    }
 
-@layer utilities {
-    .text-balance {
-        text-wrap: balance;
+    input,
+    textarea,
+    select {
+        @apply border-border/80;
+    }
+
+    button {
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+        @apply overflow-x-hidden scroll-smooth bg-background font-sans antialiased text-foreground;
+
+        ::selection {
+            @apply bg-neutral-700;
+        }
     }
 }

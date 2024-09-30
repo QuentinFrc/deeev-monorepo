@@ -34,7 +34,7 @@ const _badge = tv({
 		type: {
 			fill: { root: 'ui-text-background' },
 			outline: {
-				root: 'ui-text-contrasted-max before:ui-bg-background after:-ui-inset-px',
+				root: 'ui-text-contrasted-max before:-ui-inset-px before:ui-bg-background',
 			},
 		},
 	},

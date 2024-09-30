@@ -61,13 +61,16 @@ const icon = tv({
 			xl: 'ui-size-5',
 			xxl: 'ui-size-6',
 		},
+		color: {
+			'contrasted-low': 'ui-text-contrasted-low',
+		},
 	},
 	defaultVariants: {
 		size: 'md',
 	},
 });
 
-type IconVariantProps = Pick<VariantProps<typeof icon>, 'size'>;
+type IconVariantProps = Pick<VariantProps<typeof icon>, 'size' | 'color'>;
 
 const ProjectIcons = {
 	ArrowLeft,
@@ -117,14 +120,14 @@ const ProjectIcons = {
 
 type IconName = keyof typeof ProjectIcons;
 
-type IconProps = LibIconProps &
+type IconProps = Omit<LibIconProps, 'color'> &
 	IconVariantProps & {
 		i: IconName;
 	};
 
-const Icon: React.FC<IconProps> = ({ i, size, className, ...props }) => {
+const Icon: React.FC<IconProps> = ({ i, size, color, className, ...props }) => {
 	const Icon = ProjectIcons[i];
-	return <Icon className={cn(icon({ size }), className)} {...props} />;
+	return <Icon className={cn(icon({ size, color }), className)} {...props} />;
 };
 
 export { Icon };

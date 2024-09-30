@@ -9,7 +9,7 @@ type Story = StoryObj<typeof Switch>;
 
 const TemplateMultiple: (props: SwitchProps[]) => Story = (props) => ({
 	render: (args) => (
-		<div className="flex space-x-4">
+		<div className="ui-flex ui-space-x-4">
 			{props.map((prop, i) => (
 				<Switch key={i} {...args} {...prop} />
 			))}

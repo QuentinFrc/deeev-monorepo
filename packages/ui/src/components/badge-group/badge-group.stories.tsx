@@ -1,6 +1,5 @@
 import React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
-
 import { Icon } from '#components/icons';
 
 import * as BadgePrimitives from '../badge';
@@ -56,7 +55,7 @@ const MultipleTemplate = (
 	communProps = defaultBadgeGroupProps,
 ): BadgeGroupStory => ({
 	render: () => (
-		<div className={'flex flex-wrap gap-4 p-4'}>
+		<div className={'ui-flex ui-flex-wrap ui-gap-4 ui-p-4'}>
 			{props.map((prop, index) => (
 				<BadgeGroup key={index} {...communProps} {...prop} />
 			))}

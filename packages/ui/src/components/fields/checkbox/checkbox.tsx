@@ -2,10 +2,9 @@
 
 import React, { ComponentPropsWithoutRef, ElementRef } from 'react';
 import * as CheckboxPrimitive from '@radix-ui/react-checkbox';
+import { cn } from '#utils';
 import { AnimatePresence, motion } from 'framer-motion';
 import { tv, VariantProps } from 'tailwind-variants';
-
-import { cn } from '#utils';
 
 import { FieldContainer } from '../base';
 
@@ -19,32 +18,32 @@ const hoverIndicatorClass = {
 const _checkbox = tv({
 	slots: {
 		root: [
-			'relative inline-flex shrink-0 items-center justify-center text-foreground focus:outline-none',
+			'ui-relative ui-inline-flex ui-shrink-0 ui-items-center ui-justify-center ui-text-foreground focus:ui-outline-none',
 			hoverIndicatorClass.hover,
 			hoverIndicatorClass.checked,
 			hoverIndicatorClass.disabled,
 		],
 		indicator: [
-			'flex items-center justify-center stroke-current p-0.5 text-contrasted-max',
+			'ui-flex ui-items-center ui-justify-center ui-stroke-current ui-p-0.5 ui-text-contrasted-max',
 		],
 		hoverIndicator: [
-			'absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 stroke-foreground', //Base
-			'motion-safe:transition-opacity motion-safe:delay-75 motion-safe:duration-150 motion-safe:ease-in-out', //Transition
-			'opacity-[var(--hover-indicator-opacity,0)]', //Apply css variable
+			'ui-absolute ui-left-1/2 ui-top-1/2 -ui-translate-x-1/2 -ui-translate-y-1/2 ui-stroke-foreground', //Base
+			'motion-safe:ui-transition-opacity motion-safe:ui-delay-75 motion-safe:ui-duration-150 motion-safe:ui-ease-in-out', //Transition
+			'ui-opacity-[var(--hover-indicator-opacity,0)]', //Apply css variable
 		],
 		focus: hoverIndicatorClass.focus,
 	},
 	variants: {
 		size: {
 			md: {
-				root: 'size-5',
-				indicator: 'size-4',
-				hover: 'size-3',
+				root: 'ui-size-5',
+				indicator: 'ui-size-4',
+				hover: 'ui-size-3',
 			},
 			lg: {
-				root: 'size-6',
-				indicator: 'size-5 stroke-[1.75]',
-				hover: 'size-3.5',
+				root: 'ui-size-6',
+				indicator: 'ui-size-5 ui-stroke-[1.75]',
+				hover: 'ui-size-3.5',
 			},
 		},
 	},

@@ -2,30 +2,29 @@
 
 import React from 'react';
 import * as SwitchPrimitives from '@radix-ui/react-switch';
-import { tv, VariantProps } from 'tailwind-variants';
-
 import { cn } from '#utils';
+import { tv, VariantProps } from 'tailwind-variants';
 
 import { FieldContainer } from '../base';
 
 const _switch = tv({
 	slots: {
 		root: [
-			'peer inline-flex shrink-0 cursor-pointer items-center rounded-full transition-colors',
-			'disabled:cursor-not-allowed disabled:opacity-50',
+			'ui-peer ui-inline-flex ui-shrink-0 ui-cursor-pointer ui-items-center ui-rounded-full ui-transition-colors',
+			'disabled:ui-cursor-not-allowed disabled:ui-opacity-50',
 		],
 		thumb:
-			'pointer-events-none block rounded-full border border-background bg-foreground transition-transform data-[state=unchecked]:translate-x-[3px]',
+			'ui-pointer-events-none ui-block ui-rounded-full ui-border ui-border-background ui-bg-foreground ui-transition-transform data-[state=unchecked]:ui-translate-x-[3px]',
 	},
 	variants: {
 		size: {
 			sm: {
-				root: 'h-5 w-9',
-				thumb: 'size-3.5 data-[state=checked]:translate-x-[19px]',
+				root: 'ui-h-5 ui-w-9',
+				thumb: 'ui-size-3.5 data-[state=checked]:ui-translate-x-[19px]',
 			},
 			md: {
-				root: 'h-6 w-11',
-				thumb: 'size-4.5 data-[state=checked]:translate-x-[23px]',
+				root: 'ui-h-6 ui-w-11',
+				thumb: 'ui-size-4.5 data-[state=checked]:ui-translate-x-[23px]',
 			},
 		},
 	},

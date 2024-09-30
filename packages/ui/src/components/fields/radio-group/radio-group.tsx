@@ -2,9 +2,8 @@
 
 import React from 'react';
 import * as RadioGroupPrimitive from '@radix-ui/react-radio-group';
-import { tv, VariantProps } from 'tailwind-variants';
-
 import { cn } from '#utils';
+import { tv, VariantProps } from 'tailwind-variants';
 
 import { FieldContainer } from '../base';
 
@@ -18,29 +17,29 @@ const indicatorClass = {
 
 const _radioGroup = tv({
 	slots: {
-		root: 'grid gap-2',
+		root: 'ui-grid ui-gap-2',
 		item: [
-			'relative aspect-square shrink-0 rounded-inherit bg-card p-1 outline-none',
+			'ui-relative ui-aspect-square ui-shrink-0 ui-rounded-inherit ui-bg-card ui-p-1 ui-outline-none',
 			indicatorClass.hover,
 			indicatorClass.checked,
 			indicatorClass.disabled,
 		],
 		indicator: [
-			'absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-foreground', //Base
-			'scale-[var(--indicator-scale,0)] opacity-[var(--indicator-opacity,0)]', // Apply opacity & scale
-			'motion-safe:transition-gpu motion-safe:duration-150 motion-safe:ease-in-out', //Transition
+			'ui-absolute ui-left-1/2 ui-top-1/2 -ui-translate-x-1/2 -ui-translate-y-1/2 ui-rounded-full ui-bg-foreground', //Base
+			'ui-scale-[var(--indicator-scale,0)] ui-opacity-[var(--indicator-opacity,0)]', // Apply opacity & scale
+			'motion-safe:ui-transition-gpu motion-safe:ui-duration-150 motion-safe:ui-ease-in-out', //Transition
 		],
 		focus: indicatorClass.focus,
 	},
 	variants: {
 		size: {
 			md: {
-				item: 'size-5',
-				indicator: 'size-2.5',
+				item: 'ui-size-5',
+				indicator: 'ui-size-2.5',
 			},
 			lg: {
-				item: 'size-6',
-				indicator: 'size-3.5',
+				item: 'ui-size-6',
+				indicator: 'ui-size-3.5',
 			},
 		},
 	},

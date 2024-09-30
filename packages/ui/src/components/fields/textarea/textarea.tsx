@@ -1,13 +1,12 @@
 import React from 'react';
-import { tv } from 'tailwind-variants';
-
 import { cn } from '#utils';
+import { tv } from 'tailwind-variants';
 
 import { _field, FieldContainer } from '../base';
 
 const _textarea = tv({
 	extend: _field,
-	base: ['h-10'],
+	base: ['ui-h-10'],
 });
 
 const { base: textarea } = _textarea();

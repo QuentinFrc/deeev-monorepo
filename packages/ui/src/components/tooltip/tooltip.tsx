@@ -14,7 +14,7 @@ const _tooltipVariants = tv({
 			'ui-outline-none',
 		],
 		content: [
-			'ui-relative ui-z-50 ui-rounded-lg ui-border ui-bg-card ui-p-4 ui-text-sm ui-text-contrasted [text-wrap:balance]',
+			'ui-relative ui-z-50 ui-rounded-lg ui-border ui-bg-card ui-p-4 ui-text-sm ui-text-contrasted-mid [text-wrap:balance]',
 			'ui-max-w-screen',
 		],
 	},

@@ -1,6 +1,4 @@
-import React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
-
 import { Icon } from '#components/icons';
 
 import * as Select from './select';
@@ -15,7 +13,7 @@ type Story = StoryObj<typeof Select.Root>;
 const ThemeTemplate: Story = {
 	render: (props) => (
 		<Select.Root {...props}>
-			<Select.Trigger className="w-[180px]">
+			<Select.Trigger className="ui-w-[180px]">
 				<Select.Value placeholder="Theme" />
 			</Select.Trigger>
 			<Select.Content>
@@ -30,7 +28,7 @@ const ThemeTemplate: Story = {
 const FilterTemplate: Story = {
 	render: (props) => (
 		<Select.Root {...props}>
-			<Select.Trigger className="w-[180px]">
+			<Select.Trigger className="ui-w-[180px]">
 				<Select.Value placeholder="Filter" />
 			</Select.Trigger>
 			<Select.Content>
@@ -50,7 +48,7 @@ const FilterTemplate: Story = {
 const StateTemplate: Story = {
 	render: (props) => (
 		<Select.Root {...props}>
-			<Select.Trigger className="w-[180px]">
+			<Select.Trigger className="ui-w-[180px]">
 				<Select.Value placeholder="Currency" />
 			</Select.Trigger>
 			<Select.Content>

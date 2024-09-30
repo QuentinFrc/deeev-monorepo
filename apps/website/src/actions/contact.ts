@@ -1,13 +1,13 @@
 'use server';
 
-import { ContactFormEmail } from '@repo/emails';
-import { actionClient } from '@/lib/safe-action';
-import { contactFormSchema } from '@/schemas/forms/contact';
 import { Mailer } from '@/domain/services/mailer.service';
+import { actionClient } from '@/lib/safe-action';
+import { contactSchema } from '@/schemas/forms/contact';
+import { ContactFormEmail } from '@repo/emails';
 
 export const contactAction = actionClient
-	.schema(contactFormSchema)
-	.action(async ({parsedInput: payload}) => {
+	.schema(contactSchema)
+	.action(async ({ parsedInput: payload }) => {
 		const { name, email: to, message } = payload;
 		const email = await Mailer.send({
 			to,
@@ -15,16 +15,15 @@ export const contactAction = actionClient
 			react: ContactFormEmail(),
 		});
 
-		if(email.error) {
+		if (email.error) {
 			return {
 				success: false,
 				message: 'Failed to send contact form email',
-			}
+			};
 		}
-
 
 		return {
 			success: true,
 			message: 'Contact form submitted successfully',
-		}
-	})
+		};
+	});

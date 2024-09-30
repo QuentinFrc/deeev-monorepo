@@ -1,6 +1,5 @@
 import React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
-
 import { Icon } from '#components/icons';
 
 import * as BadgePrimitives from './badge';
@@ -35,7 +34,7 @@ const BadgeTemplate: (args: Partial<BadgeProps>[], common?: BadgeProps) => Badge
 	common,
 ) => ({
 	render: () => (
-		<div className={'flex flex-wrap gap-4 p-4'}>
+		<div className={'ui-flex ui-flex-wrap ui-gap-4 ui-p-4'}>
 			{args.map((arg, index) => (
 				<Badge key={index} {...RootProps} {...common} {...arg} />
 			))}

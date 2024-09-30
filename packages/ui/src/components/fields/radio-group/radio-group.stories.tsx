@@ -20,13 +20,15 @@ type RadioStory = StoryObj<{
 
 const MultipleRadioTemplate: RadioStory = {
 	render: ({ itemsProps, groupProps }) => (
-		<div className={'space-y-2'}>
-			<p className={'font-medium text-contrasted-max'}>
+		<div className={'ui-space-y-2'}>
+			<p className={'ui-font-medium ui-text-contrasted-max'}>
 				What is you&apos;re position at Deeev ?
 			</p>
-			<RadioGroup className={'text-contrasted-max'} {...groupProps}>
+			<RadioGroup className={'ui-text-contrasted-max'} {...groupProps}>
 				{itemsProps.map(({ item, label }, i) => (
-					<div className="flex items-center justify-between space-x-2" key={i}>
+					<div
+						className="ui-flex ui-items-center ui-justify-between ui-space-x-2"
+						key={i}>
 						<Label {...label} htmlFor={item.id}>
 							{label.children}
 						</Label>

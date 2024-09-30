@@ -40,7 +40,7 @@ const variants = tv({
 		],
 		close: [
 			'ui-absolute ui-right-4 ui-top-4 ui-rounded-sm ui-opacity-70 ui-ring-offset-background ui-transition-opacity',
-			'hover:ui-opacity-100 focus:ui-outline-none disabled:ui-pointer-events-none data-[state=open]:ui-bg-card data-[state=open]:ui-text-contrasted-min',
+			'hover:ui-opacity-100 focus:ui-outline-none disabled:ui-pointer-events-none data-[state=open]:ui-bg-card data-[state=open]:ui-text-contrasted-low',
 		],
 	},
 	variants: {

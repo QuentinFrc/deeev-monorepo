@@ -15,7 +15,7 @@ type Story = StoryObj<{
 
 const Template: Story = {
 	render: ({ textareaProps, labelProps }) => (
-		<div className={'space-y-2'}>
+		<div className={'ui-space-y-2'}>
 			<Label {...labelProps} />
 			<Textarea {...textareaProps} />
 		</div>
@@ -25,7 +25,11 @@ const Template: Story = {
 export const Default: Story = {
 	...Template,
 	args: {
-		textareaProps: { id: 'textarea-el', placeholder: 'Your message', className: 'w-96' },
+		textareaProps: {
+			id: 'textarea-el',
+			placeholder: 'Your message',
+			className: 'ui-w-96',
+		},
 		labelProps: {
 			htmlFor: 'textarea-el',
 			children: 'Message',
@@ -41,7 +45,7 @@ export const Disabled: Story = {
 			id: 'textarea-el',
 			placeholder: 'Your message',
 			disabled: true,
-			className: 'w-96',
+			className: 'ui-w-96',
 		},
 		labelProps: {
 			htmlFor: 'textarea-el',
@@ -59,7 +63,7 @@ export const WithValue: Story = {
 			placeholder: 'Your message',
 			value:
 				'Hello world, Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus accusantium, aliquid beatae consequuntur cupiditate dolorem doloremque dolores ducimus eius ipsa ipsam itaque laboriosam, ratione rerum similique tenetur unde veniam voluptatibus? ',
-			className: 'min-w-96 min-h-40',
+			className: 'ui-min-w-96 ui-min-h-40',
 		},
 		labelProps: {
 			htmlFor: 'textarea-el',
@@ -77,7 +81,7 @@ export const WithValueDisabled: Story = {
 			placeholder: 'Your message',
 			value:
 				'Hello world, Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus accusantium, aliquid beatae consequuntur cupiditate dolorem doloremque dolores ducimus eius ipsa ipsam itaque laboriosam, ratione rerum similique tenetur unde veniam voluptatibus? ',
-			className: 'min-w-96 min-h-40',
+			className: 'ui-min-w-96 ui-min-h-40',
 			disabled: true,
 		},
 		labelProps: {
@@ -96,7 +100,7 @@ export const WithLabelDisabled: Story = {
 			placeholder: 'Your message',
 			value:
 				'Hello world, Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus accusantium, aliquid beatae consequuntur cupiditate dolorem doloremque dolores ducimus eius ipsa ipsam itaque laboriosam, ratione rerum similique tenetur unde veniam voluptatibus? ',
-			className: 'min-w-96 min-h-40',
+			className: 'ui-min-w-96 ui-min-h-40',
 			disabled: true,
 		},
 		labelProps: {

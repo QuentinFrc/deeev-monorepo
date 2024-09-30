@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import localFont from 'next/font/local';
 
 import '@/styles/globals.css';
 import '@repo/ui/styles';
@@ -7,17 +6,8 @@ import '@repo/ui/styles';
 import React from 'react';
 
 import { Locale } from '@/config/locales';
-
-const geistSans = localFont({
-	src: './fonts/GeistVF.woff',
-	variable: '--font-geist-sans',
-	weight: '100 900',
-});
-const geistMono = localFont({
-	src: './fonts/GeistMonoVF.woff',
-	variable: '--font-geist-mono',
-	weight: '100 900',
-});
+import { fontClassNames } from '@/config/fonts';
+import { cn } from '@repo/ui/utils';
 
 export const metadata: Metadata = {
 	title: 'Create Next App',
@@ -25,17 +15,17 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
-	children,
-	params,
-}: Readonly<{
+																		 children,
+																		 params,
+																	 }: Readonly<{
 	children: React.ReactNode;
 	params: { locale: Locale };
 }>) {
 	return (
 		<html lang={params.locale}>
-			<body className={`${geistSans.className} ${geistMono.variable} antialiased`}>
-				{children}
-			</body>
+		<body className={cn(fontClassNames)}>
+		{children}
+		</body>
 		</html>
 	);
 }

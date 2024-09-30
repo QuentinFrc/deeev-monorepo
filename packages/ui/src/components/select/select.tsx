@@ -14,7 +14,7 @@ const selectVariants = tv({
 		trigger: [
 			'ui-flex ui-h-9 ui-w-full ui-cursor-pointer ui-items-center ui-justify-between ui-rounded-md ui-border ui-border-border/80 ui-bg-card ui-p-2 ui-pl-4',
 			'ui-text-sm ui-font-medium ui-text-contrasted-max ui-outline-none',
-			'data-[placeholder]:ui-text-contrasted-min',
+			'data-[placeholder]:ui-text-contrasted-low',
 			'disabled:ui-cursor-not-allowed disabled:ui-opacity-50',
 		],
 		content: [
@@ -25,7 +25,7 @@ const selectVariants = tv({
 		],
 		viewport: ['ui-space-y-2 ui-p-2'],
 		label: [
-			'ui-inline-flex ui-items-center ui-gap-1 ui-px-2 ui-py-1.5 ui-text-sm ui-font-medium ui-text-contrasted-min',
+			'ui-inline-flex ui-items-center ui-gap-1 ui-px-2 ui-py-1.5 ui-text-sm ui-font-medium ui-text-contrasted-low',
 		],
 		separator: ['-ui-mx-1 ui-my-1 ui-h-px ui-bg-border'],
 		item: [

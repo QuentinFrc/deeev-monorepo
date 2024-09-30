@@ -1,52 +1,51 @@
 import React from 'react';
+import { FocusRing } from '#components/focus-ring';
+import { cn } from '#utils';
 import { ClassValue } from 'clsx';
 import { tv, VariantProps } from 'tailwind-variants';
 
-import { cn } from '#utils';
-import { FocusRing } from '#components/focus-ring';
-
 const _field = tv({
 	base: [
-		'group flex w-full rounded-inherit bg-card px-3 py-2',
-		'text-base font-medium text-contrasted-max focus-visible:outline-none',
-		'disabled:cursor-not-allowed disabled:opacity-50', // Disabled state
-		'placeholder:text-contrasted-min', // Placeholder
+		'ui-group ui-flex ui-w-full ui-rounded-inherit ui-bg-card ui-px-3 ui-py-2',
+		'ui-text-base ui-font-medium ui-text-contrasted-max focus-visible:ui-outline-none',
+		'disabled:ui-cursor-not-allowed disabled:ui-opacity-50', // Disabled state
+		'placeholder:ui-text-contrasted-low', // Placeholder
 	],
 	slots: {
 		container: [
-			'group relative flex size-max items-center',
-			'pseudo:pointer-events-none pseudo:absolute pseudo:inset-0 pseudo:z-10 pseudo:rounded-inherit',
-			'before:opacity-[0.04] before:ring-2 before:ring-foreground', //before for ring
-			'after:border after:border-foreground after:opacity-20 ', // After for border
-			'motion-safe:pseudo:transition-opacity motion-safe:pseudo:duration-150 motion-safe:pseudo:ease-in-out', // Transition
-			'[&:has(>[data-state=checked])]:after:opacity-100', // Checked state when enabled
+			'ui-group ui-relative ui-flex ui-size-max ui-items-center',
+			'pseudo:ui-pointer-events-none pseudo:ui-absolute pseudo:ui-inset-0 pseudo:ui-z-10 pseudo:ui-rounded-inherit',
+			'before:ui-opacity-[0.04] before:ui-ring-2 before:ui-ring-foreground', //before for ring
+			'after:ui-border after:ui-border-foreground after:ui-opacity-20 ', // After for border
+			'motion-safe:pseudo:ui-transition-opacity motion-safe:pseudo:ui-duration-150 motion-safe:pseudo:ui-ease-in-out', // Transition
+			'[&:has(>[data-state=checked])]:after:ui-opacity-100', // Checked state when enabled
 		],
-		focus: 'ring-offset-2 after:opacity-40', //Add border hover state when focused
+		focus: 'ui-ring-offset-2 after:ui-opacity-40', //Add border hover state when focused
 	},
 	variants: {
 		type: {
 			checkbox: {
-				container: 'rounded-md',
+				container: 'ui-rounded-md',
 			},
 			radio: {
-				container: 'rounded-full',
+				container: 'ui-rounded-full',
 			},
 			switch: {
-				container: 'rounded-xl',
+				container: 'ui-rounded-xl',
 			},
 			text: {
-				container: 'rounded-lg',
-				focus: 'ring-offset-1',
+				container: 'ui-rounded-lg',
+				focus: 'ui-ring-offset-1',
 			},
 		},
 		disabled: {
 			true: {
-				container: 'cursor-not-allowed opacity-50',
+				container: 'ui-cursor-not-allowed ui-opacity-50',
 			},
 			false: {
 				container: [
-					'hover:before:opacity-[0.16] hover:after:opacity-40', // Hover when enabled
-					'peer-hover/label:before:opacity-[0.16] peer-hover/label[&:has(>[data-state=unchecked])]:after:opacity-40', // Hover when label hover & enabled
+					'hover:before:ui-opacity-[0.16] hover:after:ui-opacity-40', // Hover when enabled
+					'peer-hover/label:before:ui-opacity-[0.16] peer-hover/label[&:has(>[data-state=unchecked])]:after:ui-opacity-40', // Hover when label hover & enabled
 				],
 			},
 		},

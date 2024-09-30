@@ -4,9 +4,8 @@ import React from 'react';
 import { Slot, Slottable } from '@radix-ui/react-slot';
 import { AriaButtonProps, useButton } from '@react-aria/button';
 import { useObjectRef } from '@react-aria/utils';
-import { VariantProps } from 'tailwind-variants';
-
 import { cn } from '#utils';
+import { VariantProps } from 'tailwind-variants';
 
 import { Border, Halo } from './_gradient-parts';
 import { FocusRing, HoverEffect, InnerEffect } from './_parts';
@@ -54,8 +53,8 @@ const Button = React.forwardRef<HTMLButtonElement, RootProps>(
 				className={cn(root({ variant, size, layout, disabled }), className)}
 				{...buttonProps}
 				ref={ref}>
-				<InnerEffect safeVariant={variant} />
-				<HoverEffect safeVariant={variant} />
+				{variant === 'outline' && <InnerEffect variant={variant} />}
+				{variant != 'link' && variant != 'gradient' && <HoverEffect variant={variant} />}
 				<Slottable>{children}</Slottable>
 			</Comp>
 		);
@@ -79,7 +78,7 @@ const ButtonRoot = React.forwardRef<ButtonRootRef, ButtonRootProps>(
 		ref,
 	) => {
 		return (
-			<FocusRing safeVariant={variant} disabled={props.disabled}>
+			<FocusRing variant={variant} disabled={props.disabled}>
 				{variant === 'gradient' ? (
 					<Halo size={size} layout={layout}>
 						<Border size={size}>

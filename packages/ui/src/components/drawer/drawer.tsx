@@ -15,7 +15,7 @@ const variants = tv({
 		],
 		scrollView: ['ui-flex ui-w-full ui-flex-col ui-overflow-auto ui-p-4'],
 		thumb: [
-			'ui-mx-auto ui-h-1.5 ui-w-24 ui-rounded-full ui-bg-contrasted-min ui-opacity-50 ui-outline-none ui-transition-opacity group-hover:ui-opacity-100',
+			'ui-mx-auto ui-h-1.5 ui-w-24 ui-rounded-full ui-bg-contrasted-low ui-opacity-50 ui-outline-none ui-transition-opacity group-hover:ui-opacity-100',
 		],
 	},
 });

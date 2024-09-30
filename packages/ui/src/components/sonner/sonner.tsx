@@ -14,7 +14,7 @@ const variants = tv({
 			'ui-rounded-md ui-border ui-bg-background ui-p-2 ui-shadow',
 		],
 		title: ['ui-text-sm !ui-text-contrasted-max'],
-		description: ['ui-text-xs !ui-text-contrasted'],
+		description: ['ui-text-xs !ui-text-contrasted-mid'],
 		actionButton: ['ui-font-medium'],
 		cancelButton: ['group/toast:ui-text-contrasted-max'],
 	},

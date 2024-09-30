@@ -1,19 +1,33 @@
 {
   "hero": {
-    "title": "Nous créons des sites pour",
-    "title_alternative_ends": [
-      "Entrepreneurs ambitieux",
-      "Entreprises en croissance"
-    ],
-    "description": "Nos solutions sur mesure, ont des performances exceptionnelles et une expérience utilisateur fluide.",
+    "title": "Nous créons des sites pour les",
+    "title_alternative_line_1": {
+      "business_owners": "Entrepreneurs",
+      "companies": "Entreprises",
+      "solopreneurs": "Solopreneurs",
+      "startups": "Startups"
+    },
+    "title_alternative_line_2": {
+      "business_owners": "ambitieux",
+      "companies": "en croissance",
+      "solopreneurs": "audacieux",
+      "startups": "innovantes"
+    },
+    "accessibility_title": "Nous créons des sites pour les Entrepreneurs ambitieux et les Entreprises en croissance",
+    "description": "De la conception à la mise en ligne, nous développons des sites web qui non seulement captivent vos visiteurs mais aussi optimisent votre présence en ligne et favorisent votre succès.",
     "main_cta": {
       "default": "Réserver un appel avec {name}",
-      "hover": "..."
+      "hover": "Vous êtes à un clic de votre succès"
     },
     "sub_cta": "Voir nos réalisations"
   },
+  "logos": {
+    "title": "Le fruit d'expériences variées"
+  },
   "customers_challenges": {
+    "onTitle": "Challenges",
     "title": "Les défis de nos clients",
+    "description": "Nous avons travaillé avec des entrepreneurs ambitieux et des entreprises en croissance. Voici les défis qu'ils rencontrent et que nous avons résolus ensemble.",
     "cards": {
       "visibility": {
         "title": "Visibilité et Réputation en Ligne",
@@ -80,34 +94,72 @@
     "cards": {
       "landing_page": {
         "title": "Landing Page",
-        "target": "Cible: Particulièrement adapté aux Solopreneurs qui lancent leur activité et souhaitent promouvoir 1 ou 2 offre(s) grâce à une belle page de ventes, parfaite pour convertir.",
-        "price": "Prix: À partir de 4 500€",
+        "description": "Particulièrement adapté aux Solopreneurs qui lancent leur activité et souhaitent promouvoir 1 ou 2 offre(s) grâce à une belle page de ventes, parfaite pour convertir.",
+        "price": "4 500€",
         "maintenance": "Maintenance: À partir de 120€/mois ou 1320€/an",
         "features": [
-          "Service d'Analytics"
-        ]
+          "Service d'Analytics",
+          "CMS Auto hébergé"
+        ],
+        "call_to_action": "Réserver un appel"
       },
-      "complete_website": {
+      "full_website": {
         "title": "Site Complet",
-        "target": "Cible: Répond globalement au plus grand besoin, en proposant un site complet avec plusieurs pages.",
-        "price": "Prix: À partir de 12 000€",
+        "description": "Répond globalement au plus grand besoin, en proposant un site complet avec plusieurs pages.",
+        "price": "12 000€",
         "maintenance": "Maintenance: À partir de 299€/mois ou 3 200€/an",
         "features": [
           "Service d'Analytics",
-          "Gestion Multilingue",
           "CMS Auto hébergé",
-          "Back Office - Demande de contact"
-        ]
+          "Gestion Multilingue",
+          "Back Office - Demande de contact",
+          "Multi Pages",
+          "Blog"
+        ],
+        "call_to_action": "Réserver un appel"
       },
       "web_app": {
         "title": "Web App",
-        "target": "Cible: Solution entièrement personnalisée intégrant des systèmes complexes. (Création d'un SAAS, ajout de fonctionnalités IA, gestion d'utilisateurs etc…) ",
-        "price": "Prix: À partir de 20 000€",
+        "description": "Solution entièrement personnalisée intégrant des systèmes complexes. (Création d'un SAAS, ajout de fonctionnalités IA, gestion d'utilisateurs etc…) ",
+        "price": "+20 000€",
         "maintenance": "Maintenance: À partir de 499€/mois ou 5 489€/an",
         "features": [
           "Tout ce dont vous avez besoin"
-        ]
+        ],
+        "call_to_action": "Réserver un appel"
       }
+    },
+    "payment_mode": {
+      "one_time": "Paiement unique",
+      "subscription": "Abonnement"
+    }
+  },
+  "our_process": {
+    "title": "On s'occupe de tout",
+    "description": "Tout le monde peut créer un site internet mais personne ne le fait comme nous. ",
+    "cards": {
+      "first_call": {
+        "title": "Premier échange",
+        "description": "A la fin de ce call, nous avons listé vos objectifs et définis les notre."
+      },
+      "progress": {
+        "title": "Progression",
+        "description": "Nous assurons l’avancement du projet."
+      },
+      "project_management": {
+        "title": "Gestion de Projet",
+        "description": "Nous gérons le projet de son initialisation à sa réussite."
+      },
+      "as_you_wish": {
+        "title": "Choisissez vos préférences",
+        "description": "Nous adaptons notre façon de travailler à votre profil."
+      }
+    }
+  },
+  "faq": {
+    "title": "Questions Fréquentes",
+    "description": "Vous avez des questions ? Nous avons les réponses.",
+    "questions": {
     }
   }
 }

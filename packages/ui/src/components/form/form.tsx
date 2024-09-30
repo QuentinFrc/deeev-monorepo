@@ -8,6 +8,7 @@ import { AnimatePresence } from 'framer-motion';
 import {
 	Controller,
 	ControllerProps,
+	FieldError,
 	FieldPath,
 	FieldValues,
 	FormProvider,
@@ -134,7 +135,7 @@ const FormDescription = React.forwardRef<HTMLParagraphElement, FormDescriptionPr
 			<p
 				ref={ref}
 				id={formDescriptionId}
-				className={cn('ui-text-sm ui-text-contrasted-min', className)}
+				className={cn('ui-text-sm ui-text-contrasted-low', className)}
 				{...props}
 			/>
 		);
@@ -142,34 +143,42 @@ const FormDescription = React.forwardRef<HTMLParagraphElement, FormDescriptionPr
 );
 FormDescription.displayName = 'FormDescription';
 
-const FormMessage = React.forwardRef<
-	HTMLParagraphElement,
-	React.HTMLAttributes<HTMLParagraphElement>
->(({ className, children, ...props }, ref) => {
-	const { error, formMessageId } = useFormField();
-	const body = error ? String(error?.message) : children;
+type FormMessageProps = React.HTMLAttributes<HTMLParagraphElement> & {
+	formatMessage?: (error: FieldError) => string;
+};
 
-	if (!body) {
-		return null;
-	}
+const FormMessage = React.forwardRef<HTMLParagraphElement, FormMessageProps>(
+	({ className, formatMessage, children, ...props }, ref) => {
+		const { error, formMessageId } = useFormField();
 
-	return (
-		<p
-			ref={ref}
-			id={formMessageId}
-			className={cn('ui-text-sm ui-font-medium ui-text-danger-500', className)}
-			{...props}>
-			{body}
-		</p>
-	);
-});
+		const formater = formatMessage ?? ((error) => String(error.message));
+
+		const body = error ? formater(error) : children;
+
+		if (!body) {
+			return null;
+		}
+
+		return (
+			<p
+				ref={ref}
+				id={formMessageId}
+				className={cn('ui-text-sm ui-font-medium ui-text-danger-500', className)}
+				{...props}>
+				{body}
+			</p>
+		);
+	},
+);
 FormMessage.displayName = 'FormMessage';
 
-const FormDescriptionOrMessage: React.FC<FormDescriptionProps> = (props) => {
+export type FormDescriptionOrMessageProps = FormMessageProps & FormDescriptionProps;
+
+const FormDescriptionOrMessage = (props: FormDescriptionOrMessageProps) => {
 	const { error, formState } = useFormField();
 
 	const showError = error && formState.submitCount > 0;
-	return showError ? <FormMessage /> : <FormDescription {...props} />;
+	return showError ? <FormMessage {...props} /> : <FormDescription {...props} />;
 };
 
 export {

@@ -2,22 +2,21 @@
 
 import React from 'react';
 import * as LabelPrimitive from '@radix-ui/react-label';
-import { tv, type VariantProps } from 'tailwind-variants';
-
-import { cn } from '#utils';
 import { Icon, IconName } from '#components/icons';
+import { cn } from '#utils';
+import { tv, type VariantProps } from 'tailwind-variants';
 
 const labelVariants = tv({
 	base: [
-		'peer/label inline-flex items-center gap-2 text-sm text-contrasted-mid',
-		'peer-disabled:pointer-events-none peer-disabled:opacity-50',
+		'ui-peer/label ui-inline-flex ui-items-center ui-gap-2 ui-text-sm ui-text-contrasted-mid',
+		'peer-disabled:ui-pointer-events-none peer-disabled:ui-opacity-50',
 	],
 	variants: {
 		disabled: {
-			true: 'opacity-50',
+			true: 'ui-opacity-50',
 		},
 		error: {
-			true: 'text-danger-500',
+			true: 'ui-text-danger-500',
 		},
 	},
 });

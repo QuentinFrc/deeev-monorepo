@@ -1,5 +1,4 @@
 import { Meta, StoryObj } from '@storybook/react';
-
 import { cn } from '#utils';
 
 import { Progress, ProgressProps } from './progress';
@@ -13,7 +12,11 @@ type Story = StoryObj<typeof Progress>;
 
 const ProgressTemplate: Story = {
 	render: (args) => (
-		<div className={cn('flex size-64 items-center justify-center', '[--percentage:66%]')}>
+		<div
+			className={cn(
+				'ui-flex ui-size-64 ui-items-center ui-justify-center',
+				'[--percentage:66%]',
+			)}>
 			<Progress {...args} />
 		</div>
 	),
@@ -26,8 +29,8 @@ const MultipleProgressTemplate: (
 	render: () => (
 		<div
 			className={cn(
-				'flex gap-4',
-				global.orientation == 'vertical' ? 'h-96' : 'w-96 flex-col',
+				'ui-flex ui-gap-4',
+				global.orientation == 'vertical' ? 'ui-h-96' : 'ui-w-96 ui-flex-col',
 			)}>
 			{props.map((p, i) => (
 				<Progress

@@ -1,18 +1,17 @@
 'use client';
 
 import React from 'react';
-import { tv } from 'tailwind-variants';
-
 import { cn } from '#utils';
+import { tv } from 'tailwind-variants';
 
 import { _field, FieldContainer } from '../base';
 
 const _input = tv({
 	extend: _field,
 	base: [
-		'h-10',
-		'[&[type="file"]]:p-1',
-		'file:h-full file:rounded-sm file:border-0 file:bg-border file:px-2 file:text-sm file:font-medium file:text-contrasted-max',
+		'ui-h-10',
+		'[&[type="file"]]:ui-p-1',
+		'file:ui-h-full file:ui-rounded-sm file:ui-border-0 file:ui-bg-border file:ui-px-2 file:ui-text-sm file:ui-font-medium file:ui-text-contrasted-max',
 	],
 });
 
