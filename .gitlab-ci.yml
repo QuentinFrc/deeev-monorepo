@@ -8,7 +8,7 @@ default:
 
 .with-npmtoken: &install_package_token
   - echo "@deeev-pro:registry=https://${CI_SERVER_HOST}/api/v4/projects/52187352/packages/npm/">>.npmrc
-  - echo "//${CI_SERVER_HOST}/api/v4/projects/52187352/packages/npm/:_authToken=${PACKAGE_REGISTRY_TOKEN}">>.npmrc
+  - echo "//${CI_SERVER_HOST}/api/v4/projects/52187352/packages/npm/:_authToken=${CI_DEPLOY_PASSWORD}">>.npmrc
 
 
 deploy_preview:
