@@ -1,0 +1,18 @@
+diff --git a/picocolors.js b/picocolors.js
+index 8b8a23e41b156f7ec0d84f6f6126385f1dd8418d..8add3d6fde2cd883bc76063d2ae5349fbab712a5 100644
+--- a/picocolors.js
++++ b/picocolors.js
+@@ -1,11 +1,12 @@
+ let argv = process.argv || [],
+ 	env = process.env
++let tty = require("tty")
+ let isColorSupported =
+ 	!("NO_COLOR" in env || argv.includes("--no-color")) &&
+ 	("FORCE_COLOR" in env ||
+ 		argv.includes("--color") ||
+ 		process.platform === "win32" ||
+-		(require != null && require("tty").isatty(1) && env.TERM !== "dumb") ||
++		(tty && tty.isatty(1) && env.TERM !== "dumb") ||
+ 		"CI" in env)
+ 
+ let formatter =
