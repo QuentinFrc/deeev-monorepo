@@ -16,14 +16,23 @@ import {
 	CarouselReset,
 } from '@repo/ui/carousel';
 
-import Mockup1 from './mockup-1.png';
-import Mockup2 from './mockup-2.png';
-import Mockup3 from './mockup-3.png';
-import Mockup4 from './mockup-4.png';
-import Mockup5 from './mockup-5.png';
+import MockupBolight from './mockup-bolight.png';
+import MockupBooknest from './mockup-booknest.png';
+import MockupDreamPlan from './mockup-dream-plan.png';
+import MockupEskape from './mockup-eskape.png';
+import MockupKaizen from './mockup-kaizen.png';
+import MockupSkillswap from './mockup-skillswap.png';
 import SafariHeader from './safari-header.png';
 
-const mockups = [Mockup1, Mockup2, Mockup3, Mockup4, Mockup5] as const;
+const mockups = [
+	MockupDreamPlan,
+	MockupKaizen,
+	MockupEskape,
+	MockupBolight,
+	MockupKaizen,
+	MockupSkillswap,
+	MockupBooknest,
+];
 
 type ServicesCarouselProps = {
 	cards: {
