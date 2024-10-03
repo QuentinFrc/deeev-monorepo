@@ -6,12 +6,12 @@ import { cn, tv, VariantProps } from '#utils';
 const _badge = tv({
 	slots: {
 		root: [
-			'ui-relative ui-z-10 ui-inline-flex ui-size-max ui-max-w-full ui-items-center ui-rounded-lg',
+			'ui-relative ui-z-0 ui-inline-flex ui-size-max ui-max-w-full ui-items-center ui-rounded-lg',
 			'ui-font-semibold ui-leading-[1.42857em]',
-			'after:ui-absolute after:ui-inset-0 after:-ui-z-20 after:ui-rounded-inherit',
-			'before:ui-absolute before:ui-inset-0 before:-ui-z-10 before:ui-rounded-lg-minus-[1px]',
+			'after:ui-absolute after:ui-inset-0 after:-ui-z-20 after:ui-rounded-inherit', // background
+			'before:ui-absolute before:ui-inset-0 before:-ui-z-10 before:ui-rounded-lg-minus-[1px]', //border / background with inset-px
 		],
-		label: 'ui-relative ui-z-10 ui-inline-flex ui-px-1',
+		label: 'ui-relative ui-z-10 ui-inline-flex ui-whitespace-nowrap ui-px-1',
 	},
 	variants: {
 		variant: {
@@ -28,13 +28,16 @@ const _badge = tv({
 				root: 'ui-px-1 ui-py-0.5 ui-text-xs',
 			},
 			md: {
-				root: 'ui-px-1.5 ui-py-1 ui-text-sm',
+				root: 'ui-px-1.5 ui-py-1 ui-text-sm/[20px]',
 			},
+		},
+		group: {
+			true: { root: 'before:ui-rounded-xl-minus-[1px] after:ui-rounded-xl' },
 		},
 		type: {
 			fill: { root: 'ui-text-background' },
 			outline: {
-				root: 'ui-text-contrasted-max before:-ui-inset-px before:ui-bg-background',
+				root: 'ui-text-contrasted-max before:ui-bg-background after:-ui-inset-px',
 			},
 		},
 	},
@@ -42,6 +45,7 @@ const _badge = tv({
 		variant: 'gradient',
 		type: 'fill',
 		size: 'md',
+		group: false,
 	},
 	compoundVariants: [
 		{

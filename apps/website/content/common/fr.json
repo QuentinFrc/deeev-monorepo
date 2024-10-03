@@ -2,6 +2,8 @@
   "and": "et",
   "then": "puis",
   "starting_at": "à partir de",
+  "see_more": "Voir plus",
+  "see_less": "Voir moins",
   "form": {
     "error_messages": {
       "invalid_email": "Email invalide",

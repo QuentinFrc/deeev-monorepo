@@ -6,3 +6,5 @@ export * from './our-process';
 export * from './faq';
 export * from './contact-us';
 export * from './logos';
+export * from './use-cases';
+export * from './footer';

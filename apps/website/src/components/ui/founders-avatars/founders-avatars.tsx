@@ -14,10 +14,9 @@ type AvatarProps = {
 };
 export const FounderAvatar: React.FC<AvatarProps> = ({ avatarSrc, name }) => (
 	<AvatarPrimitives.Root
-		className={cn([
-			'relative z-10 inline-block rounded-full',
-			'size-24 border-2 border-background',
-		])}>
+		size={'lg'}
+		shape={'rounded-md'}
+		className={cn(['relative z-10 border-2 border-background'])}>
 		<Image
 			src={avatarSrc}
 			alt={name}

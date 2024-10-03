@@ -11,6 +11,22 @@ const variants = tv({
 			'contrasted-mid': ['ui-text-contrasted-mid'],
 			'contrasted-low': ['ui-text-contrasted-low'],
 		},
+		leading: {
+			none: ['ui-leading-none'],
+			tight: ['ui-leading-tight'],
+			snug: ['ui-leading-snug'],
+			normal: ['ui-leading-normal'],
+			relaxed: ['ui-leading-relaxed'],
+			loose: ['ui-leading-loose'],
+		},
+		tracking: {
+			tighter: ['ui-tracking-tighter'],
+			tight: ['ui-tracking-tight'],
+			normal: ['ui-tracking-normal'],
+			wide: ['ui-tracking-wide'],
+			wider: ['ui-tracking-wider'],
+			widest: ['ui-tracking-widest'],
+		},
 		size: {
 			xs: ['ui-text-xs'],
 			sm: ['ui-text-sm'],
@@ -35,6 +51,11 @@ const variants = tv({
 			extrabold: ['ui-font-extrabold'],
 			black: ['ui-font-black'],
 		},
+		align: {
+			center: ['ui-text-center'],
+			left: ['ui-text-left'],
+			right: ['ui-text-right'],
+		},
 	},
 });
 type TypographyVariantProps = VariantProps<typeof variants>;
@@ -48,6 +69,7 @@ export const TypographyDefault = ({
 	color,
 	size,
 	weight,
+	align,
 	asChild,
 	children,
 	className,
@@ -55,7 +77,7 @@ export const TypographyDefault = ({
 }: TypographyProps) => {
 	const Comp = asChild ? Slot : 'div';
 	return (
-		<Comp className={cn(variants({ color, size, weight }), className)} {...props}>
+		<Comp className={cn(variants({ color, size, weight, align }), className)} {...props}>
 			{children}
 		</Comp>
 	);
@@ -94,6 +116,14 @@ export const TypographyLead = ({ children, ...props }: TypographyLeadProps) => {
 		</TypographyDefault>
 	);
 };
+type TypographySpanProps = Omit<TypographyProps, 'asChild'>;
+export const TypographySpan = ({ children, ...props }: TypographySpanProps) => {
+	return (
+		<TypographyDefault asChild {...props}>
+			<span>{children}</span>
+		</TypographyDefault>
+	);
+};
 
 export { variants as typographyVariants };
 
@@ -105,4 +135,5 @@ export const Typography = {
 	p: TypographyParagraph,
 	ul: TypographyUnorderedList,
 	li: TypographyListElement,
+	span: TypographySpan,
 };

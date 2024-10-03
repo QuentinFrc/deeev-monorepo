@@ -13,7 +13,7 @@
     "@next-safe-action/adapter-react-hook-form": "^1.0.13",
     "@repo/emails": "workspace:*",
     "@repo/ui": "workspace:*",
-    "motion-number": "^0.1.7",
+    "@number-flow/react": "^0.1.1",
     "next": "14.2.8",
     "next-intl": "^3.19.1",
     "next-safe-action": "^7.9.2",

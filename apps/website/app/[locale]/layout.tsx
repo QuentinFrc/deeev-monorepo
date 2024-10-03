@@ -1,12 +1,13 @@
 import type { Metadata } from 'next';
 
-import '@/styles/globals.css';
 import '@repo/ui/styles';
+import '@/styles/globals.css';
 
 import React from 'react';
 
-import { Locale } from '@/config/locales';
+import { Footer } from '@/components/marketing';
 import { fontClassNames } from '@/config/fonts';
+import { Locale } from '@/config/locales';
 import { cn } from '@repo/ui/utils';
 
 export const metadata: Metadata = {
@@ -15,17 +16,18 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
-																		 children,
-																		 params,
-																	 }: Readonly<{
+	children,
+	params,
+}: Readonly<{
 	children: React.ReactNode;
 	params: { locale: Locale };
 }>) {
 	return (
 		<html lang={params.locale}>
-		<body className={cn(fontClassNames)}>
-		{children}
-		</body>
+			<body className={cn(fontClassNames)}>
+				{children}
+				<Footer />
+			</body>
 		</html>
 	);
 }

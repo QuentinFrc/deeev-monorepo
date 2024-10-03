@@ -1,0 +1,10 @@
+:root {
+	color-scheme: dark;
+}
+
+body {
+	overflow-x: hidden;
+	scroll-behavior: smooth;
+	background-color: var(--background);
+	font-family: var(--font-sans);
+}

@@ -90,37 +90,38 @@
   },
   "packages": {
     "title": "Nos Packages",
-    "description": "Nous affichons nos prix clairement et sommes fiers d’offrir de la visibilité aux entrepreneurs qui s’intéressent à nos prestations. Ceux-ci restent cependant indicatifs car chaque projet est différent.",
+    "description": "Nous affichons nos prix clairement et sommes fiers d’offrir de la visibilité aux entrepreneurs qui s’intéressent à nos prestations.",
     "cards": {
       "landing_page": {
         "title": "Landing Page",
-        "description": "Particulièrement adapté aux Solopreneurs qui lancent leur activité et souhaitent promouvoir 1 ou 2 offre(s) grâce à une belle page de ventes, parfaite pour convertir.",
+        "description": "Page de vente optimisé pour la conversion.",
         "price": "4 500€",
         "maintenance": "Maintenance: À partir de 120€/mois ou 1320€/an",
         "features": [
           "Service d'Analytics",
-          "CMS Auto hébergé"
+          "CMS Auto hébergé",
+          "Design Sur Mesure"
         ],
-        "call_to_action": "Réserver un appel"
+        "call_to_action": "Créer ma landing page"
       },
       "full_website": {
         "title": "Site Complet",
-        "description": "Répond globalement au plus grand besoin, en proposant un site complet avec plusieurs pages.",
+        "description": "Site web sur-mesure pour renforcer votre visibilité en ligne.",
         "price": "12 000€",
         "maintenance": "Maintenance: À partir de 299€/mois ou 3 200€/an",
         "features": [
           "Service d'Analytics",
           "CMS Auto hébergé",
+          "Design Sur Mesure",
           "Gestion Multilingue",
-          "Back Office - Demande de contact",
-          "Multi Pages",
-          "Blog"
+          "Modifications illimités",
+          "Nombre de page illimités"
         ],
-        "call_to_action": "Réserver un appel"
+        "call_to_action": "Créer mon site web"
       },
       "web_app": {
         "title": "Web App",
-        "description": "Solution entièrement personnalisée intégrant des systèmes complexes. (Création d'un SAAS, ajout de fonctionnalités IA, gestion d'utilisateurs etc…) ",
+        "description": "Solution personnalisées pouvant intégrer des systèmes complexes.",
         "price": "+20 000€",
         "maintenance": "Maintenance: À partir de 499€/mois ou 5 489€/an",
         "features": [
@@ -130,8 +131,13 @@
       }
     },
     "payment_mode": {
-      "one_time": "Paiement unique",
-      "subscription": "Abonnement"
+      "default": "Normal",
+      "discounted": "Prix réduit",
+      "spot_left": "Il reste {spot_count} places"
+    },
+    "precision": {
+      "title": "Précision",
+      "description": "Nos solutions sont toutes créées sur-mesure, sans recourir à des outils no-code, tout en restant à des prix extrêmement compétitifs."
     }
   },
   "our_process": {
@@ -159,7 +165,42 @@
   "faq": {
     "title": "Questions Fréquentes",
     "description": "Vous avez des questions ? Nous avons les réponses.",
-    "questions": {
-    }
+    "questions": [
+      {
+        "question": "Quelle est la durée de réalisation de chaque package ?",
+        "answer": "La durée de réalisation d'un site web dépend de la complexité de votre projet. Pour une landing page, il faut compter entre 2 et 4 semaines. Pour un site complet, il faut compter entre 4 et 8 semaines."
+      },
+      {
+        "question": "Quelle est la différence entre une landing page et un site complet ?",
+        "answer": "Une landing page est une page unique qui a pour objectif de convertir un visiteur en client. Un site complet est un ensemble de pages qui permettent de présenter votre entreprise, vos services et vos produits."
+      },
+      {
+        "question": "Pourquoi choisir un site sur-mesure plutôt qu'un site avec un outil no-code ?",
+        "answer": "Un site sur-mesure est unique et n'a pas de limite. De plus, en étant entièrement maitre du code, nous pouvons garantir un meilleur référencement, de meilleures performances ainsi qu'une meilleur sécurité pour votre solution."
+      },
+      {
+        "question": "Les prix affichés sont-ils fixes ?",
+        "answer": "Les prix affichés sont fixes dans le cas où vous n'avez pas de besoins spécifiques. Cependant, nous pouvons vous proposer un devis sur-mesure si vous avez besoin d'une intégration ou d'un développement spécifique."
+      }, {
+        "question": "Faites vous des sites e-commerce ?",
+        "answer": "Nous ne proposons pas de package e-commerce car les plateformes telles que Shopify ou Prestashop sont souvent plus adaptées pour ce type de projet. Cependant, nous pouvons créer votre site e-commerce dans le cadre ou votre catalogue est assez réduit (Moins de ~20 Produits)."
+      }, {
+        "question": "Pourquoi nous faire confiance ?",
+        "answer": "Contrairement à d'autres agences, nous nous définissons comme un partenaire informatique et non un prestataire. Nous cherchons à vous accompagner dans la durée et à vous apporter des solutions compétitives dans le temps sans chercher à vous vendre des services inutiles."
+      },
+      {
+        "question": "Proposez vous des réductions ?",
+        "answer": "Oui, nous souhaitons aider les entrepreneurs ambitieux et les entreprises en croissance à se développer. C'est pourquoi nous proposons des réductions pour les projets qui nous tiennent à cœur."
+      },
+      {
+        "question": "Qui est votre client idéal ?",
+        "answer": "Notre client idéal souhaite investir dans sa présence en ligne et cherche un partenaire de confiance pour l'accompagner dans la durée. Il est ambitieux et cherche à se démarquer de la concurrence. Qu'il parte de zéro ou qu'il ait déjà une présence en ligne, il souhaite aller plus loin et se démarquer."
+      }
+    ]
+  },
+  "useCases": {
+    "onTitle": "Use Cases",
+    "title": "Nos Réalisations",
+    "description": "Nous avons travaillé avec des entrepreneurs ambitieux et des entreprises en croissance. Voici quelques exemples de projets que nous avons réalisés ensemble."
   }
 }

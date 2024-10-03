@@ -3,10 +3,10 @@ import {
 	CustomersChallenges,
 	FAQ,
 	Hero,
-	Logos,
 	OurProcess,
 	OurServices,
 	Pricing,
+	UseCases,
 } from '@/components/marketing';
 
 export default function Home() {
@@ -17,6 +17,7 @@ export default function Home() {
 			<OurServices />
 			<Pricing />
 			<OurProcess />
+			<UseCases />
 			<FAQ />
 			<ContactUs />
 		</main>

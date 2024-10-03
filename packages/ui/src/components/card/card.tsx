@@ -2,21 +2,30 @@
 
 import { forwardRef, HTMLAttributes } from 'react';
 import { Slot } from '@radix-ui/react-slot';
-import { cn } from '#utils';
+import { cn, VariantProps } from '#utils';
 import { tv } from 'tailwind-variants';
+
+import { TypographyVariantProps, typographyVariants } from '../typography';
 
 const cardVariants = tv({
 	slots: {
 		root: ['ui-rounded-lg ui-border ui-bg-card ui-text-contrasted-max ui-shadow-sm'],
 		header: ['ui-flex ui-flex-col ui-gap-y-1'],
-		title: ['ui-text-lg ui-font-semibold ui-leading-none ui-tracking-tight'],
-		description: ['ui-text-sm ui-text-contrasted-mid'],
-		content: ['ui-p-6'],
+		content: [''],
 		footer: ['ui-flex ui-items-center ui-p-6 ui-pt-0'],
+	},
+	variants: {
+		size: {
+			base: { content: 'ui-p-4' },
+			lg: { content: 'ui-p-6' },
+		},
+	},
+	defaultVariants: {
+		size: 'base',
 	},
 });
 
-const { root, header, title, description, content, footer } = cardVariants();
+const { root, header, content, footer } = cardVariants();
 
 type CardProps = HTMLAttributes<HTMLDivElement>;
 
@@ -33,28 +42,77 @@ const CardHeader = forwardRef<HTMLDivElement, CardHeaderProps>(
 );
 CardHeader.displayName = 'CardHeader';
 
-type CardTitleProps = HTMLAttributes<HTMLHeadingElement> & { asChild?: boolean };
+type CardTitleProps = HTMLAttributes<HTMLHeadingElement> & { asChild?: boolean } & Pick<
+		TypographyVariantProps,
+		'size' | 'weight' | 'align' | 'color' | 'leading' | 'tracking'
+	>;
 const CardTitle = forwardRef<HTMLParagraphElement, CardTitleProps>(
-	({ className, asChild = false, ...props }, ref) => {
+	(
+		{
+			className,
+			size = 'lg',
+			align,
+			weight = 'semibold',
+			leading = 'none',
+			tracking = 'tight',
+			color,
+			asChild = false,
+			...props
+		},
+		ref,
+	) => {
 		const Comp = asChild ? Slot : 'h3';
-		return <Comp ref={ref} className={cn(title(), className)} {...props} />;
+		return (
+			<Comp
+				ref={ref}
+				className={cn(
+					typographyVariants({ size, align, weight, leading, tracking, color }),
+					className,
+				)}
+				{...props}
+			/>
+		);
 	},
 );
 CardTitle.displayName = 'CardTitle';
 
-type CardDescriptionProps = HTMLAttributes<HTMLParagraphElement>;
+type CardDescriptionProps = HTMLAttributes<HTMLParagraphElement> &
+	Pick<
+		TypographyVariantProps,
+		'size' | 'weight' | 'align' | 'color' | 'leading' | 'tracking'
+	>;
 const CardDescription = forwardRef<HTMLParagraphElement, CardDescriptionProps>(
-	({ className, ...props }, ref) => (
-		<p ref={ref} className={cn(description(), className)} {...props} />
+	(
+		{
+			className,
+			size = 'sm',
+			align,
+			weight,
+			leading,
+			tracking,
+			color = 'contrasted-mid',
+			...props
+		},
+		ref,
+	) => (
+		<p
+			ref={ref}
+			className={cn(
+				typographyVariants({ size, align, weight, leading, tracking, color }),
+				className,
+			)}
+			{...props}
+		/>
 	),
 );
 CardDescription.displayName = 'CardDescription';
 
-type CardContentProps = HTMLAttributes<HTMLDivElement>;
+type CardContentProps = HTMLAttributes<HTMLDivElement> &
+	Pick<VariantProps<typeof cardVariants>, 'size'>;
 
 const CardContent = forwardRef<HTMLDivElement, CardContentProps>(
-	({ className, ...props }, ref) => (
-		<div ref={ref} className={cn(content(), className)} {...props} />
+	({ className, size, ...props }, ref) => (
+		<div ref={ref} className={cn(content({ size }), className)} {...props} />
 	),
 );
 CardContent.displayName = 'CardContent';

@@ -3,7 +3,7 @@ import { Slot } from '@radix-ui/react-slot';
 import { cn, tv, VariantProps } from '#utils';
 
 const shimmerVariants = tv({
-	base: 'ui-text-shimmer',
+	base: 'text-shimmer',
 	variants: {
 		color: {
 			white: '[--default-color:theme(colors.white)]',

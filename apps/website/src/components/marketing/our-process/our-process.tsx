@@ -1,3 +1,12 @@
+import React from 'react';
+
+import { ProcessGrid } from '@/components/marketing/our-process/process-grid';
+import {
+	SectionHeader,
+	SectionHeaderAnchor,
+	SectionHeaderDescription,
+	SectionHeaderTitle,
+} from '@/components/ui/section-header';
 import { useTranslations } from '@/hooks/use-translations';
 
 const getTranslations = () => {
@@ -7,18 +16,22 @@ const getTranslations = () => {
 		description: t('description'),
 		cards: [
 			{
+				icon: 'Placeholder',
 				title: t('cards.first_call.title'),
 				description: t('cards.first_call.description'),
 			},
 			{
+				icon: 'Placeholder',
 				title: t('cards.progress.title'),
 				description: t('cards.progress.description'),
 			},
 			{
+				icon: 'Placeholder',
 				title: t('cards.project_management.title'),
 				description: t('cards.project_management.description'),
 			},
 			{
+				icon: 'Placeholder',
 				title: t('cards.as_you_wish.title'),
 				description: t('cards.as_you_wish.description'),
 			},
@@ -29,17 +42,13 @@ const getTranslations = () => {
 export const OurProcess = () => {
 	const { title, description, cards } = getTranslations();
 	return (
-		<div>
-			<h2>{title}</h2>
-			<p>{description}</p>
-			<ul>
-				{cards.map((card, index) => (
-					<li key={index}>
-						<h3>{card.title}</h3>
-						<p>{card.description}</p>
-					</li>
-				))}
-			</ul>
-		</div>
+		<section className={'container space-y-16 py-32'}>
+			<SectionHeader>
+				<SectionHeaderAnchor>Notre process</SectionHeaderAnchor>
+				<SectionHeaderTitle>{title}</SectionHeaderTitle>
+				<SectionHeaderDescription>{description}</SectionHeaderDescription>
+			</SectionHeader>
+			<ProcessGrid cards={cards} />
+		</section>
 	);
 };

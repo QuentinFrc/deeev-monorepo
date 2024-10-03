@@ -4,8 +4,9 @@ import { cn, tv } from '#utils';
 import * as Badge from '../badge';
 import { BadgeRootProps } from '../badge';
 
+const { root: baseRootStyle } = Badge.styles();
+
 const badgeGroupVariants = tv({
-	extend: Badge.styles,
 	slots: {
 		root: ['ui-gap-3 ui-rounded-xl ui-p-1 ui-pr-3'],
 		content: [
@@ -19,7 +20,10 @@ const { root, content } = badgeGroupVariants();
 export type BadgeGroupRootProps = Pick<BadgeRootProps, 'variant'> &
 	React.PropsWithChildren;
 const BadgeGroupRoot: React.FC<BadgeGroupRootProps> = ({ variant, ...props }) => (
-	<div className={cn(root({ variant, type: 'outline' }))} {...props} />
+	<div
+		className={cn(baseRootStyle({ variant, type: 'outline', group: true }), root())}
+		{...props}
+	/>
 );
 
 type BadgeGroupContentProps = React.PropsWithChildren;

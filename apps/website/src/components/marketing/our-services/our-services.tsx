@@ -6,6 +6,8 @@ import {
 } from '@/components/ui/section-header';
 import { useTranslations } from '@/hooks/use-translations';
 
+import { ServicesCarousel } from './services-carousel';
+
 const getTranslations = () => {
 	const t = useTranslations('homepage.our_services');
 	return {
@@ -45,20 +47,13 @@ export const OurServices = (props: OurServicesProps) => {
 	const { title, cards } = getTranslations();
 
 	return (
-		<section className={'container'}>
+		<section className={'container space-y-16'}>
 			<SectionHeader>
 				<SectionHeaderAnchor>Anchor</SectionHeaderAnchor>
 				<SectionHeaderTitle>{title}</SectionHeaderTitle>
 				<SectionHeaderDescription>description</SectionHeaderDescription>
 			</SectionHeader>
-			<ul>
-				{cards.map((card, index) => (
-					<li key={index}>
-						<h3>{card.title}</h3>
-						<p>{card.description}</p>
-					</li>
-				))}
-			</ul>
+			<ServicesCarousel cards={cards} />
 		</section>
 	);
 };

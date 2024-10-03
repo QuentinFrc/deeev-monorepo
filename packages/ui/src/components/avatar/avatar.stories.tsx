@@ -14,24 +14,29 @@ const StoryAvatar: React.FC<AvatarStoryProps> = (args) => (
 		<Avatar.Root {...args}>
 			<Avatar.Image
 				alt={'Alternative Text'}
-				src={
-					'https://media.licdn.com/dms/image/D4E03AQGy6P5WN1rA7A/profile-displayphoto-shrink_200_200/0/1696022298868?e=1703116800&v=beta&t=2XU3SQu9lj4EAVSzh8V9FJPuoByxgoKy6_a0n6dbUTQ'
-				}
+				src={'https://i.pravatar.cc/300'}
+				width={64}
+				height={64}
 			/>
 			<Avatar.Fallback>ZAU</Avatar.Fallback>
 		</Avatar.Root>
 		{/*Fallback*/}
 		<Avatar.Root {...args}>
-			<Avatar.Image src={''} alt={'Alternative Text'} />
+			<Avatar.Image
+				alt={'Alternative Text'}
+				src={'https://i.pravatar.cc/300'}
+				width={64}
+				height={64}
+			/>
 			<Avatar.Fallback>ZAU</Avatar.Fallback>
 		</Avatar.Root>
 		{/*Online Indicator*/}
 		<Avatar.Root {...args}>
 			<Avatar.Image
 				alt={'Alternative Text'}
-				src={
-					'https://media.licdn.com/dms/image/D4E03AQGy6P5WN1rA7A/profile-displayphoto-shrink_200_200/0/1696022298868?e=1703116800&v=beta&t=2XU3SQu9lj4EAVSzh8V9FJPuoByxgoKy6_a0n6dbUTQ'
-				}
+				src={'https://i.pravatar.cc/300'}
+				width={64}
+				height={64}
 			/>
 			<Avatar.Fallback>ZAU</Avatar.Fallback>
 			<Avatar.Indicator type={'online'} size={args.size} />
@@ -40,9 +45,9 @@ const StoryAvatar: React.FC<AvatarStoryProps> = (args) => (
 		<Avatar.Root {...args}>
 			<Avatar.Image
 				alt={'Alternative Text'}
-				src={
-					'https://media.licdn.com/dms/image/D4E03AQGy6P5WN1rA7A/profile-displayphoto-shrink_200_200/0/1696022298868?e=1703116800&v=beta&t=2XU3SQu9lj4EAVSzh8V9FJPuoByxgoKy6_a0n6dbUTQ'
-				}
+				src={'https://i.pravatar.cc/300'}
+				width={64}
+				height={64}
 			/>
 			<Avatar.Fallback>ZAU</Avatar.Fallback>
 			<Avatar.Indicator type={'offline'} size={args.size} />
@@ -97,6 +102,14 @@ export const XL: Story = {
 		size: 'xl',
 	},
 };
+
+export const Rounded: Story = AvatarsTemplate([
+	{ shape: 'rounded-sm' },
+	{ shape: 'rounded-md' },
+	{ shape: 'rounded-lg' },
+	{ shape: 'rounded-xl' },
+	{ shape: 'rounded-full' },
+]);
 
 export const All: Story = AvatarsTemplate([
 	{ size: 'sm' },

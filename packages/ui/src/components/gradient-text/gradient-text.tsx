@@ -6,7 +6,7 @@ import { extractTextFromChildren } from '@repo/utils';
 import { cn, tv, VariantProps } from '../../utils';
 
 const gradientVariants = tv({
-	base: 'ui-bg-gradient-text ui-from-white ui-from-[7%]',
+	base: 'bg-gradient-text ui-from-white ui-from-[7%]',
 	variants: {
 		gradient: {
 			'green-cyan': 'ui-via-cyan-300 ui-to-green-300',

@@ -9,7 +9,7 @@ const root = tv({
 	base: [
 		'ui-group ui-relative ui-z-10 ui-inline-flex ui-touch-none ui-select-none ui-items-center ui-justify-center',
 		'ui-px-[calc(var(--base-space)*1.5)] ui-py-[var(--base-space)]',
-		'ui-outline-none',
+		'ui-select-none ui-outline-none',
 		'[&>svg]:ui-relative [&>svg]:ui-z-20 [&>svg]:ui-mr-[var(--label-space)] [&>svg]:ui-inline-block [&>svg]:ui-size-[var(--icon-size,1rem)]',
 	],
 	variants: {
@@ -34,6 +34,7 @@ const root = tv({
 			],
 		},
 		size: {
+			icon: ['[&>svg]:ui-mr-0'],
 			sm: [
 				'ui-min-h-8 ui-rounded-sm ui-text-sm',
 				'[--base-space:6px] [--label-space:theme(spacing[0.75])]',
@@ -132,9 +133,17 @@ const innerEffect = tv({
 });
 
 const label = tv({
-	base: [
-		'ui-relative ui-z-20 ui-inline-block ui-w-fit ui-px-[var(--label-space)] ui-font-semibold',
-	],
+	base: [''],
+	variants: {
+		srOnly: {
+			true: 'ui-sr-only',
+			false:
+				'ui-relative ui-z-20 ui-inline-block ui-w-fit ui-px-[var(--label-space)] ui-font-semibold',
+		},
+	},
+	defaultVariants: {
+		srOnly: false,
+	},
 });
 
 export { root, focus, hover, label, innerEffect };

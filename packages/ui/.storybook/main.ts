@@ -1,5 +1,5 @@
 import { dirname, join } from 'path';
-import type { StorybookConfig } from '@storybook/react-vite';
+import { StorybookConfig } from '@storybook/nextjs';
 
 /**
  * This function is used to resolve the absolute path of a package.
@@ -17,8 +17,13 @@ const config: StorybookConfig = {
 		getAbsolutePath('@chromatic-com/storybook'),
 		getAbsolutePath('@storybook/addon-interactions'),
 	],
+	staticDirs: [
+		'../src/fonts',
+		{ from: '../src/fonts', to: '/src/fonts' },
+		{ from: '../src/images', to: '/images' },
+	],
 	framework: {
-		name: getAbsolutePath('@storybook/react-vite'),
+		name: getAbsolutePath('@storybook/nextjs'),
 		options: {},
 	},
 };

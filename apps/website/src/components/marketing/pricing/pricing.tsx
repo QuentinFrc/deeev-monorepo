@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { PricingModeSwitcher } from '@/components/marketing/pricing/pricing-mode-switcher';
 import {
 	SectionHeader,
@@ -5,7 +7,11 @@ import {
 	SectionHeaderDescription,
 	SectionHeaderTitle,
 } from '@/components/ui/section-header';
+import { PACKAGE_PRICING } from '@/config/content';
 import { escapeMissingTranslation, useTranslations } from '@/hooks/use-translations';
+import { BadgeLabel, BadgeRoot } from '@repo/ui/badge';
+import { Icon } from '@repo/ui/icons';
+import { Typography } from '@repo/ui/typography';
 
 import { PricingCard, PricingCardProps } from './pricing-card';
 
@@ -13,7 +19,7 @@ const getTranslations = () => {
 	const common = useTranslations('common');
 	const t = useTranslations('homepage.packages');
 
-	const cardIds = ['landing_page', 'full_website'] as const; /* 'web_app'*/
+	const cardIds = ['landing_page', 'full_website'] as const;
 
 	const cards = cardIds.map((id) => {
 		return {
@@ -51,9 +57,14 @@ const getTranslations = () => {
 		description: t('description'),
 		cards: cards,
 		modes: {
-			one_time: t('payment_mode.one_time'),
-			subscription: t('payment_mode.subscription'),
+			default: t('payment_mode.default'),
+			discounted: t('payment_mode.discounted'),
+			discount_title: t('payment_mode.spot_left', {
+				spot_count: PACKAGE_PRICING.spot_left,
+			}),
 		},
+		precision_title: t('precision.title'),
+		precision_description: t('precision.description'),
 	} satisfies { title: string; description: string; cards: PricingCardProps[] };
 };
 
@@ -67,24 +78,65 @@ const getTranslations = () => {
 type PricingProps = {};
 
 export const Pricing = (props: PricingProps) => {
-	const { title, description, cards, modes } = getTranslations();
+	const { title, description, cards, modes, precision_title, precision_description } =
+		getTranslations();
 
 	return (
-		<section className={'container'}>
-			<SectionHeader>
-				<SectionHeaderAnchor>Anchor</SectionHeaderAnchor>
-				<SectionHeaderTitle>{title}</SectionHeaderTitle>
-				<SectionHeaderDescription>{description}</SectionHeaderDescription>
-			</SectionHeader>
-			<div>
-				<PricingModeSwitcher translations={modes} />
-				<div className={'grid grid-cols-3 gap-6'}>
-					{/*todo: ajouter 1 mockup de landing, plusieurs pour site complet (plusieurs pages) et plusieurs avec dashboard pour webapp*/}
-					{cards.map((card, index) => (
-						<PricingCard {...card} key={index} />
-					))}
+		<section className={'relative'}>
+			<Background />
+			<div className="container space-y-16">
+				<SectionHeader align={'center'}>
+					<SectionHeaderAnchor>Pricing</SectionHeaderAnchor>
+					<SectionHeaderTitle>{title}</SectionHeaderTitle>
+					<SectionHeaderDescription align={'center'} className={'md:max-w-lg'}>
+						{description}
+					</SectionHeaderDescription>
+				</SectionHeader>
+				<div className={'space-y-8'}>
+					<PricingModeSwitcher translations={modes} />
+					<div className={'grid md:grid-cols-2 w-max mx-auto gap-6'}>
+						{cards.map((card, index) => (
+							<PricingCard {...card} key={index} />
+						))}
+					</div>
+					<div className={'grid place-items-center py-4'}>
+						<div
+							className={
+								'flex items-center gap-4 w-max px-3 py-1.5 bg-card border rounded-xl'
+							}>
+							<BadgeRoot variant={'gradient'} type={'outline'}>
+								<Icon i={'Info'} />
+								<BadgeLabel>{precision_title}</BadgeLabel>
+							</BadgeRoot>
+							<Typography.p
+								className={'w-auto max-w-[56ch]'}
+								color={'contrasted-mid'}
+								size={'sm'}>
+								{precision_description}
+							</Typography.p>
+						</div>
+					</div>
 				</div>
 			</div>
 		</section>
 	);
 };
+
+const COUNT = 12;
+const Background = () => (
+	<div className={'absolute inset-0 -z-10 flex gap-4'}>
+		{new Array(COUNT).fill(null).map((_, index) => (
+			<div
+				key={index}
+				className={
+					'size-full bg-neutral-800/30 scale-y-[var(--offset)] [mask-image:linear-gradient(transparent,white,transparent)]'
+				}
+				style={
+					{
+						'--offset': `${Math.abs(index + 1 - (COUNT + 1) / 2) * 0.07 + 1}`,
+					} as React.CSSProperties
+				}
+			/>
+		))}
+	</div>
+);

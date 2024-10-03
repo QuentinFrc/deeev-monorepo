@@ -49,7 +49,7 @@ const avatarVariants = tv({
 	},
 	defaultVariants: {
 		size: 'md',
-		shape: 'rounded',
+		shape: 'rounded-full',
 		type: 'online',
 	},
 });

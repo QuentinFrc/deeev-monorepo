@@ -104,7 +104,7 @@
 }
 
 @layer utilities {
-	.ui-text-shimmer {
+	.text-shimmer {
 		--shimmer-duration: 2.7s;
 		--shimmer-delay: 0s;
 		--color-direction: -65deg;
@@ -121,7 +121,7 @@
 		@apply ui-relative ui-text-transparent ui-animate-shimmer ui-bg-no-repeat ui-bg-[size:200%_100%] ui-bg-clip-text;
 	}
 
-	.ui-bg-gradient-text {
+	.bg-gradient-text {
 		&:after {
 			content: attr(data-text);
 
