@@ -14,6 +14,7 @@
     "@repo/emails": "workspace:*",
     "@repo/ui": "workspace:*",
     "@number-flow/react": "^0.1.1",
+    "framer-motion": "^11.11.0",
     "next": "14.2.8",
     "next-intl": "^3.19.1",
     "next-safe-action": "^7.9.2",
