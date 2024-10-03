@@ -1,5 +1,5 @@
 default:
-  image: node:latest-alpine
+  image: node:21.7.3-alpine
 
 .with-pnpm: &install_pnpm
   - corepack enable
