@@ -1,5 +1,11 @@
 import React from 'react';
 
+import {
+	MaintenanceAsset,
+	ManagementAsset,
+	MeetingAsset,
+	ProgressionAsset,
+} from '@/components/marketing/our-process/process-assets';
 import { ProcessGrid } from '@/components/marketing/our-process/process-grid';
 import {
 	SectionHeader,
@@ -7,31 +13,35 @@ import {
 	SectionHeaderDescription,
 	SectionHeaderTitle,
 } from '@/components/ui/section-header';
-import { useTranslations } from '@/hooks/use-translations';
+import { getTranslations } from '@/lib/get-translations';
 
-const getTranslations = () => {
-	const t = useTranslations('homepage.our_process');
+const getOurProcessTranslations = () => {
+	const t = getTranslations('homepage.our_process');
 	return {
 		title: t('title'),
 		description: t('description'),
 		cards: [
 			{
 				icon: 'Placeholder',
+				asset: MeetingAsset,
 				title: t('cards.first_call.title'),
 				description: t('cards.first_call.description'),
 			},
 			{
 				icon: 'Placeholder',
+				asset: ProgressionAsset,
 				title: t('cards.progress.title'),
 				description: t('cards.progress.description'),
 			},
 			{
 				icon: 'Placeholder',
+				asset: ManagementAsset,
 				title: t('cards.project_management.title'),
 				description: t('cards.project_management.description'),
 			},
 			{
 				icon: 'Placeholder',
+				asset: MaintenanceAsset,
 				title: t('cards.as_you_wish.title'),
 				description: t('cards.as_you_wish.description'),
 			},
@@ -40,7 +50,7 @@ const getTranslations = () => {
 };
 
 export const OurProcess = () => {
-	const { title, description, cards } = getTranslations();
+	const { title, description, cards } = getOurProcessTranslations();
 	return (
 		<section className={'container space-y-16 py-32'}>
 			<SectionHeader>

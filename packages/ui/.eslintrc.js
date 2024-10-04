@@ -2,5 +2,4 @@
 module.exports = {
 	root: true,
 	extends: ['@repo/react', 'plugin:storybook/recommended'], // @see <root>/packages/eslint-config-react
-	parser: '@typescript-eslint/parser',
 };

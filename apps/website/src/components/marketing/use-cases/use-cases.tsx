@@ -4,13 +4,13 @@ import {
 	SectionHeaderDescription,
 	SectionHeaderTitle,
 } from '@/components/ui/section-header';
-import { useTranslations } from '@/hooks/use-translations';
+import { getTranslations } from '@/lib/get-translations';
 
 import { UseCasesCarousel } from './use-cases-carousel';
 
-const getTranslations = () => {
-	const common = useTranslations('common');
-	const t = useTranslations('homepage.useCases');
+const getUseCasesTranslations = () => {
+	/*const common = useTranslations('common');*/
+	const t = getTranslations('homepage.useCases');
 	return {
 		onTitle: t('onTitle'),
 		title: t('title'),
@@ -46,7 +46,7 @@ const getTranslations = () => {
 };
 
 export const UseCases = () => {
-	const { onTitle, title, description, cards } = getTranslations();
+	const { onTitle, title, description, cards } = getUseCasesTranslations();
 	return (
 		<section className={'container space-y-16'}>
 			<SectionHeader>

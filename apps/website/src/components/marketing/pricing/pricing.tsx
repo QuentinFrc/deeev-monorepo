@@ -8,16 +8,16 @@ import {
 	SectionHeaderTitle,
 } from '@/components/ui/section-header';
 import { PACKAGE_PRICING } from '@/config/content';
-import { escapeMissingTranslation, useTranslations } from '@/hooks/use-translations';
+import { escapeMissingTranslation, getTranslations } from '@/lib/get-translations';
 import { BadgeLabel, BadgeRoot } from '@repo/ui/badge';
 import { Icon } from '@repo/ui/icons';
 import { Typography } from '@repo/ui/typography';
 
 import { PricingCard, PricingCardProps } from './pricing-card';
 
-const getTranslations = () => {
-	const common = useTranslations('common');
-	const t = useTranslations('homepage.packages');
+const getPricingTranslations = () => {
+	const common = getTranslations('common');
+	const t = getTranslations('homepage.packages');
 
 	const cardIds = ['landing_page', 'full_website'] as const;
 
@@ -75,11 +75,9 @@ const getTranslations = () => {
 	},
 };*/
 
-type PricingProps = {};
-
-export const Pricing = (props: PricingProps) => {
+export const Pricing = () => {
 	const { title, description, cards, modes, precision_title, precision_description } =
-		getTranslations();
+		getPricingTranslations();
 
 	return (
 		<section className={'relative'}>
@@ -94,7 +92,7 @@ export const Pricing = (props: PricingProps) => {
 				</SectionHeader>
 				<div className={'space-y-8'}>
 					<PricingModeSwitcher translations={modes} />
-					<div className={'grid md:grid-cols-2 w-max mx-auto gap-6'}>
+					<div className={'mx-auto grid w-max gap-6 md:grid-cols-2'}>
 						{cards.map((card, index) => (
 							<PricingCard {...card} key={index} />
 						))}
@@ -102,7 +100,7 @@ export const Pricing = (props: PricingProps) => {
 					<div className={'grid place-items-center py-4'}>
 						<div
 							className={
-								'flex items-center gap-4 w-max px-3 py-1.5 bg-card border rounded-xl'
+								'flex w-max items-center gap-4 rounded-xl border bg-card px-3 py-1.5'
 							}>
 							<BadgeRoot variant={'gradient'} type={'outline'}>
 								<Icon i={'Info'} />
@@ -129,7 +127,7 @@ const Background = () => (
 			<div
 				key={index}
 				className={
-					'size-full bg-neutral-800/30 scale-y-[var(--offset)] [mask-image:linear-gradient(transparent,white,transparent)]'
+					'size-full scale-y-[var(--offset)] bg-neutral-800/30 [mask-image:linear-gradient(transparent,white,transparent)]'
 				}
 				style={
 					{

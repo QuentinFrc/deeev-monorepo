@@ -1,9 +1,9 @@
-import { create } from 'zustand'
+import { create } from 'zustand';
 
 interface ContactFormState {
 	// State here
 }
 
-const useContactFormStore = create<ContactFormState>()((set) => ({
+export const useContactFormStore = create<ContactFormState>()(() => ({
 	// Actions here
-}))
+}));

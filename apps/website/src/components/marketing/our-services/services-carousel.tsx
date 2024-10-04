@@ -24,8 +24,8 @@ export const ServicesCarousel = ({ cards }: ServicesCarouselProps) => {
 		<Carousel className="w-full space-y-4">
 			<CarouselContent overflow={'visible'}>
 				{cards.map((card, index) => (
-					<CarouselItem className={'basis-[396px]'} index={index}>
-						<Card key={index}>
+					<CarouselItem className={'basis-[396px]'} index={index} key={index}>
+						<Card>
 							<CardContent>
 								<CardHeader>
 									<CardTitle weight={'medium'} size={'base'}>

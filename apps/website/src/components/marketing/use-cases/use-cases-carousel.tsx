@@ -73,19 +73,19 @@ export const UseCasesCarousel = ({ cards }: ServicesCarouselProps) => {
 									height={'auto'}
 									width={(1440 / 1024) * 192}
 									className={
-										'absolute size-full opacity-50 group-hover:opacity-80 duration-150 transition-opacity blur-3xl brightness-200 object-cover object-left-top -z-10'
+										'absolute -z-10 size-full object-cover object-left-top opacity-50 blur-3xl brightness-200 transition-opacity duration-150 group-hover:opacity-80'
 									}
 								/>
 								<div
 									className={
-										'group-hover:translate-y-2 relative z-10 h-64 ml-4 p-1 w-full bg-neutral-900/80 rounded-t-md overflow-hidden border border-b-0 transition-transform duration-300 scale-150 origin-top-left backdrop-blur'
+										'relative z-10 ml-4 h-64 w-full origin-top-left scale-150 overflow-hidden rounded-t-md border border-b-0 bg-neutral-900/80 p-1 backdrop-blur transition-transform duration-300 group-hover:translate-y-2'
 									}>
 									<Image
 										src={SafariHeader}
 										alt={'Browser Header'}
 										height={32}
 										width={(1280 * 32) / 53}
-										className={'object-cover object-left-top rounded-t-sm'}
+										className={'rounded-t-sm object-cover object-left-top'}
 									/>
 									<Image
 										src={mockups[index]}

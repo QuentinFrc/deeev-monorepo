@@ -4,6 +4,9 @@
     "**/.env.*local"
   ],
   "tasks": {
+    "deeev.fr#build": {
+      "env": ["LOG_LEVEL"]
+    },
     "build": {
       "dependsOn": [
         "^build"

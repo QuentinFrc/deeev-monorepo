@@ -1,8 +1,8 @@
 import React from 'react';
 import NextLink, { LinkProps as NextLinkProps } from 'next/link';
 
-import * as Badge from '@repo/ui/badge';
-import { BadgeRootProps } from '@repo/ui/badge';
+/*import * as Badge from '@repo/ui/badge';
+import { BadgeRootProps } from '@repo/ui/badge';*/
 import { Container } from '@repo/ui/container';
 import { Logo } from '@repo/ui/logo';
 import { Typography } from '@repo/ui/typography';
@@ -121,7 +121,7 @@ const LinkColumn: React.FC<LinkColumnProps> = ({ title, children }) => {
 		</div>
 	);
 };
-
+/*
 type LinkWithBadgeProps = LinkProps &
 	React.ComponentPropsWithoutRef<'a'> & {
 		label: string;
@@ -150,7 +150,7 @@ const LinkWithBadge: React.FC<LinkWithBadgeProps> = ({
 			</Badge.Root>
 		</Link>
 	);
-};
+};*/
 
 type LinkProps = NextLinkProps & React.ComponentPropsWithoutRef<'a'>;
 const Link: React.FC<LinkProps> = ({ className, ...props }) => {

@@ -300,6 +300,12 @@ importers:
         specifier: ^4.5.2
         version: 4.5.5(@types/react@18.3.5)(react@18.3.1)
     devDependencies:
+      '@repo/eslint-config-next':
+        specifier: workspace:*
+        version: link:../../packages/eslint-config-next
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../../packages/typescript-config
       '@types/node':
         specifier: ^20
         version: 20.14.13

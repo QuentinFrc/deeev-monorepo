@@ -38,10 +38,10 @@ export const PricingCard = ({
 	return (
 		<Card
 			className={
-				'flex flex-col items-stretch justify-between ring-4 ring-neutral-800/40 ring-offset-4 ring-offset-background max-w-sm'
+				'flex max-w-sm flex-col items-stretch justify-between ring-4 ring-neutral-800/40 ring-offset-4 ring-offset-background'
 			}>
 			{/*<div>{JSON.stringify(priceConfig)}</div>*/}
-			<CardContent className={'space-y-6 mb-16'}>
+			<CardContent className={'mb-16 space-y-6'}>
 				<CardTitle className={'w-max'}>{title}</CardTitle>
 				<div className="space-y-1">
 					<div className="inline-flex items-center gap-4">
@@ -73,7 +73,7 @@ export const PricingCard = ({
 						<Typography.span color={'contrasted-low'}>
 							{translations.maintenance_start}{' '}
 						</Typography.span>
-						<span className="inline-block align-top text-end min-w-[5ch] leading-[normal] mx-1">
+						<span className="mx-1 inline-block min-w-[5ch] text-end align-top leading-[normal]">
 							{
 								<NumberFlow
 									value={priceConfig[mode].maintenance}

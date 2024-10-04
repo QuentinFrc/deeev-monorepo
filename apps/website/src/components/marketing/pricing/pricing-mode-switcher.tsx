@@ -23,16 +23,12 @@ export const PricingModeSwitcher = ({ translations }: PricingModeSwitcherProps) 
 		usePackagesStore.persist.rehydrate();
 	}, []);
 
-	if (!usePackagesStore.persist.hasHydrated()) {
-		return null;
-	}
-
 	return (
 		<div className={'relative mx-auto w-max py-4'}>
 			<BadgeRoot
 				variant={'neutral'}
 				size={'sm'}
-				className={'absolute left-0 -top-1 -translate-y-1/2 '}>
+				className={'absolute -top-1 left-0 -translate-y-1/2 '}>
 				<Icon i={'Clock'} size={'sm'} />
 				<BadgeLabel>{translations.discount_title}</BadgeLabel>
 			</BadgeRoot>

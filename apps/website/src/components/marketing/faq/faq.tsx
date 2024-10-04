@@ -1,5 +1,4 @@
 import React from 'react';
-import { useTranslations } from 'next-intl';
 
 import {
 	SectionHeader,
@@ -8,14 +7,17 @@ import {
 	SectionHeaderTitle,
 } from '@/components/ui/section-header';
 import { MAX_FAQ_ITEM_COUNT } from '@/config/content';
-import { escapeMissingTranslationsInArray } from '@/hooks/use-translations';
+import {
+	escapeMissingTranslationsInArray,
+	getTranslations,
+} from '@/lib/get-translations';
 import { FAQContent, FAQItem, FAQ as FAQRoot, FAQTrigger } from '@repo/ui/accordion-faq';
-import { ButtonLabel, ButtonRoot } from '@repo/ui/button';
+import { ButtonLabel } from '@repo/ui/button';
 import { Disclosure, DisclosureContent, DisclosureTrigger } from '@repo/ui/disoclure';
 
-const getTranslations = () => {
-	const t = useTranslations('homepage.faq');
-	const common = useTranslations('common');
+const getFaqTranslations = () => {
+	const t = getTranslations('homepage.faq');
+	const common = getTranslations('common');
 	return {
 		title: t('title'),
 		description: t('description'),
@@ -31,16 +33,16 @@ const getTranslations = () => {
 };
 
 export const FAQ = () => {
-	const { title, description, questions, see_more, see_less } = getTranslations();
+	const { title, description, questions, see_more, see_less } = getFaqTranslations();
 	return (
-		<section className={'relative container space-y-16 py-16'}>
+		<section className={'container relative space-y-16 py-16'}>
 			{/*<Svg />*/}
 			<SectionHeader align={'center'}>
 				<SectionHeaderAnchor>FAQ</SectionHeaderAnchor>
 				<SectionHeaderTitle>{title}</SectionHeaderTitle>
 				<SectionHeaderDescription>{description}</SectionHeaderDescription>
 			</SectionHeader>
-			<Disclosure className={'relative w-max mx-auto space-y-4'}>
+			<Disclosure className={'relative mx-auto w-max space-y-4'}>
 				<FAQRoot className={'relative'}>
 					{questions.slice(0, 4).map(({ question, answer }, index) => (
 						<FAQItem
@@ -72,7 +74,7 @@ export const FAQ = () => {
 						</div>
 					</DisclosureContent>
 				</FAQRoot>
-				<div className="grid *:[grid-area:1/1] w-max mx-auto">
+				<div className="mx-auto grid w-max *:[grid-area:1/1]">
 					<DisclosureTrigger variant={'ghost'} className={'data-[state="open"]:hidden'}>
 						<ButtonLabel>{see_more}</ButtonLabel>
 					</DisclosureTrigger>
@@ -84,10 +86,11 @@ export const FAQ = () => {
 		</section>
 	);
 };
+/*
 
 const Svg = () => (
 	<svg
-		className={'absolute top-32 -translate-y-full left-1/2 -translate-x-1/2 rotate-180'}
+		className={'absolute left-1/2 top-32 -translate-x-1/2 -translate-y-full rotate-180'}
 		width="1440"
 		height="342"
 		viewBox="0 0 1440 342"
@@ -393,3 +396,4 @@ const Svg = () => (
 		</defs>
 	</svg>
 );
+*/

@@ -1,14 +1,8 @@
 import { ContactForm } from '@/components/form/contact-form';
-import {
-	SectionHeader,
-	SectionHeaderAnchor,
-	SectionHeaderDescription,
-	SectionHeaderTitle,
-} from '@/components/ui/section-header';
-import { useTranslations } from '@/hooks/use-translations';
+import { getTranslations } from '@/lib/get-translations';
 
-export const getTranslations = () => {
-	const t = useTranslations('common');
+export const getContactUsTranslations = () => {
+	const t = getTranslations('common');
 	return {
 		formTranslations: {
 			name_label: t('form.name.label'),
@@ -24,19 +18,12 @@ export const getTranslations = () => {
 };
 
 export const ContactUs = () => {
-	const { formTranslations } = getTranslations();
+	const { formTranslations } = getContactUsTranslations();
 	return (
 		<div className={'container py-24'}>
-			<div className="p-12 rounded-lg bg-card/80 space-y-16">
-				{/*<SectionHeader align={'center'}>
-					<SectionHeaderAnchor>anchor</SectionHeaderAnchor>
-					<SectionHeaderTitle>Contactez nous maintenant</SectionHeaderTitle>
-					<SectionHeaderDescription>
-						30 Minutes, Gratuit et sans engagement
-					</SectionHeaderDescription>
-				</SectionHeader>*/}
+			<div className="space-y-16 rounded-lg bg-card/80 p-12">
 				<div>Contactez nous maintenant</div>
-				<div className="w-max mx-auto">
+				<div className="mx-auto w-max">
 					<ContactForm translations={formTranslations} />
 				</div>
 			</div>

@@ -9,6 +9,8 @@ export const contactAction = actionClient
 	.schema(contactSchema)
 	.action(async ({ parsedInput: payload }) => {
 		const { name, email: to, message } = payload;
+		console.log(name);
+		console.log(message);
 		const email = await Mailer.send({
 			to,
 			subject: 'Contact form submitted',

@@ -7,7 +7,7 @@ import bankCardSrc from './bank-card.png';
 
 const AssetWrapper = ({ className, ...props }: React.ComponentPropsWithoutRef<'div'>) => (
 	<div
-		className={cn('py-8 flex items-center justify-center h-64', className)}
+		className={cn('flex h-64 items-center justify-center py-8', className)}
 		{...props}
 	/>
 );

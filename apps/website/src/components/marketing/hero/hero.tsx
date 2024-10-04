@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 import { Logos } from '@/components/marketing';
 import { FoundersAvatars } from '@/components/ui/founders-avatars';
-import { useTranslations } from '@/hooks/use-translations';
+import { getTranslations } from '@/lib/get-translations';
 import { Spotlight } from '@repo/ui/assets';
 import { ButtonLabel, ButtonRoot } from '@repo/ui/button';
 import { GradientText } from '@repo/ui/gradient-text';
@@ -29,8 +29,8 @@ const getMember = () => {
 	};
 };
 
-const getTranslations = () => {
-	const t = useTranslations('homepage.hero');
+const getHeroTranslations = () => {
+	const t = getTranslations('homepage.hero');
 	const { memberName } = getMember();
 	return {
 		title: t('title'),
@@ -56,9 +56,7 @@ const getTranslations = () => {
 	};
 };
 
-type HeroProps = {};
-
-export const Hero = (props: HeroProps) => {
+export const Hero = () => {
 	const {
 		title,
 		alternative_line_1,
@@ -67,40 +65,29 @@ export const Hero = (props: HeroProps) => {
 		description,
 		main_cta,
 		sub_cta,
-	} = getTranslations();
+	} = getHeroTranslations();
 
 	const { memberName } = getMember();
 
 	const Avatar = FoundersAvatars[`${memberName}Avatar`];
 
-	const itemsFirstLine = alternative_line_1.map((item, i) => ({
+	const itemsFirstLine = alternative_line_1.map((item) => ({
 		content: item,
 		id: randomUUID(),
-		className: cn(
-			'w-max font-medium',
-			i % 2 == 0
-				? '[--shimmer-color-1:theme(colors.cyan.200)] [--shimmer-color-2:theme(colors.green.200)]'
-				: '[--shimmer-color-1:theme(colors.fuchsia.200)] [--shimmer-color-2:theme(colors.cyan.200)]',
-		),
+		className: cn('w-max font-medium'),
 	}));
 
-	const itemsSecondLine = alternative_line_2.map((item, i) => ({
+	const itemsSecondLine = alternative_line_2.map((item) => ({
 		content: item,
 		id: randomUUID(),
-		className: cn(
-			'[--shimmer-delay:0.3s] [--color-direction:65deg]',
-			'w-max font-medium',
-			i % 2 == 0
-				? '[--shimmer-color-1:theme(colors.cyan.200)] [--shimmer-color-2:theme(colors.green.200)]'
-				: '[--shimmer-color-1:theme(colors.fuchsia.200)] [--shimmer-color-2:theme(colors.cyan.200)]',
-		),
+		className: cn('w-max font-medium [--color-direction:65deg] [--shimmer-delay:0.3s]'),
 	}));
 
 	return (
 		<>
 			<section
-				className={'relative pt-12 space-y-16& lg:pt-24 lg:space-y-32 lg:min-h-[880px]'}>
-				<div className="max-w-[1280px] lg:w-[90%] absolute size-full right-0 bottom-0 -z-10 [mask-image:linear-gradient(90deg,transparent_100px,white)]">
+				className={'relative space-y-16 pt-12 lg:min-h-[880px] lg:space-y-32 lg:pt-24'}>
+				<div className="absolute bottom-0 right-0 -z-10 size-full max-w-screen-xl [mask-image:linear-gradient(90deg,transparent_100px,white)] lg:w-[90%]">
 					<div
 						className={
 							'relative size-full [mask-image:linear-gradient(transparent,white_30%,white_70%,transparent)]'
@@ -116,7 +103,7 @@ export const Hero = (props: HeroProps) => {
 					</div>
 				</div>
 
-				<header className={'relative py-24 flex items-center'}>
+				<header className={'relative flex items-center py-24'}>
 					<Spotlight />
 					<div className="container space-y-16">
 						<div className={'space-y-6'}>

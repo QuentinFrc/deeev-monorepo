@@ -1,19 +1,19 @@
-import { useTranslations as useTranslationsNextIntl } from 'next-intl';
+import { useTranslations as getTranslationsNextIntl } from 'next-intl';
 
 import { UNRESOLVED_MESSAGE } from '@/i18n/request';
 
-export const useTranslations = (
-	...[namespace]: Parameters<typeof useTranslationsNextIntl>
-): ReturnType<typeof useTranslationsNextIntl> => {
-	return useTranslationsNextIntl(namespace);
+export const getTranslations = (
+	...[namespace]: Parameters<typeof getTranslationsNextIntl>
+): ReturnType<typeof getTranslationsNextIntl> => {
+	return getTranslationsNextIntl(namespace);
 };
 
-type TranslationValue<T extends string | string[] | Record<string, any>> =
+type TranslationValue<T extends string | string[] | Record<string, unknown>> =
 	| T
 	| typeof UNRESOLVED_MESSAGE;
 
 export const escapeMissingTranslation = <
-	T extends string | string[] | Record<string, any>,
+	T extends string | string[] | Record<string, unknown>,
 >(
 	value: TranslationValue<T>,
 ): T => {
@@ -34,7 +34,7 @@ export const escapeMissingTranslation = <
 				}
 				return acc;
 			},
-			{} as Record<string, any>,
+			{} as Record<string, unknown>,
 		);
 
 		// Si l'objet est vide après filtrage, renvoyer undefined

@@ -19,6 +19,7 @@ import { cn } from '@repo/ui/utils';
 
 type ProcessCarouselProps = {
 	cards: {
+		asset: () => React.ReactNode;
 		icon: IconName;
 		title: string;
 		description: string;
@@ -49,14 +50,14 @@ export const ProcessGrid = ({ cards }: ProcessCarouselProps) => {
 				intervalRef.current = setInterval(updateActiveCard, DELAY);
 			}
 		},
-		[cards.length],
+		[cards.length, time],
 	);
 
 	React.useEffect(() => {
 		const interval = setInterval(updateActiveCard, DELAY);
 		intervalRef.current = interval;
 		return () => clearInterval(interval);
-	}, []);
+	}, [updateActiveCard]);
 
 	return (
 		<MotionConfig transition={{ duration: PROGRESS_EXIT_DURATION / 1000 }}>
@@ -117,10 +118,23 @@ export const ProcessGrid = ({ cards }: ProcessCarouselProps) => {
 						</ProcessCard>
 					))}
 				</motion.div>
-				<div className="relative rounded-2xl bg-dot-[white] size-full p-8 [mask-image:radial-gradient(circle_at_center,white_70%,transparent)]">
-					<div className="relative z-10 flex items-center justify-center h-full text-center bg-neutral-800/40">
-						Asides here: Button Contact, Briefing, Design / Dev Message, Mises à jour et
-						maintenance
+				<div className="relative size-full rounded-2xl p-8 bg-dot-[white] [mask-image:radial-gradient(circle_at_center,white_70%,transparent)]">
+					<div className="relative z-10 grid h-full place-items-center bg-neutral-800/40 text-center *:[grid-area:1/1]">
+						{/*Asides here: Button Contact, Briefing, Design / Dev Message, Mises à jour et
+						maintenance*/}
+						{cards.map(({ asset: CardAsset }, index) => (
+							<motion.div
+								initial={'initial'}
+								animate={activeCard === index ? 'active' : 'exit'}
+								variants={{
+									active: { opacity: 1 },
+									initial: { opacity: 0 },
+									exit: { opacity: 0, y: '-100%' },
+								}}
+								key={index}>
+								<CardAsset />
+							</motion.div>
+						))}
 					</div>
 				</div>
 			</div>
@@ -144,9 +158,9 @@ const ProcessCard = ({ children, isActive = false, ...props }: ProcessCardProps)
 				}}
 				animate={isActive ? 'active' : 'default'}
 				{...props}>
-				<div ref={ref} className={'py-3 space-y-4'}>
+				<div ref={ref} className={'space-y-4 py-3'}>
 					<div className={'space-y-4 border-transparent bg-transparent'}>{children}</div>
-					<div className="absolute bottom-0 inset-x-0 h-1">
+					<div className="absolute inset-x-0 bottom-0 h-1">
 						<AnimatePresence>
 							{isActive && (
 								<motion.div

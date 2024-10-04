@@ -6,7 +6,7 @@ import {
 	SectionHeaderDescription,
 	SectionHeaderTitle,
 } from '@/components/ui/section-header';
-import { useTranslations } from '@/hooks/use-translations';
+import { getTranslations } from '@/lib/get-translations';
 import { Card, CardContent, CardDescription, CardTitle } from '@repo/ui/card';
 
 import {
@@ -16,8 +16,8 @@ import {
 	VisibilitySvg,
 } from './assets';
 
-const getTranslations = () => {
-	const t = useTranslations('homepage.customers_challenges');
+const getCustomersChallengesTranslations = () => {
+	const t = getTranslations('homepage.customers_challenges');
 	return {
 		onTitle: t('onTitle'),
 		title: t('title'),
@@ -75,17 +75,20 @@ const getCardIllustration = (type: string) => {
 		case 'long_term_solution':
 			return LongTermSolutionAsset;
 	}
-	return () => <div>No Asset</div>;
+	throw new Error(`No illustration found for card type: ${type}`);
 };
 
-const getCardsWithIllustration = (cards: any[]) => {
+const getCardsWithIllustration = (cards: { type: string }[]) => {
 	return cards.map((card) => ({ ...card, asset: getCardIllustration(card.type) }));
 };
 
-type CustomersChallengesProps = {};
-
-export const CustomersChallenges = (props: CustomersChallengesProps) => {
-	const { onTitle, title, description, cards: cardsTranslations } = getTranslations();
+export const CustomersChallenges = () => {
+	const {
+		onTitle,
+		title,
+		description,
+		cards: cardsTranslations,
+	} = getCustomersChallengesTranslations();
 
 	const cards = getCardsWithIllustration(cardsTranslations);
 
@@ -96,10 +99,10 @@ export const CustomersChallenges = (props: CustomersChallengesProps) => {
 				<SectionHeaderTitle>{title}</SectionHeaderTitle>
 				<SectionHeaderDescription>{description}</SectionHeaderDescription>
 			</SectionHeader>
-			<div className={'grid gap-4 grid-cols-12'}>
+			<div className={'grid grid-cols-12 gap-4'}>
 				{cards.map(({ asset: Asset, ...card }, index) => (
 					<BentoCard key={index} colSpan={GRID_PLACEMENT[index]}>
-						<Card className={'flex flex-col items-between'}>
+						<Card className={'flex flex-col justify-between'}>
 							<Asset />
 							<CardContent>
 								<CardTitle>{card.title}</CardTitle>

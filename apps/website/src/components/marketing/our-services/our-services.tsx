@@ -4,12 +4,12 @@ import {
 	SectionHeaderDescription,
 	SectionHeaderTitle,
 } from '@/components/ui/section-header';
-import { useTranslations } from '@/hooks/use-translations';
+import { getTranslations } from '@/lib/get-translations';
 
 import { ServicesCarousel } from './services-carousel';
 
-const getTranslations = () => {
-	const t = useTranslations('homepage.our_services');
+const getOurServicesTranslations = () => {
+	const t = getTranslations('homepage.our_services');
 	return {
 		title: t('title'),
 		cards: [
@@ -41,10 +41,8 @@ const getTranslations = () => {
 	};
 };
 
-type OurServicesProps = {};
-
-export const OurServices = (props: OurServicesProps) => {
-	const { title, cards } = getTranslations();
+export const OurServices = () => {
+	const { title, cards } = getOurServicesTranslations();
 
 	return (
 		<section className={'container space-y-16'}>

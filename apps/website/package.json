@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint . --max-warnings 0",
+    "lint:fix": "eslint . --fix"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.4",
@@ -26,6 +27,8 @@
     "zustand": "^4.5.2"
   },
   "devDependencies": {
+    "@repo/typescript-config": "workspace:*",
+    "@repo/eslint-config-next": "workspace:*",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
