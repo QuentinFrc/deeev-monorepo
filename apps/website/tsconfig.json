@@ -9,7 +9,7 @@
       "@content/*": [
         "./content/*"
       ]
-    },
+    }
   },
   "include": [
     "middleware.ts",

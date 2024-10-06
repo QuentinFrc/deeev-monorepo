@@ -3,6 +3,8 @@
   "display": "React Library",
   "extends": "./base.json",
   "compilerOptions": {
-    "jsx": "react-jsx"
+    "jsx": "preserve",
+    "declaration": true,
+    "incremental": true
   }
 }
