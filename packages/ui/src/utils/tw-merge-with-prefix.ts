@@ -28,9 +28,7 @@ export const withPrefix = <T extends string, V extends string>({
 
 		return mergeConfigs(c, {
 			override: {
-				classGroups: Object.values(classGroupWithPrefix).reduce((acc, el) => {
-					return { ...acc, ...el };
-				}, {}),
+				classGroups: classGroupWithPrefix as Config<T, V>['classGroups'],
 			},
 		});
 	};

@@ -78,7 +78,9 @@ const getCardIllustration = (type: string) => {
 	throw new Error(`No illustration found for card type: ${type}`);
 };
 
-const getCardsWithIllustration = (cards: { type: string }[]) => {
+const getCardsWithIllustration = (
+	cards: { title: string; description: string; type: string }[],
+) => {
 	return cards.map((card) => ({ ...card, asset: getCardIllustration(card.type) }));
 };
 

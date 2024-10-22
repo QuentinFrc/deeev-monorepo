@@ -1,9 +1,9 @@
 import svgToDataUri from 'mini-svg-data-uri';
-import { default as flattenColorPalette } from 'tailwindcss/lib/util/flattenColorPalette';
+// import { default as flattenColorPalette } from 'tailwindcss/lib/util/flattenColorPalette';
 import plugin from 'tailwindcss/plugin';
 
 export const backgroundsPlugin = () => {
-	return plugin(({ matchUtilities, theme }) => {
+	return plugin(({ matchUtilities }) => {
 		matchUtilities(
 			{
 				'bg-grid': (value: string) => ({
@@ -22,7 +22,7 @@ export const backgroundsPlugin = () => {
 					)}")`,
 				}),
 			},
-			{ values: flattenColorPalette(theme('backgroundColor')), type: 'color' },
+			// { values: flattenColorPalette(theme('backgroundColor')), type: 'color' },
 		);
 	});
 };

@@ -16,6 +16,11 @@
         "!.next/cache/**"
       ]
     },
+    "@repo/ui#build": {
+      "outputs": [
+        "apps/website/.next/**"
+      ]
+    },
     "lint": {
       "dependsOn": [
         "^lint"

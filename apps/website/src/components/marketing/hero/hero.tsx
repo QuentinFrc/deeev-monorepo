@@ -92,7 +92,7 @@ export const Hero = () => {
 						className={
 							'relative size-full [mask-image:linear-gradient(transparent,white_30%,white_70%,transparent)]'
 						}>
-						<div className={'absolute inset-0 bg-dot-[white]/[36%]'} />
+						<div className={'absolute inset-0'} />
 						<Image
 							src={tmp}
 							alt="hero"

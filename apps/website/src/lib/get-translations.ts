@@ -8,42 +8,6 @@ export const getTranslations = (
 	return getTranslationsNextIntl(namespace);
 };
 
-type TranslationValue<T extends string | string[] | Record<string, unknown>> =
-	| T
-	| typeof UNRESOLVED_MESSAGE;
-
-export const escapeMissingTranslation = <
-	T extends string | string[] | Record<string, unknown>,
->(
-	value: TranslationValue<T>,
-): T => {
-	if (Array.isArray(value)) {
-		const filteredArray = value
-			.map((v) => escapeMissingTranslation(v))
-			.filter((v) => v !== undefined) as T;
-
-		// Si tous les éléments sont filtrés, renvoyer undefined
-		return filteredArray.length > 0 ? filteredArray : [];
-	} else if (typeof value === 'object' && value !== null) {
-		// Parcourir chaque clé de l'objet et appliquer la fonction récursive sur la valeur
-		const filteredObject = Object.keys(value).reduce(
-			(acc, key) => {
-				const v = escapeMissingTranslation(value[key]);
-				if (v !== undefined) {
-					acc[key] = v;
-				}
-				return acc;
-			},
-			{} as Record<string, unknown>,
-		);
-
-		// Si l'objet est vide après filtrage, renvoyer undefined
-		return Object.keys(filteredObject).length > 0 ? (filteredObject as T) : undefined;
-	}
-
-	return value === UNRESOLVED_MESSAGE ? undefined : value;
-};
-
 export const escapeMissingTranslationsInArray = <T>(value: T[]): T[] => {
 	return value
 		.map((v) => {

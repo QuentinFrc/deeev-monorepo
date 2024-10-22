@@ -14,6 +14,7 @@ import {
 	SectionHeaderTitle,
 } from '@/components/ui/section-header';
 import { getTranslations } from '@/lib/get-translations';
+import { IconName } from '@repo/ui/icons';
 
 const getOurProcessTranslations = () => {
 	const t = getTranslations('homepage.our_process');
@@ -58,7 +59,16 @@ export const OurProcess = () => {
 				<SectionHeaderTitle>{title}</SectionHeaderTitle>
 				<SectionHeaderDescription>{description}</SectionHeaderDescription>
 			</SectionHeader>
-			<ProcessGrid cards={cards} />
+			<ProcessGrid
+				cards={
+					cards as {
+						asset: () => React.ReactNode;
+						icon: IconName;
+						title: string;
+						description: string;
+					}[]
+				}
+			/>
 		</section>
 	);
 };

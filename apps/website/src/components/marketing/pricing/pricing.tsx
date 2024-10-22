@@ -1,6 +1,9 @@
 import React from 'react';
 
-import { PricingModeSwitcher } from '@/components/marketing/pricing/pricing-mode-switcher';
+import {
+	PricingModeSwitcher,
+	PricingModeSwitcherProps,
+} from '@/components/marketing/pricing/pricing-mode-switcher';
 import {
 	SectionHeader,
 	SectionHeaderAnchor,
@@ -8,12 +11,24 @@ import {
 	SectionHeaderTitle,
 } from '@/components/ui/section-header';
 import { PACKAGE_PRICING } from '@/config/content';
-import { escapeMissingTranslation, getTranslations } from '@/lib/get-translations';
+import {
+	escapeMissingTranslationsInArray,
+	getTranslations,
+} from '@/lib/get-translations';
 import { BadgeLabel, BadgeRoot } from '@repo/ui/badge';
 import { Icon } from '@repo/ui/icons';
 import { Typography } from '@repo/ui/typography';
 
 import { PricingCard, PricingCardProps } from './pricing-card';
+
+type Translations = {
+	title: string;
+	description: string;
+	precision_title: string;
+	precision_description: string;
+	cards: PricingCardProps[];
+	modes: PricingModeSwitcherProps['translations'];
+};
 
 const getPricingTranslations = () => {
 	const common = getTranslations('common');
@@ -28,7 +43,7 @@ const getPricingTranslations = () => {
 			description: t(`cards.${id}.description`),
 			price: t(`cards.${id}.price`),
 			maintenance: t(`cards.${id}.maintenance`),
-			features: escapeMissingTranslation(
+			features: escapeMissingTranslationsInArray(
 				new Array(6).fill(null).map((_, index) => t(`cards.${id}.features.${index}`)),
 			),
 			cta: t(`cards.${id}.call_to_action`),
@@ -55,6 +70,8 @@ const getPricingTranslations = () => {
 	return {
 		title: t('title'),
 		description: t('description'),
+		precision_title: t('precision.title'),
+		precision_description: t('precision.description'),
 		cards: cards,
 		modes: {
 			default: t('payment_mode.default'),
@@ -63,9 +80,7 @@ const getPricingTranslations = () => {
 				spot_count: PACKAGE_PRICING.spot_left,
 			}),
 		},
-		precision_title: t('precision.title'),
-		precision_description: t('precision.description'),
-	} satisfies { title: string; description: string; cards: PricingCardProps[] };
+	} satisfies Translations;
 };
 
 /*const PRICE_CONFIG = {

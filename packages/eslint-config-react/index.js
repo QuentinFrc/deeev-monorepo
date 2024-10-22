@@ -24,7 +24,12 @@ module.exports = {
 	plugins: ['only-warn', 'tailwindcss', '@typescript-eslint'],
 	rules: {
 		'react/prop-types': 'off',
-		'tailwindcss/classnames-order': 'error',
+		'tailwindcss/classnames-order': 'error', 
+		'tailwindcss/no-custom-classname': ['error', {
+			ignoredKeys: [
+				'compoundVariants', 'compoundSlots'
+			]
+		}],
 	},
 	globals: {
 		JSX: true,
@@ -45,7 +50,7 @@ module.exports = {
 		},
 		tailwindcss: {
 			config: twConfig,
-			callees: ['cn', 'tv'],
+			callees: ['cn', 'tv', 'className'],
 		},
 	},
 	ignorePatterns: [

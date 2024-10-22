@@ -30,7 +30,9 @@ const DELAY = 9000 as const;
 const PROGRESS_EXIT_DURATION = 300 as const;
 
 export const ProcessGrid = ({ cards }: ProcessCarouselProps) => {
-	const intervalRef = React.useRef<number | null>(null);
+	const [cardInterval, setCardInterval] = React.useState<NodeJS.Timeout | undefined>(
+		undefined,
+	);
 	// todo: move to a store to share with carousel asset
 	const [activeCard, setActiveCard] = React.useState(0);
 
@@ -46,16 +48,17 @@ export const ProcessGrid = ({ cards }: ProcessCarouselProps) => {
 			setActiveCard((activeCard) => (card ?? activeCard + 1) % cards.length);
 			if (card !== undefined) {
 				lastTimeReset.current = time.get();
-				clearInterval(intervalRef.current);
-				intervalRef.current = setInterval(updateActiveCard, DELAY);
+				cardInterval && clearInterval(cardInterval);
+				const newInterval = setInterval(updateActiveCard, DELAY);
+				setCardInterval(newInterval);
 			}
 		},
-		[cards.length, time],
+		[cards.length, time, cardInterval, setCardInterval],
 	);
 
 	React.useEffect(() => {
 		const interval = setInterval(updateActiveCard, DELAY);
-		intervalRef.current = interval;
+		setCardInterval(interval);
 		return () => clearInterval(interval);
 	}, [updateActiveCard]);
 
@@ -64,7 +67,9 @@ export const ProcessGrid = ({ cards }: ProcessCarouselProps) => {
 			<div className="grid grid-cols-[1fr_1fr] items-start gap-16 [--aside-top-offset:theme(spacing.8)]">
 				<motion.div
 					className={'space-y-3'}
-					style={{ '--progress': useMotionTemplate`${progress}%` }}>
+					style={
+						{ '--progress': useMotionTemplate`${progress}%` } as React.CSSProperties
+					}>
 					{cards.map((card, index) => (
 						<ProcessCard
 							key={index}
@@ -142,9 +147,13 @@ export const ProcessGrid = ({ cards }: ProcessCarouselProps) => {
 	);
 };
 
-type ProcessCardProps = React.ComponentPropsWithoutRef<typeof motion.div> & {
-	isActive?: boolean;
-};
+type ProcessCardProps = Omit<
+	React.ComponentPropsWithoutRef<typeof motion.div>,
+	'children'
+> &
+	React.PropsWithChildren<{
+		isActive?: boolean;
+	}>;
 
 const ProcessCard = ({ children, isActive = false, ...props }: ProcessCardProps) => {
 	const [ref, bounds] = useMeasure();

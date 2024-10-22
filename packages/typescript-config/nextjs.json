@@ -16,6 +16,8 @@
     "noEmit": true,
     "strict": true,
     "resolveJsonModule": true,
-    "incremental": true
+    "incremental": true,
+    "declaration": false,
+    "declarationMap": false
   }
 }

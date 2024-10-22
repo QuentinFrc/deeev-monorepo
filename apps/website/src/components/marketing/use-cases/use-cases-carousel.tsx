@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import Image from 'next/image';
+import Image, { ImageProps } from 'next/image';
 
 import { Link } from '@/i18n/routing';
 import { BadgeLabel, BadgeRoot } from '@repo/ui/badge';
@@ -46,59 +46,32 @@ export const UseCasesCarousel = ({ cards }: ServicesCarouselProps) => {
 	return (
 		<Carousel className="w-full space-y-8">
 			<CarouselContent overflow={'visible'}>
-				{cards.map((card, index) => (
-					<CarouselItem
-						className={'group basis-[396px] rounded-lg'}
-						index={index}
-						key={index}>
-						<Card className={'overflow-hidden'}>
-							<CardContent className={'space-y-4'}>
-								<CardHeader>
-									<CardTitle weight={'medium'} size={'base'}>
-										{card.title}
-									</CardTitle>
-									<CardDescription>{card.description}</CardDescription>
-								</CardHeader>
-								<div className="space-x-2">
-									<BadgeRoot size={'sm'} type={'outline'} variant={'neutral'}>
-										<BadgeLabel>{card.type}</BadgeLabel>
-									</BadgeRoot>
-								</div>
-							</CardContent>
-							<div className="relative z-10">
-								<Image
-									src={mockups[index]}
-									alt={'Mock Up'}
-									quality={30}
-									height={'auto'}
-									width={(1440 / 1024) * 192}
-									className={
-										'absolute -z-10 size-full object-cover object-left-top opacity-50 blur-3xl brightness-200 transition-opacity duration-150 group-hover:opacity-80'
-									}
-								/>
-								<div
-									className={
-										'relative z-10 ml-4 h-64 w-full origin-top-left scale-150 overflow-hidden rounded-t-md border border-b-0 bg-neutral-900/80 p-1 backdrop-blur transition-transform duration-300 group-hover:translate-y-2'
-									}>
-									<Image
-										src={SafariHeader}
-										alt={'Browser Header'}
-										height={32}
-										width={(1280 * 32) / 53}
-										className={'rounded-t-sm object-cover object-left-top'}
-									/>
-									<Image
-										src={mockups[index]}
-										alt={'Mock Up'}
-										height={'auto'}
-										width={(1440 / 1024) * 192}
-										className={'object-cover object-left-top'}
-									/>
-								</div>
-							</div>
-						</Card>
-					</CarouselItem>
-				))}
+				{cards.map(
+					(card, index) =>
+						mockups[index] && (
+							<CarouselItem
+								className={'group basis-[396px] rounded-lg'}
+								index={index}
+								key={index}>
+								<Card className={'overflow-hidden'}>
+									<CardContent className={'space-y-4'}>
+										<CardHeader>
+											<CardTitle weight={'medium'} size={'base'}>
+												{card.title}
+											</CardTitle>
+											<CardDescription>{card.description}</CardDescription>
+										</CardHeader>
+										<div className="space-x-2">
+											<BadgeRoot size={'sm'} type={'outline'} variant={'neutral'}>
+												<BadgeLabel>{card.type}</BadgeLabel>
+											</BadgeRoot>
+										</div>
+									</CardContent>
+									<CarouselLaptopImage src={mockups[index]} alt={card.title} />
+								</Card>
+							</CarouselItem>
+						),
+				)}
 			</CarouselContent>
 			<div className="flex items-center gap-1">
 				<CarouselPrevious />
@@ -112,5 +85,47 @@ export const UseCasesCarousel = ({ cards }: ServicesCarouselProps) => {
 				</ButtonRoot>
 			</div>
 		</Carousel>
+	);
+};
+
+const LAPTOP_IMAGE_DIMENSIONS = {
+	ratio: 1024 / 1440,
+	height: 192,
+};
+
+type CarouselLaptopImageProps = ImageProps;
+const CarouselLaptopImage = ({ src, alt }: CarouselLaptopImageProps) => {
+	return (
+		<div className="relative z-10">
+			<Image
+				src={src}
+				alt={alt}
+				quality={15}
+				height={LAPTOP_IMAGE_DIMENSIONS.height}
+				width={LAPTOP_IMAGE_DIMENSIONS.height * LAPTOP_IMAGE_DIMENSIONS.ratio}
+				className={
+					'absolute -z-10 size-full object-cover object-left-top opacity-50 blur-3xl brightness-200 transition-opacity duration-150 group-hover:opacity-80'
+				}
+			/>
+			<div
+				className={
+					'relative z-10 ml-4 h-64 w-full origin-top-left scale-150 overflow-hidden rounded-t-md border border-b-0 bg-neutral-900/80 p-1 backdrop-blur transition-transform duration-300 group-hover:translate-y-2'
+				}>
+				<Image
+					src={SafariHeader}
+					alt={'Browser Header'}
+					height={LAPTOP_IMAGE_DIMENSIONS.height}
+					width={LAPTOP_IMAGE_DIMENSIONS.height * LAPTOP_IMAGE_DIMENSIONS.ratio}
+					className={'rounded-t-sm object-cover object-left-top'}
+				/>
+				<Image
+					src={src}
+					alt={`Blurred image of ${alt}`}
+					height={LAPTOP_IMAGE_DIMENSIONS.height}
+					width={LAPTOP_IMAGE_DIMENSIONS.height * LAPTOP_IMAGE_DIMENSIONS.ratio}
+					className={'object-cover object-left-top'}
+				/>
+			</div>
+		</div>
 	);
 };

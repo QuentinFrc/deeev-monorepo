@@ -7,7 +7,7 @@ import { BadgeLabel, BadgeRoot } from '@repo/ui/badge';
 import { Icon } from '@repo/ui/icons';
 import { Tabs, TabsList, TabsTrigger } from '@repo/ui/tabs';
 
-type PricingModeSwitcherProps = {
+export type PricingModeSwitcherProps = {
 	translations: {
 		default: string;
 		discounted: string;

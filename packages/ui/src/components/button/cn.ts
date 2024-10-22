@@ -2,7 +2,6 @@ import { tv } from 'tailwind-variants';
 
 export const DEFAULT_BUTTON_SIZE = 'md';
 export const DEFAULT_BUTTON_LAYOUT = 'max';
-
 export const DEFAULT_BUTTON_VARIANT = 'gradient';
 
 const root = tv({
