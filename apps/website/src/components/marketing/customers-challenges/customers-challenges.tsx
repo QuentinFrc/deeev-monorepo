@@ -74,6 +74,12 @@ const getCardIllustration = (type: string) => {
 			return CostAsset;
 		case 'long_term_solution':
 			return LongTermSolutionAsset;
+		case 'maintenance':
+			return VisibilitySvg;
+		case 'scalability':
+			return VisibilitySvg;
+		case 'project_management':
+			return VisibilitySvg;
 	}
 	throw new Error(`No illustration found for card type: ${type}`);
 };

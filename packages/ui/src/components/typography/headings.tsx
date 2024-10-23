@@ -5,7 +5,7 @@ import { cn, tv, VariantProps } from '#utils';
 import { TypographyVariantProps, typographyVariants } from './typography';
 
 const variants = tv({
-	base: ['ui-font-heading ui-leading-tight ui-tracking-[-.035em]'],
+	base: ['ui-font-heading ui-text-xl ui-leading-tight ui-tracking-[-.035em]'],
 	variants: {
 		level: {
 			h1: ['ui-text-fluid ui-text-max-7xl ui-text-min-5xl'],

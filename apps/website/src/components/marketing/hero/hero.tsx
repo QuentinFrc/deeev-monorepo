@@ -87,6 +87,7 @@ export const Hero = () => {
 		<>
 			<section
 				className={'relative space-y-16 pt-12 lg:min-h-[880px] lg:space-y-32 lg:pt-24'}>
+				{/*Background Image*/}
 				<div className="absolute bottom-0 right-0 -z-10 size-full max-w-screen-xl [mask-image:linear-gradient(90deg,transparent_100px,white)] lg:w-[90%]">
 					<div
 						className={
@@ -103,7 +104,7 @@ export const Hero = () => {
 					</div>
 				</div>
 
-				<header className={'relative flex items-center py-24'}>
+				<header className={'relative flex items-center py-12'}>
 					<Spotlight />
 					<div className="container space-y-16">
 						<div className={'space-y-6'}>

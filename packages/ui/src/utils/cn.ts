@@ -3,14 +3,7 @@ import { clsx, type ClassValue } from 'clsx';
 import { extendTailwindMerge, validators } from 'tailwind-merge';
 import resolveConfig from 'tailwindcss/resolveConfig';
 
-import { withPrefix } from './tw-merge-with-prefix';
-
-const config = resolveConfig(baseConfig);
-
-export type ClassDefinition = string | ClassValidator | ClassObject;
-export type ClassValidator = (classPart: string) => boolean;
-
-type ClassObject = Record<string, readonly ClassDefinition[]>;
+import { withPrefix } from './tw-merge';
 
 type AdditionalClassGroups =
 	| 'font-fluid'
@@ -20,6 +13,7 @@ type AdditionalClassGroups =
 	| 'rounded-plus';
 type AdditionalThemeIds = never;
 
+const config = resolveConfig(baseConfig);
 const fluidFontSizes = Object.keys(config.theme.fontSize).filter((v) => v !== 'fluid');
 const roundedValues = Object.keys(config.theme.borderRadius).filter(
 	(v) => v !== 'DEFAULT',
@@ -29,7 +23,7 @@ const twMerge = extendTailwindMerge<AdditionalClassGroups, AdditionalThemeIds>(
 	{
 		extend: {
 			classGroups: {
-				'font-size': [{ text: ['fluid'] }],
+				/*'font-size': [{ text: ['fluid'] }],*/
 				rounded: roundedValues.map((value) => ({
 					[`rounded-${value}-minus`]: [
 						(value: string) => validators.isArbitraryValue(value),
@@ -38,17 +32,19 @@ const twMerge = extendTailwindMerge<AdditionalClassGroups, AdditionalThemeIds>(
 						(value: string) => validators.isArbitraryValue(value),
 					],
 				})),
+				'font-fluid': [{ text: ['fluid'] }],
 				'font-size-fluid-max': [{ 'text-max': fluidFontSizes }],
 				'font-size-fluid-min': [{ 'text-min': fluidFontSizes }],
 			},
 			conflictingClassGroups: {
-				'font-size': ['font-size-fluid-max', 'font-size-fluid-min'],
+				'font-size': ['font-fluid', 'font-size-fluid-max', 'font-size-fluid-min'],
+				'font-fluid': ['font-size'],
+				'font-size-fluid-max': ['font-size'],
+				'font-size-fluid-min': ['font-size'],
 			},
 		},
 	},
-	withPrefix({
-		prefix: config.prefix,
-	}),
+	withPrefix('ui-'),
 );
 
 /**

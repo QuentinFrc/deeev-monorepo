@@ -89,8 +89,8 @@ export const UseCasesCarousel = ({ cards }: ServicesCarouselProps) => {
 };
 
 const LAPTOP_IMAGE_DIMENSIONS = {
-	ratio: 1024 / 1440,
-	height: 192,
+	ratio: 1440 / 1024,
+	height: 256,
 };
 
 type CarouselLaptopImageProps = ImageProps;

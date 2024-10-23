@@ -5,7 +5,17 @@
   ],
   "tasks": {
     "deeev.fr#build": {
-      "env": ["LOG_LEVEL"]
+      "env": [
+        "LOG_LEVEL"
+      ],
+      "outputs": [
+        "apps/website/.next/**"
+      ]
+    },
+    "@repo/ui#build": {
+      "outputs": [
+        "packages/ui/dist/**"
+      ]
     },
     "build": {
       "dependsOn": [
@@ -14,11 +24,6 @@
       "outputs": [
         ".next/**",
         "!.next/cache/**"
-      ]
-    },
-    "@repo/ui#build": {
-      "outputs": [
-        "apps/website/.next/**"
       ]
     },
     "lint": {

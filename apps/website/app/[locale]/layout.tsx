@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
-import '@repo/ui/styles';
 import '@/styles/globals.css';
+import '@repo/ui/styles';
 
 import React from 'react';
 
