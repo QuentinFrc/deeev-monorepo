@@ -8,3 +8,4 @@ export * from './contact-us';
 export * from './logos';
 export * from './use-cases';
 export * from './footer';
+export * from './our-stack';

@@ -24,12 +24,13 @@ module.exports = {
 	plugins: ['only-warn', 'tailwindcss', '@typescript-eslint'],
 	rules: {
 		'react/prop-types': 'off',
-		'tailwindcss/classnames-order': 'error', 
-		'tailwindcss/no-custom-classname': ['error', {
-			ignoredKeys: [
-				'compoundVariants', 'compoundSlots'
-			]
-		}],
+		'tailwindcss/classnames-order': 'error',
+		'tailwindcss/no-custom-classname': [
+			'error',
+			{
+				ignoredKeys: ['compoundVariants', 'compoundSlots', 'defaultVariants'],
+			},
+		],
 	},
 	globals: {
 		JSX: true,

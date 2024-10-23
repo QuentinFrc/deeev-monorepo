@@ -482,6 +482,15 @@ importers:
       '@repo/utils':
         specifier: workspace:*
         version: link:../utils
+      '@tsparticles/engine':
+        specifier: ^3.3.0
+        version: 3.5.0
+      '@tsparticles/react':
+        specifier: ^3.0.0
+        version: 3.0.0(@tsparticles/engine@3.5.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@tsparticles/slim':
+        specifier: ^3.3.0
+        version: 3.5.0
       clsx:
         specifier: ^1.2.1
         version: 1.2.1

@@ -3,6 +3,7 @@
 import React from 'react';
 import {
 	AnimatePresence,
+	cubicBezier,
 	motion,
 	MotionConfig,
 	useMotionTemplate,
@@ -30,37 +31,34 @@ const DELAY = 9000 as const;
 const PROGRESS_EXIT_DURATION = 300 as const;
 
 export const ProcessGrid = ({ cards }: ProcessCarouselProps) => {
-	const [cardInterval, setCardInterval] = React.useState<NodeJS.Timeout | undefined>(
-		undefined,
-	);
-	// todo: move to a store to share with carousel asset
 	const [activeCard, setActiveCard] = React.useState(0);
-
-	const lastTimeReset = React.useRef(0);
-
+	const [lastCardChangeTime, setLastCardChangeTime] = React.useState(0);
 	const time = useTime();
-	const progress = useTransform(time, (latestTime) => {
-		return wrap(0, 100, ((latestTime - lastTimeReset.current) / DELAY) * 100);
-	});
+	const bezier = cubicBezier(0.74, 0.95, 0.74, 0.95);
+	const progress = useTransform(time, (t) =>
+		bezier(((t - lastCardChangeTime) % DELAY) / DELAY),
+	);
 
 	const updateActiveCard = React.useCallback(
-		(card?: number) => {
-			setActiveCard((activeCard) => (card ?? activeCard + 1) % cards.length);
-			if (card !== undefined) {
-				lastTimeReset.current = time.get();
-				cardInterval && clearInterval(cardInterval);
-				const newInterval = setInterval(updateActiveCard, DELAY);
-				setCardInterval(newInterval);
+		(t: number) => {
+			const elapsedTime = t - lastCardChangeTime;
+			if (elapsedTime > DELAY) {
+				setLastCardChangeTime(t);
+				setActiveCard(wrap(0, cards.length, activeCard + 1));
 			}
 		},
-		[cards.length, time, cardInterval, setCardInterval],
+		[lastCardChangeTime],
 	);
 
 	React.useEffect(() => {
-		const interval = setInterval(updateActiveCard, DELAY);
-		setCardInterval(interval);
-		return () => clearInterval(interval);
-	}, [updateActiveCard]);
+		const unsubscribe = time.on('change', updateActiveCard);
+		return () => unsubscribe();
+	}, [time, updateActiveCard]);
+
+	const handleCardClick = (index: number) => {
+		setLastCardChangeTime(time.get());
+		setActiveCard(index);
+	};
 
 	return (
 		<MotionConfig transition={{ duration: PROGRESS_EXIT_DURATION / 1000 }}>
@@ -68,22 +66,32 @@ export const ProcessGrid = ({ cards }: ProcessCarouselProps) => {
 				<motion.div
 					className={'space-y-3'}
 					style={
-						{ '--progress': useMotionTemplate`${progress}%` } as React.CSSProperties
+						{
+							'--progress': useMotionTemplate`calc(${progress}*100%)`,
+						} as React.CSSProperties
 					}>
 					{cards.map((card, index) => (
 						<ProcessCard
 							key={index}
 							isActive={activeCard === index}
-							onClick={() => activeCard !== index && updateActiveCard(index)}>
-							<div>
-								<div className={'space-y-1'}>
+							onClick={() => handleCardClick(index)}>
+							<div className={'group relative overflow-hidden rounded-lg p-4'}>
+								<div
+									className={cn(
+										'absolute inset-0 scale-50 bg-neutral-800/40 opacity-0 transition-transform',
+										activeCard === index
+											? 'scale-100 opacity-80'
+											: 'group-hover:scale-100 group-hover:opacity-80',
+									)}
+								/>
+								<div className={'space-y-2'}>
 									<Icon i={card.icon} />
-									<Typography.Default weight={'medium'} size={'base'} asChild>
+									<Typography.Default weight={'medium'} size={'lg'} asChild>
 										<motion.div
 										/*variants={{
-												default: { y: '20%' },
-												active: { y: '0%' },
-											}}*/
+													default: { y: '20%' },
+													active: { y: '0%' },
+												}}*/
 										>
 											{card.title}
 										</motion.div>
@@ -157,17 +165,20 @@ type ProcessCardProps = Omit<
 
 const ProcessCard = ({ children, isActive = false, ...props }: ProcessCardProps) => {
 	const [ref, bounds] = useMeasure();
+	const time = useTime();
+
 	return (
 		<AnimatePresence initial={false} mode="popLayout">
 			<motion.div
-				className={'relative overflow-hidden'}
+				className={cn('relative overflow-hidden', !isActive && 'cursor-pointer')}
 				variants={{
 					active: { height: bounds.height > 0 ? bounds.height : 'auto', opacity: 1 },
 					default: { height: bounds.height > 0 ? bounds.height : 'auto', opacity: 0.4 },
 				}}
+				whileHover={'active'}
 				animate={isActive ? 'active' : 'default'}
 				{...props}>
-				<div ref={ref} className={'space-y-4 py-3'}>
+				<div ref={ref} className={''}>
 					<div className={'space-y-4 border-transparent bg-transparent'}>{children}</div>
 					<div className="absolute inset-x-0 bottom-0 h-1">
 						<AnimatePresence>
@@ -181,6 +192,7 @@ const ProcessCard = ({ children, isActive = false, ...props }: ProcessCardProps)
 											'[--percentage:0]',
 											isActive && '[--percentage:var(--progress)]',
 										)}
+										noBackground
 										uncontrolled
 									/>
 								</motion.div>

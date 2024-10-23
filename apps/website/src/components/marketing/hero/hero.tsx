@@ -156,7 +156,7 @@ export const Hero = () => {
 						</div>
 					</div>
 				</header>
-				<Logos />
+				{/*<Logos />*/}
 			</section>
 		</>
 	);

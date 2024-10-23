@@ -28,6 +28,9 @@ const _progress = tv({
 				thumb: 'ui-bg-gradient-to-b [clip-path:inset(0_0_var(--inverse-percentage)_0)]',
 			},
 		},
+		noBackground: {
+			true: { progress: 'ui-bg-transparent' },
+		},
 	},
 	defaultVariants: {
 		orientation: 'horizontal',
@@ -58,6 +61,7 @@ const Progress = React.forwardRef<
 			orientation,
 			value,
 			uncontrolled = false,
+			noBackground = false,
 			max = 100,
 			labelStart,
 			labelEnd,
@@ -84,7 +88,7 @@ const Progress = React.forwardRef<
 				{labelStart && <ProgressLabel>{labelStart}</ProgressLabel>}
 				<ProgressPrimitive.Root
 					ref={ref}
-					className={cn(progress({ orientation }))}
+					className={cn(progress({ orientation, noBackground }))}
 					max={max}
 					value={safeValue}
 					title={props.title ?? `${percentage}% - ${safeValue} of ${max}`}
